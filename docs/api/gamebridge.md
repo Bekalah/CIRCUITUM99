@@ -25,3 +25,7 @@
 Game ← Book: when Chapter 06 front‑matter loads, set flags.read_ch06=true
 On next game load: if read_ch06=true and not already in inventory, add aqua_lotus_pin
 
+---
+
+- `forest_trial_passed: true` → reveals Chapter 03 gate block (Grove geometry)
+- Award `riddle_token_379` when trial is passed
