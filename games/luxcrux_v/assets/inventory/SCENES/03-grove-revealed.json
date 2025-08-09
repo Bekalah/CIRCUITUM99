@@ -1,0 +1,17 @@
+{
+  "id": "03-grove-revealed",
+  "title": "Grove Revealed",
+  "text": "Branches arch like ribs. A quiet geometry breathes under the bark.",
+  "choices": [
+    {
+      "label": "Study the hidden lattice",
+      "effects": []
+    },
+    {
+      "label": "Return to the Violet Library",
+      "effects": [
+        {"unlock_scene": "00-prologue-violet-library"}
+      ]
+    }
+  ]
+}
