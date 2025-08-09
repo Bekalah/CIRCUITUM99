@@ -1,0 +1,1 @@
+- `/games/luxcrux_v/` -- V‑linked game using GameBridge (flags/items sync with Book)
