@@ -1,0 +1,19 @@
+{
+  "id": "02-forest-trial-zidaryen",
+  "title": "Forest Trial -- Zidaryen",
+  "text": "Between fox-quick tracks and satyr prints, the grove hums. Three. Seven. Nine.",
+  "choices": [
+    {
+      "label": "Whisper: 3 • 7 • 9",
+      "effects": [
+        {"set_flag": "forest_trial_passed", "to": true},
+        {"unlock_scene": "03-grove-revealed"},
+        {"add_item": "riddle_token_379"}
+      ]
+    },
+    {
+      "label": "Leave the grove for now",
+      "effects": []
+    }
+  ]
+}
