@@ -19,3 +19,9 @@
   "last_event_at": ""
 }
 
+---
+### Unloackables
+
+Game ← Book: when Chapter 06 front‑matter loads, set flags.read_ch06=true
+On next game load: if read_ch06=true and not already in inventory, add aqua_lotus_pin
+
