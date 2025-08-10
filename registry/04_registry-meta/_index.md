@@ -93,3 +93,6 @@ Every file here connects your story, grimoire, codexes, and system layers.
 
 ## Main Game for Book
 - `/games/luxcrux_v/` -- V-linked game using GameBridge (flags/items sync with Book)
+
+### Guardians
+- [Twin Lightning](03_codexes/daimons/Twin_Lightning.md) -- Storm-born horse, guardian of the Isle of Return, linked to Morgan le Fay and the Silver Violet Flame.
