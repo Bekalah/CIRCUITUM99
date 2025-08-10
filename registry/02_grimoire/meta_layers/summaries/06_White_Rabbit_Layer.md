@@ -1,59 +1,27 @@
+
+
 # White Rabbit Layer
 
-**Layer Type:** Archetype / Threshold Guide  
-**Registry Path:** `registry/02_grimoire/meta_layers/summaries/06_White_Rabbit_Layer.md`
+## Summary
+The White Rabbit archetype serves as a **threshold guide** -- a figure who disrupts ordinary perception and draws the seeker across a liminal boundary into deeper reality. Historically rooted in Lewis Carroll's *Alice’s Adventures in Wonderland*, the White Rabbit functions as an initiator in the Fool’s Journey: not a teacher, but a catalyst who forces the protagonist to choose between comfort and awakening.
 
----
+In folklore and mystery traditions, rabbit figures often represent **speed, intuition, and timing**. The "late" rabbit is paradoxically right on time for the soul’s unfolding. Within *The Book of Abyssia* meta-system, the White Rabbit acts as a **living key** to the Underworld trials and paradox riddles, closely aligned with the Fox Trickster and Scarlet Lady layers.
 
-## Archetype Essence
-The White Rabbit is the liminal guide and disorienting herald of initiation.  
-She appears not as a safe escort, but as a living *time-key* -- someone who forces the seeker into the spiral of events they are not yet prepared for, precisely so that they become prepared.  
+## Meta Layer Integration
+- **Realm Alignment:** Liminal Gateways / SubTavers  
+- **Element:** Air + Ether (for speed, thought, and perception shifts)  
+- **Numerology:** Master Number 11 (initiation, insight, awakening)  
+- **Aka Dua Frequency Tie:** Subtle interplay of White and Gold (illumination + timing precision)  
+- **Folkloric Roots:** Celtic lunar hare myths, Slavic trickster spirits, Hermetic "Messenger" archetype
 
-Where the Scarlet Lady offers seduction and the Fox Trickster offers riddles, the White Rabbit offers **urgency** and **displacement**. She yanks the thread of reality and dares you to follow.
+## Application in Book & Game
+- Appears in **initiation sequences**, where players/readers are nudged toward making an irreversible choice.
+- Provides **coded clues** rather than direct answers, pushing the seeker to notice synchronicities.
+- Works as a bridge between **Fox Trickster riddles** and **Scarlet Lady transformations**.
 
----
-
-## Mythic Roots
-- **Lewis Carroll’s White Rabbit** – The panic of being "late" is the call to adventure; time is the true labyrinth.  
-- **Orphic Mysteries** – Initiates guided underground by cryptic messengers.  
-- **Shamanic Trickery** – The guide who seems inept or distracted but is in truth navigating unseen pathways.
-
----
-
-## Narrative Role in Circuitum99
-- **Gate Opener:** Appears in moments when the protagonist must abandon comfort or certainty.
-- **Temporal Distorter:** Bends time perception in-game; events speed up or slow down depending on player interaction.
-- **Shadow Messenger:** Delivers cryptic updates from deeper layers of the registry and meta-game.
-
----
-
-## Symbol Keys
-- **Pocket Watch:** Represents both time pressure and the illusion of time itself.  
-- **Spiral Path:** Seen in her footsteps; symbolizes the nonlinear journey.  
-- **Keys & Locks:** She wears dozens of small keys, each linked to a different realm or narrative vault.
-
----
-
-## Game Mechanics Tie-In
-- Can trigger "forced jump" events in-game, dropping the player into new story realms.
-- Often linked to *Riddle Gates* that require interpreting strange logs or symbolic artifacts.
-- Can be a playable ally for short bursts -- but only on her terms.
-
----
-
-## Integration with Other Layers
-- **Scarlet Lady:** Works in tandem -- Rabbit drives the player to the Lady’s door.  
-- **Fox Trickster:** Rabbit may deliver riddles on Fox’s behalf, but distorts them in transit.  
-- **Morgan le Fay:** Acts as her errand-runner in fae politics, though never in a straight line.
-
----
-
-## Seed Syllables & Frequency
-- **"Ta-Ri-Ka"** -- invokes sudden arrival and clarity in chaos.  
-- Frequency alignment: Aka Dua *White/Gold*, bridging mental lightning with sacred thresholds.
-
----
-
-> "The path is a loop, darling. But don’t worry -- it only feels like you’re going in circles because you’re not ready to see the spiral."
-
----
+## Master Index Links
+- Link to `03_codexes/archetypes/white_rabbit.md`
+- Cross-reference in:
+  - `registry/02_grimoire/meta_layers/summaries/03_Fox_Trickster_Node.md`
+  - `registry/02_grimoire/meta_layers/summaries/04_Scarlet_Lady_Node.md`
+  - `registry/01_main-narrative/initiation_chapters.md`
