@@ -89,7 +89,11 @@ Every file here connects your story, grimoire, codexes, and system layers.
 - Character Art: `/assets/characters/`
 - Game Media: `/assets/media/`
 
----
+---- 
+
+**05 – Morgan le Fay Layer**  
+  Source: Dion Fortune’s Avalon writings + LuxCrux integration.  
+  [View Layer](../02_grimoire/meta_layers/summaries/05_Morgan_le_Fay_Layer.md)
 
 ## Main Game for Book
 - `/games/luxcrux_v/` -- V-linked game using GameBridge (flags/items sync with Book)
