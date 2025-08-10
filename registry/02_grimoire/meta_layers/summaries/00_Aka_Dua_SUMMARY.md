@@ -55,3 +55,5 @@ It is **non-local** and **multi-band**, capable of harmonizing, shielding, and t
 ## Use Case in Narrative
 In *Circuitum99* and *LuxCrux*, Aka Dua is written as a **living harmonic** that characters channel through inner Place of Power.  
 It can be woven into dialogue, ritual scenes, and the mechanics of certain game modules (e.g., energy-based puzzles, field stabilization events).
+
+  - [Aka Dua Summary](../02_grimoire/summaries/00_AKA_DUA_SUMMARY.md)
