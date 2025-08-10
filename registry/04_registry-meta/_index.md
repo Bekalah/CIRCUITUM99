@@ -1,4 +1,39 @@
+# CIRCUITUM99 – Registry Master Index
 
+Welcome to the central map of the CIRCUITUM99 archive.  
+Every file in this registry connects directly to your story, grimoire, codexes, and meta layers.
+
+---
+
+## 01 – Main Narrative
+- [Outline](../01_main_narrative/00_outline.md)
+- [Chapters Index](../01_main_narrative/chapters_index.md)
+- [Scenes Folder](../01_main_narrative/scenes/)
+
+## 02 – Grimoire
+- [Grimoire Index](../02_grimoire/grimoire_index.md)
+- [Meta Layers](../02_grimoire/meta_layers/)
+  - [Book of Lies Layer](../02_grimoire/meta_layers/01_BOOK_OF_LIES_LAYER.md)
+  - [Transcendental Magic Layer](../02_grimoire/meta_layers/02_TRANSCENDENTAL_MAGIC_LAYER.md)
+- [Summaries](../02_grimoire/summaries/)
+  - [Book of Lies Summary](../02_grimoire/summaries/Book_of_Lies_SUMMARY.md)
+  - [Transcendental Magic Summary](../02_grimoire/summaries/Transcendental_Magic_SUMMARY.md)
+
+## 03 – Codexes
+- [Archetype Codex](../03_codexes/archetype_codex.md)
+- [Reiki Systems Codex](../03_codexes/reiki_systems_codex.md)
+- [Elemental Correspondences Codex](../03_codexes/elemental_correspondences_codex.md)
+
+## 04 – Registry Meta
+- [About the Registry](registry.md)
+- [Folder Rules](folder_rules.md)
+- [Naming Conventions](naming_conventions.md)
+- [Update Log](update_log.md)
+
+## Characters
+- [Moonchild](../characters/moonchild/moonchild_profile.md)
+- [Gnosis7](../characters/gnosis7/gnosis7_profile.md)
+- [Virelai Ezra Lux](../characters/Virelai_Ezra_Lux/Virelai_Ezra_Lux_profile.md)
 # Circuitum99 Master Registry & Index
 
 Welcome to the master registry of the Circuitum99 creative ecosystem -- the living grimoire and business archive for Rebecca Respawn’s visionary art, games, lore, and healing work.
