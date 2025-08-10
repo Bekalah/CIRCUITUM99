@@ -1,4 +1,4 @@
-# Morgan le Fay – Summary Layer
+# Morgan le Fay – Summary Layeryes
 
 **Archetype**: Sorceress of Avalon, Keeper of the Liminal Veil, Shadow-Integration Guide  
 **Core Source**: Dion Fortune’s *The Sea Priestess* and *The Goat-Foot God* (Avalon current)  
@@ -69,3 +69,4 @@
 **Quick Link Index**:  
 - [Morgan le Fay Layer](../meta_layers/03_MORGAN_LE_FAY_LAYER.md)  
 - [Morgan le Fay Node](../nodes/morgan_le_fay_NODE.md)  
+
