@@ -6,8 +6,17 @@
 ---
 
 ## Book Layers
-1. [Book of Lies Summary](01_Book_of_lies_summary.md) – Crowley’s paradoxical wisdom woven into narrative riddles and ciphers.
-2. [Transcendental Magic Summary](02_transcendental_magic_summary.md) – Éliphas Lévi’s Hermetic synthesis as the structural spine for alchemy and ritual.
+
+## Summaries
+- [Book of Lies Summary](../02_grimoire/summaries/01_Book_of_Lies_Summary.md)
+- [Transcendental Magic Summary](../02_grimoire/summaries/02_Transcendental_Magic_Summary.md)
+- [Fox Trickster Node](../02_grimoire/summaries/03_Fox_Trickster_Node.md)
+- [Scarlet Lady Node](../02_grimoire/summaries/04_Scarlet_Lady_Node.md)
+- [Morgan le Fay Layer](../02_grimoire/summaries/05_Morgan_le_Fay_Layer.md)
+- [White Rabbit Layer](../02_grimoire/summaries/06_White_Rabbit_Layer.md)
+- [Mists of Avalon Layer](../02_grimoire/summaries/07_Mists_of_Avalon_Layer.md)
+- [Circe Layer](../02_grimoire/summaries/08_Circe_Layer.md)
+- [Persephone Rising Layer](../02_grimoire/summaries/09_Persephone_Rising_Layer.md)
 
 ---
 
