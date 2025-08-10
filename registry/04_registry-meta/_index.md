@@ -1,149 +1,95 @@
+---
+title: "CIRCUITUM99 – Registry Master Index"
+url: "/registry/"
+weight: 1
+---
+
 # CIRCUITUM99 – Registry Master Index
 
 Welcome to the central map of the CIRCUITUM99 archive.  
-Every file in this registry connects directly to your story, grimoire, codexes, and meta layers.
+Every file here connects your story, grimoire, codexes, and system layers.
 
 ---
 
 ## 01 – Main Narrative
-- [Outline](../01_main_narrative/00_outline.md)
-- [Chapters Index](../01_main_narrative/chapters_index.md)
-- [Scenes Folder](../01_main_narrative/scenes/)
+- [Outline](/01_main_narrative/00_outline/)
+- [Chapters Index](/01_main_narrative/chapters_index/)
+- [Scenes Folder](/01_main_narrative/scenes/)
 
 ## 02 – Grimoire
-- [Grimoire Index](../02_grimoire/grimoire_index.md)
-- [Meta Layers](../02_grimoire/meta_layers/)
-  - [Book of Lies Layer](../02_grimoire/meta_layers/01_BOOK_OF_LIES_LAYER.md)
-  - [Transcendental Magic Layer](../02_grimoire/meta_layers/02_TRANSCENDENTAL_MAGIC_LAYER.md)
-- [Summaries](../02_grimoire/summaries/)
-  - [Book of Lies Summary](../02_grimoire/summaries/Book_of_Lies_SUMMARY.md)
-  - [Transcendental Magic Summary](../02_grimoire/summaries/Transcendental_Magic_SUMMARY.md)
+- [Grimoire Index](/02_grimoire/grimoire_index/)
+- **Meta Layers**
+  - [AKA DUA Layer](/02_grimoire/meta_layers/00_AKA_DUA_LAYER/)
+  - [Book of Lies Layer](/02_grimoire/meta_layers/01_BOOK_OF_LIES_LAYER/)
+  - [Transcendental Magic Layer](/02_grimoire/meta_layers/02_TRANSCENDENTAL_MAGIC_LAYER/)
+- **Summaries**
+  - [Book of Lies -- Summary](/02_grimoire/summaries/Book_of_Lies_SUMMARY/)
+  - [Transcendental Magic -- Summary](/02_grimoire/summaries/Transcendental_Magic_SUMMARY/)
 
 ## 03 – Codexes
-- [Archetype Codex](../03_codexes/archetype_codex.md)
-- [Reiki Systems Codex](../03_codexes/reiki_systems_codex.md)
-- [Elemental Correspondences Codex](../03_codexes/elemental_correspondences_codex.md)
+- [Archetype Codex](/03_codexes/archetype_codex/)
+- [Reiki Systems Codex](/03_codexes/reiki_systems_codex/)
+- [Elemental Correspondences Codex](/03_codexes/elemental_correspondences_codex/)
 
 ## 04 – Registry Meta
-- [About the Registry](registry.md)
-- [Folder Rules](folder_rules.md)
-- [Naming Conventions](naming_conventions.md)
-- [Update Log](update_log.md)
+- [About the Registry](/04_registry_meta/registry/)
+- [Folder Rules](/04_registry_meta/folder_rules/)
+- [Naming Conventions](/04_registry_meta/naming_conventions/)
+- [Update Log](/04_registry_meta/update_log/)
 
 ## Characters
-- [Moonchild](../characters/moonchild/moonchild_profile.md)
-- [Gnosis7](../characters/gnosis7/gnosis7_profile.md)
-- [Virelai Ezra Lux](../characters/Virelai_Ezra_Lux/Virelai_Ezra_Lux_profile.md)
-# Circuitum99 Master Registry & Index
-
-Welcome to the master registry of the Circuitum99 creative ecosystem -- the living grimoire and business archive for Rebecca Respawn’s visionary art, games, lore, and healing work.
+- [Moonchild](/characters/moonchild/moonchild_profile/)
+- [Gnosis7](/characters/gnosis7/gnosis7_profile/)
+- [Virelai Ezra Lux](/characters/Virelai_Ezra_Lux/Virelai_Ezra_Lux_profile/)
 
 ---
 
-## 1. Characters & Archetypes
+# Games & Expansions
 
-- **Mirror Witch** -- Full name: [Confirmed full name here], Archetype: Liminal Seer  
-- **Sekhara Nyx** -- Full name: Dr. Margaret Elowen Wren, Archetype: Egyptian Mystic  
-- **Virelai Ezra Lux (Violet Witch)** -- Archetype: Violet Flame Alchemist  
-- **Ann Abyss & Fenrix Thorne** -- Abyss Walkers & Void Daimons  
-- **Gemini Rivers** -- Empath & Siren Daimon  
-- **Zidaryen** -- Forest Trickster Guardian  
-- **Winne Reweave** -- Master Weaver of Light  
+> If using Hugo, place each game in `content/games/<slug>/index.md` and this page will list them automatically.  
+> If not using Hugo, keep this table and update manually.
 
-*(For each character, see corresponding files in `main/lore/` or `main/characters/`)*
-
----
-
-## 2. Games & Expansions
-
-| Game Title                              | Description                                            | File Path                           |
-|---------------------------------------|--------------------------------------------------------|-----------------------------------|
-| Witch Mods                            | Customizable avatar & mod-building game                | `main/mods/witch_mods.md`          |
-| Old Gods vs New Gods                  | Mythic battle & faction lore game                      | `main/mods/old_gods_vs_new_gods.md`|
-| Alice & Meme World                   | Nostalgia-driven immersive RPG                         | `main/mods/alice_meme_world.md`    |
-| Spooky Action Game                   | Inventor archetypes & magic realism                    | `main/mods/spooky_action.md`       |
-| Venus Rising: Fashion Psycho Magic Runway | Cosmic fashion & style expression game           | `main/mods/venus_rising_expansion.md`|
-| Solfreggio Portals & Merkaba Drift  | Harmonic resonance, portals & ecstatic music game      | `main/mods/solfreggio_merkaba.md`  |
-| Confessional Booth (Witcher Style)  | IFS narrative & sacred sexuality expression            | `main/mods/confessional_booth.md`  |
-| Haunted eBay Collector               | Light-hearted occult collector parody                   | `main/mods/haunted_ebay.md`        |
-| Jizo: Compassionate Garden          | Tibetan Mystic gentle spirit & hungry ghost play       | `main/mods/jizo_compassionate_garden.md` |
-| Magic Deck Living Game               | Angelic/demonic daimon deck building game              | `main/mods/magic_deck_game.md`     |
-| Runes & Chaos Magic Game             | Divination & pattern recognition gameplay              | `main/mods/runes_chaos_game.md`    |
-| Spooky Meme Share                   | Community meme sharing with cute daimons                | `main/mods/spooky_meme_share.md`   |
-| Circuitum99 Game: V                  | Violet flame alchemy narrative & avatars                | `main/mods/circuitum99_game_v.md`  |
-| Sound Bath Game                     | Ecstatic music mixes & sound healing immersive space    | `main/mods/sound_bath_game.md`     |
-| Tribal Mystic Quest                 | Shamanic lore & spirit interaction                       | `main/mods/tribal_mystic_quest.md` |
-| Meme World Expansion               | Player meme & avatar creation expansion                  | `main/mods/meme_world_expansion.md`|
-| Fashion Core Psycho Magic Expansion| Expanded global fashion & style customization            | `main/mods/fashion_core_expansion.md`|
+| Game Title | Description | Path |
+|---|---|---|
+| Witch Mods | Customizable avatar & mod-building | /games/witch_mods/ |
+| Old Gods vs New Gods | Mythic battle & factions | /games/old_gods_vs_new_gods/ |
+| Alice & Meme World | Nostalgia RPG | /games/alice_meme_world/ |
+| Spooky Action Game | Inventors & magic realism | /games/spooky_action/ |
+| Venus Rising: Fashion Psycho Magic Runway | Cosmic fashion | /games/venus_rising_expansion/ |
+| Solfeggio Portals & Merkaba Drift | Harmonics & portals | /games/solfeggio_merkaba/ |
+| Confessional Booth (Witcher Style) | IFS narrative | /games/confessional_booth/ |
+| Haunted eBay Collector | Occult parody | /games/haunted_ebay/ |
+| Jizo: Compassionate Garden | Hungry ghost play | /games/jizo_compassionate_garden/ |
+| Magic Deck Living Game | Daimon deckbuilder | /games/magic_deck_game/ |
+| Runes & Chaos Magic Game | Divination patterns | /games/runes_chaos_game/ |
+| Spooky Meme Share | Community memes | /games/spooky_meme_share/ |
+| Circuitum99 Game: V | Violet flame alchemy | /games/circuitum99_game_v/ |
+| Sound Bath Game | Sound healing space | /games/sound_bath_game/ |
+| Tribal Mystic Quest | Shamanic lore | /games/tribal_mystic_quest/ |
+| Meme World Expansion | Avatar/meme creator | /games/meme_world_expansion/ |
+| Fashion Core Psycho Magic Expansion | Global style systems | /games/fashion_core_expansion/ |
 
 ---
 
-## 3. Business & Branding Documentation
+# Business & Branding
+- [Creative License & Copyright](/main/docs/CREATIVE_LICENSE/)
+- [Patch History & Update Logs](/main/docs/PATCH_HISTORY/)
+- [Style Guides & Brand Identity](/main/business_style_guide/)
+- [Registry & Security Policies](/main/registry/) · [/main/security/]
 
-- **Creative License & Copyright**  
-  Location: `main/docs/CREATIVE_LICENSE.md`
+# Lore & Reference
+- [Lore Registry](/main/lore/registry/)
+- [Sacred Geometry & Sigils](/main/lore/sacred_geometry/)
+- [Numerology & Kabbalah](/main/lore/numerology_kabbalah/)
+- [Angel Tech & Mystic Teachings](/main/lore/angel_tech/)
+- [Character & Daimon Lore](/main/lore/characters/)
 
-- **Patch History & Update Logs**  
-  Location: `main/docs/PATCH_HISTORY.md`
-
-- **Style Guides & Brand Identity**  
-  Location: `main/business_style_guide.md`
-
-- **Registry & Security Policies**  
-  Locations: `main/registry.md`, `main/security.md`
-
----
-
-## 4. Lore & Reference Material
-
-- **General Lore Registry**  
-  Location: `main/lore/registry.md`
-
-- **Sacred Geometry & Sigils**  
-  Location: `main/lore/sacred_geometry.md`
-
-- **Numerology & Kabbalah Systems**  
-  Location: `main/lore/numerology_kabbalah.md`
-
-- **Angel Tech & Mystic Teachings**  
-  Location: `main/lore/angel_tech.md`
-
-- **Character Profiles & Daimon Lore**  
-  Location: `main/lore/characters/` *(folder containing individual `.md` files for each archetype)*
-
----
-
-## 5. Assets & Media
-
-- **Logos & Sacred Symbols**  
-  Location: `assets/logo/circuitum99.png`
-
-- **Character Avatars & Artwork**  
-  Location: `assets/characters/`
-
-- **Game Media & Soundtracks**  
-  Location: `assets/media/`
-
----
-
-## Notes for Maintenance
-
-- Always confirm links before pushing updates to avoid broken references.  
-- Preserve all confirmed lore, style guides, and archetype details.  
-- Expand patches and changelogs in `main/docs/PATCH_HISTORY.md`.  
-- Update style guides carefully without overwriting game-specific styles if those are working well.  
-- Respect neurodivergent (ND) friendly guidelines and disability accessibility in all content and designs.  
-
----
-
-*Circuitum99 is a living creative system that evolves with the community’s participation and Rebecca Respawn’s visionary direction.*
+# Assets & Media
+- Logos & Symbols: `/assets/logo/circuitum99.png`
+- Character Art: `/assets/characters/`
+- Game Media: `/assets/media/`
 
 ---
 
 ## Main Game for Book
-
-- `/games/luxcrux_v/` -- V‑linked game using GameBridge (flags/items sync with Book)
-
-
-
-**End of Registry**
+- `/games/luxcrux_v/` -- V-linked game using GameBridge (flags/items sync with Book)
