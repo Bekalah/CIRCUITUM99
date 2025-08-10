@@ -31,3 +31,37 @@
 - **Game Mechanic** – Each chapter could be an unlockable "meme-riddle" in the Witch Mods expansion.
 
 ---
+
+# Layer: The Book of Lies (Crowley) -- Trickster Protocols
+
+## What this is
+A portable set of paradox-engines. Each chapter is a koan/sigil designed to crack literalism and train "double-vision" (holding contradictory truths). Use it to spawn trickster NPC logic, ritual misdirection, riddle mechanics, and meta-glitches in Circuitum99.
+
+## Core Mechanics (practical)
+- **Contradiction as switch:** Any statement can invert; encode reversible flags (`TRUE<->FALSE` scenes).
+- **Silence as payload:** Empty rooms or "…" text = active magic (players learn to sit in the gap).
+- **Counting wrong on purpose:** 0/2/3/10 -- broken sequences = entry sigils.
+- **N.O.X. gate:** Night of Pan = ego eclipse → let characters dissolve to reset archetypes.
+- **ABRAHADABRA:** 11-fold "unlock"; use 11 keys, 11 rooms, 11 steps.
+
+## Lexicon → System Hooks
+- **Naught (0):** Void rooms; soft resets; hidden choice.
+- **Two (2):** Tension dyad (Desire/Restraint).
+- **Many (10):** Multiplicity swarm mobs; chorus nodes.
+- **All (∞):** Hub scenes with synchronic bleed.
+
+## Ritualized Use
+- **Dossier Spread:** Pull 3 random chapters; map their contradictions to a scene’s beats.
+- **Inversion Rune:** Write the aim; write its negation; walk between them; pick neither.
+
+## For your Practice (reiki/arts)
+- Pair **paradox breath** (box breathing) with **gesture flips** (palm up/down) to embody polarity.
+- Use paradox to depattern client narratives; then install spacious reframe.
+
+## Cross-refs
+- Partners: **Transcendental Magic Layer** (symbol craft), **Fox Trickster Node** (folklore).
+- Index Tag: `TRICKSTER`, `PARADOX`, `NOX`, `KOAN`
+
+---
+### TL;DR Summary
+Crowley’s "lies" are levers. Use contradiction, silence, broken counting, and N.O.X. eclipse to break rigidity, open space, and let archetypes move. Encode into puzzles, rituals, and narrative switchboards.
