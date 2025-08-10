@@ -24,3 +24,5 @@
 - Link `_index.md` here to `registry/02_grimoire/grimoire_index.md` so the master registry pulls it.
 
 ---
+
+6. [White Rabbit Layer](06_White_Rabbit_Layer.md) – Threshold guide of urgency, temporal distortion, and disorienting initiation.
