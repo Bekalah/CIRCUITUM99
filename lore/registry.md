@@ -1,0 +1,1 @@
+- **White Rabbit Intro** -- The initiating archetype and portal guardian who opens the pathway into Circuitum99. Featured in opening chapters, the White Rabbit guides players/readers through liminal thresholds. [white_rabbit_intro.md](./white_rabbit_intro.md)
