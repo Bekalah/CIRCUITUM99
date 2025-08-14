@@ -233,6 +233,49 @@ def banner():
     print("PATCHes go to: main/registry/04_registry-meta/system/logs/moonchild/")
     print("Approve manually, then append <!-- lock:saturn --> at page bottom.\n")
 
+
+def load_csv(path):
+    import csv
+    rows = []
+    if not path.exists():
+        return rows
+    with path.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            rows.append({k.strip(): (v.strip() if isinstance(v, str) else v) for k,v in row.items()})
+    return rows
+
+def propose_index_from_intake():
+    """Build a PATCH for chapters_index.md from recovery/intake/chapters.csv"""
+    chapters = load_csv(REC / "chapters.csv")
+    if not chapters:
+        print("• Recovery intake: no chapters.csv found or it is empty.")
+        return
+    index_target = REG / "01_main-narrative" / "chapters_index.md"
+
+    lines = [
+        "# Chapters -- Working Index",
+        "_Registry Node: Circuitum 99 -- Alpha et Omega / narrative:index / coord: CIDX-0001_",
+        "",
+        "> Proposed by Moonchild (recovery). Paste into chapters_index.md.",
+        ""
+    ]
+    def seq(row):
+        try: return int(row.get("sequence","9999"))
+        except: return 9999
+    for r in sorted(chapters, key=seq):
+        fname = r.get("filename","")
+        title = r.get("suggested_title") or fname.replace("-", " ").title()
+        rel = (Path('../../book/chapters') / fname).as_posix()
+        lines.append(f"- [{title}]({rel})")
+
+    patch_body = (
+        f"# PATCH for {index_target}\n\n"
+        "## Steps\n- Create or replace `chapters_index.md` with the snippet below (non-destructive to chapters).\n\n"
+        "## Snippet\n```markdown\n" + "\n".join(lines) + "\n```\n"
+    )
+    out = write_patch_for(index_target, patch_body)
+    print(f"  ↳ Wrote PATCH: {out.relative_to(ROOT)} (index from intake)")
+    
 def main():
     banner()
     LOGS.mkdir(parents=True, exist_ok=True)
