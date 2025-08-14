@@ -21,6 +21,10 @@ import os
 from pathlib import Path
 from datetime import datetime
 
+from pathlib import Path
+REC = (Path(__file__).resolve().parents[1] / "recovery" / "intake")
+
+
 # ---------- FIXED COORDINATES / PATHS ----------
 ROOT = Path(__file__).resolve().parents[1]             # repo root assumed at 'main/'
 REG  = ROOT / "main" / "registry"                      # main/registry
