@@ -1,0 +1,11 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.l{fill:none;stroke:#777;stroke-width:6}</style></defs>
+  <!-- Outer circle -->
+  <circle class="l" cx="400" cy="400" r="300"/>
+  <!-- Square -->
+  <rect class="l" x="200" y="200" width="400" height="400"/>
+  <!-- Up triangle -->
+  <polygon class="l" points="400,220 250,560 550,560"/>
+  <!-- Inner circle (spirit seed) -->
+  <circle class="l" cx="400" cy="400" r="60"/>
+</svg>
