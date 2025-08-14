@@ -23,3 +23,77 @@ dist/
 *.key
 *.pem
 *.secret
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore env files
+.env
+venv/
+
+# Ignore logs and temp files
+*.log
+tmp/
+
+# Ignore large media if needed
+*.mp4
+*.mov
+*.zip
+
+# Core Git housekeeping
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Python & scripts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# Node / JS (if you later add UI features)
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# Editor & IDE clutter
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System / backup junk
+*.bak
+*.old
+*.orig
+
+# Images and art WIP (optional to keep repo light -- store finals only)
+tmp_art/
+drafts/
+screenshots/
+ai-cache/
+
+# Private keys or credentials
+*.key
+*.pem
+*.env
+secrets.json
+
+# Generated outputs
+output/
+generated/
+cache/
