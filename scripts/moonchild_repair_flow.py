@@ -360,6 +360,8 @@ def propose_chapter_index():
         "## Snippet\n```markdown\n" + body + "\n```\n"
     )
     out = write_patch_for(index_target, patch_content)
+        propose_index_from_intake()
+        
     print(f"  ↳ Wrote PATCH: {out.relative_to(ROOT)} (chapter index)")
 if __name__ == "__main__":
     main()
