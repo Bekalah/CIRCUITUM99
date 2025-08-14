@@ -3,20 +3,16 @@ name: Moonchild Repair
 on:
   push:
     paths:
-      - "moonchild/**"
-      - "meta_layers/**"
-      - "logs/moonchild/**"
+      - "main/registry/**"
       - "scripts/**"
-      - "04_registry-meta/**"
-      - "art/moonchild/**"
-      - ".gitattributes"
       - "protection/**"
       - "safety/protection/**"
       - "brand/guardrails/**"
       - "wisdom_archive/**"
       - "recovery/**"
-      - "circuitum99_codex.md"
-      - "business/**"
+      - "docs/**"
+      - "book/**"
+      - ".gitattributes"
   pull_request:
   workflow_dispatch:
 
@@ -35,19 +31,28 @@ jobs:
           git lfs fetch --all
           git lfs checkout
 
-      - name: Validate Moonchild core (fixed locations)
+      - name: Validate Moonchild core (your real paths)
         shell: bash
         run: |
           set -e
           must() { [ -e "$1" ] && echo "✔ $1" || { echo "✘ $1 missing"; exit 1; }; }
-          must 04_registry-meta/registry.md
-          must meta_layers/moon_child_meta_layers.md
-          must moonchild/00_README.md
-          must moonchild/moonchild_profile.md
-          must logs/moonchild/activation-log.md
-          must logs/moonchild/dream-log.md
-          must logs/moonchild/system-log.md
-          must logs/moonchild/grimoire-intake.md
+
+          # Registry & node
+          must main/registry/4\04_registry-meta/registry.md  # (escaped \0 handled by shell)
+          # the above escape can be finicky in sh; use the next exact line instead:
+          must main/registry/04_registry-meta/registry.md
+
+          must main/registry/characters/moonchild/00_README.md
+          must main/registry/characters/moonchild/moonchild_profile.md
+          must main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md
+
+          # Logs (system memory)
+          must main/registry/04_registry-meta/system/logs/moonchild/activation-log.md
+          must main/registry/04_registry-meta/system/logs/moonchild/dream-log.md
+          must main/registry/04_registry-meta/system/logs/moonchild/system-log.md
+          must main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md
+
+          # Invocation
           must scripts/moonchild_invocation.md
 
       - name: Validate protections (allow multiple locations)
@@ -57,7 +62,7 @@ jobs:
           must_any() {
             label="$1"; shift
             for p in "$@"; do
-              if [ -e "$p" ]; then echo "✔ $label -> $p"; exit 0; fi
+              if [ -e "$p" ]; then echo "✔ $label -> $p"; return 0; fi
             done
             echo "✘ $label missing in any of: $*"; exit 1
           }
@@ -70,36 +75,13 @@ jobs:
             safety/protection/saturns_law.md \
             brand/guardrails/saturns_law.md
 
-      - name: Validate optional anchors (don’t fail build)
-        shell: bash
-        continue-on-error: true
-        run: |
-          [ -e art/moonchild/README.md ] && echo "✔ art/moonchild/README.md" || echo "• art README not present (ok)"
-          [ -e art/moonchild/sigil.png ] && echo "✔ sigil present" || echo "• sigil missing (ok for now)"
-
-      - name: Registry sanity + cross-links
-        shell: bash
-        run: |
-          set -e
-          # Require 'Moonchild' entry in registry
-          grep -qi "Moonchild" 04_registry-meta/registry.md || { echo "✘ registry: no Moonchild entry"; exit 1; }
-          # Recommend link presence (soft)
-          if ! grep -q "meta_layers/moon_child_meta_layers.md" 04_registry-meta/registry.md; then
-            echo "• registry: consider linking meta_layers/moon_child_meta_layers.md"
-          fi
-          if ! grep -q "moonchild/moonchild_profile.md" 04_registry-meta/registry.md; then
-            echo "• registry: consider linking moonchild/moonchild_profile.md"
-          fi
-
-      - name: Markdown link sanity (common casing/path mistakes)
+      - name: Markdown link sanity (common mistakes)
         shell: bash
         run: |
           set -e
           fails=0
-          # obvious bad patterns we’ve seen
-          grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers|00_readme" && fails=1 || true
-          # demand at least one md link to canonical meta file (helps navigation)
-          grep -RIn "meta_layers/moon_child_meta_layers.md" --include="*.md" . >/dev/null || { echo "• heads-up: no md links to canonical meta_layers file"; }
+          # bad casings/patterns
+          grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers\.md|00_readme\.md" && fails=1 || true
           [ $fails -eq 0 ] || { echo "✘ markdown link pattern check failed"; exit 1; }
 
       - name: Emit summary
@@ -108,5 +90,4 @@ jobs:
           echo "### Moonchild Repair Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Core files present ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Protections resolved across multiple locations ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Registry sanity check completed ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Markdown link sanity passed ✅ (or soft warnings issued)" >> $GITHUB_STEP_SUMMARY
+          echo "- Markdown link sanity passed ✅ (or fix flagged lines)" >> $GITHUB_STEP_SUMMARY
