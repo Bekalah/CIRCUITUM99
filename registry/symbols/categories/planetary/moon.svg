@@ -1,0 +1,7 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.s{fill:none;stroke:#777;stroke-width:8}</style></defs>
+  <!-- Full circle (ghost) -->
+  <circle class="s" cx="100" cy="100" r="68" style="opacity:.35"/>
+  <!-- Crescent -->
+  <path class="s" d="M125,32 A68,68 0 1 0 125,168 A52,68 0 1 1 125,32"/>
+</svg>
