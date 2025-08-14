@@ -1,3 +1,24 @@
+
+<!-- MOONCHILD: FIXED-COORDINATES HEADER -->
+ID: MC-ROOT-0001
+Name: Moonchild Node
+Type: Repair & Reconstruction Daemon
+Status: ACTIVE
+Static Story Mode: ON
+Dynamic Repair Mode: ON
+Coordinates:
+  - Registry Index: 0.0
+  - Source Folder: /core/moonchild
+  - Repair Scripts: /scripts/moonchild_repair.md
+Permissions:
+  - READ from /source_texts/*
+  - WRITE to /drafts/*
+  - APPEND ONLY to /main_story/*
+Lock:
+  - Immutable Story Lock: ON
+  - Old Text Import Lock: OFF (Manual Approval)
+  
+  
 # CIRCUITUM99 – Registry Guide
 
 This registry is the structured map for the LuxCrux universe.  
