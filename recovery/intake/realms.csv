@@ -1,0 +1,3 @@
+realm_slug,display_name,category,notes,confidence
+lunar_perimeter,Lunar Perimeter,threshold,"Yesod/Moon adjacency",0.75
+iron_vault,Iron Vault,fortress,"Saturnine lock / discipline",0.7
