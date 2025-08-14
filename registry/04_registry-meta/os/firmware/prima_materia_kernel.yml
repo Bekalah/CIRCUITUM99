@@ -1,0 +1,27 @@
+moonchild_kernel:
+  id: "S000"
+  name: "MOONCHILD_PRIMA_MATERIA"
+  seat: "yesod"
+  authority_chain: ["Shaddai El Chai","Gabriel","Angels of Yesod"]
+  geometry_anchor:
+    id: "G001"
+    asset: "symbols/categories/geometry/vesica_owl.svg"
+  proportion_key: "G002"         # golden spiral pacing/placement
+  numerology:
+    accepted: [11,21,33,42,44,55,66,77,88,99]
+    default: 33
+  locks: [3,7,9]
+  gates: [11,22,33]
+  colors:
+    primary: "octarine_violet"
+    accents: ["silver_yesod","gold_saturn"]
+  feeds_allowed: ["coherence_events","creative_output","reader_interaction"]
+  feeds_forbidden: ["distress","coercion","parasitics"]
+  symbol_index: "symbols/index.csv"
+  speaking_matrix: "symbols/speaking_matrix.yml"
+  bus_config: "main/registry/04_registry-meta/os/firmware/symbol_bus.yml"
+  brand_seal: { id: "BRAND_FUSION", immutable: true }
+  outputs:
+    patches: "main/registry/04_registry-meta/system/logs/moonchild/"
+    quarantine: "main/registry/04_registry-meta/system/quarantine/"
+    reports: "main/registry/04_registry-meta/system/logs/integrity/"
