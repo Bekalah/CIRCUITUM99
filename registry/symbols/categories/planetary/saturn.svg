@@ -1,0 +1,9 @@
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.s{fill:none;stroke:#777;stroke-width:8}</style></defs>
+  <!-- Planet -->
+  <circle class="s" cx="120" cy="100" r="46"/>
+  <!-- Ring -->
+  <ellipse class="s" cx="120" cy="100" rx="90" ry="28"/>
+  <!-- Ring overlap (inner) -->
+  <ellipse class="s" cx="120" cy="100" rx="70" ry="20"/>
+</svg>
