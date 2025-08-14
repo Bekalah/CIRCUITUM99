@@ -1,0 +1,44 @@
+name: Moonchild Repair (PATCH-only)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'registry/**'
+      - 'symbols/**'
+      - 'scripts/**'
+      - '.github/workflows/moonchild_repair.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  propose-patches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/moonchild_repair_flow.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonchild-logs
+          path: |
+            registry/04_registry-meta/system/logs/moonchild/**
+            registry/04_registry-meta/system/quarantine/**
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Moonchild: propose PATCH updates"
+          branch: moonchild/patches-${{ github.run_id }}
+          title: "Moonchild PATCH proposals"
+          body: |
+            Non-destructive PATCH suggestions generated.
+
+            1) Open files under:
+               registry/04_registry-meta/system/logs/moonchild/
+            2) Copy the snippet(s) into the target files at the top.
+            3) Add <!-- lock:saturn --> at the bottom of approved pages.
+          labels: Moonchild, patch
