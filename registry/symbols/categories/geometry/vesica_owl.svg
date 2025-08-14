@@ -1,0 +1,19 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line{fill:none;stroke:#777;stroke-width:3;opacity:.6}
+      .soft{fill:none;stroke:#777;stroke-width:2;opacity:.35}
+      .eye{fill:none;stroke:#777;stroke-width:8;opacity:.8}
+    </style>
+  </defs>
+  <!-- Vesica: two circles -->
+  <circle class="soft" cx="360" cy="400" r="260"/>
+  <circle class="soft" cx="440" cy="400" r="260"/>
+  <!-- Vesica outline -->
+  <path class="line" d="M360,140 A260,260 0 0,0 360,660 A260,260 0 0,0 440,660 A260,260 0 0,0 440,140 A260,260 0 0,0 360,140 Z"/>
+  <!-- Owl eyes at foci -->
+  <circle class="eye" cx="320" cy="360" r="36"/>
+  <circle class="eye" cx="480" cy="360" r="36"/>
+  <!-- Beak (small triangle) -->
+  <path class="line" d="M400,380 L384,416 L416,416 Z"/>
+</svg>
