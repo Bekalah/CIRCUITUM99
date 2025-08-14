@@ -1,0 +1,108 @@
+name: Moonchild Diagnose
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "**/*.md"
+      - "**/*.yml"
+      - "**/*.yaml"
+      - ".gitattributes"
+      - "art/**"
+      - "logs/**"
+      - "meta_layers/**"
+      - "moonchild/**"
+      - "scripts/**"
+      - "04_registry-meta/**"
+      - "protection/**"
+      - "safety/**"
+      - "brand/**"
+      - "wisdom_archive/**"
+      - "recovery/**"
+      - "business/**"
+      - "circuitum99_codex.md"
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup LFS
+        run: |
+          git lfs install
+          git lfs fetch --all
+          git lfs checkout
+
+      - name: Print repo tree (top 3 levels)
+        run: |
+          echo "### Top-level tree" >> $GITHUB_STEP_SUMMARY
+          (command -v tree >/dev/null || sudo apt-get update && sudo apt-get install -y tree) >/dev/null 2>&1
+          tree -a -L 3 -I ".git" | tee tree.txt
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          head -n 500 tree.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Validate required files (Moonchild core)
+        run: |
+          set -e
+          must() { [ -e "$1" ] && echo "✔ $1" || { echo "✘ MISSING: $1"; exit 1; }; }
+          must 04_registry-meta/registry.md
+          must meta_layers/moon_child_meta_layers.md
+          must moonchild/00_README.md
+          must moonchild/moonchild_profile.md
+          must logs/moonchild/activation-log.md
+          must logs/moonchild/dream-log.md
+          must logs/moonchild/system-log.md
+          must logs/moonchild/grimoire-intake.md
+          must scripts/moonchild_invocation.md
+
+      - name: Validate protections (multiple possible locations)
+        run: |
+          set -e
+          found=0
+          for p in protection/purity_filter.md safety/protection/purity_filter.md brand/guardrails/purity_filter.md; do
+            if [ -e "$p" ]; then echo "✔ Purity Filter at $p"; found=1; break; fi
+          done
+          [ $found -eq 1 ] || { echo "✘ MISSING: Purity Filter (tried protection/, safety/protection/, brand/guardrails/)"; exit 1; }
+
+          found=0
+          for p in protection/saturns_law.md safety/protection/saturns_law.md brand/guardrails/saturns_law.md; do
+            if [ -e "$p" ]; then echo "✔ Saturn's Law at $p"; found=1; break; fi
+          done
+          [ $found -eq 1 ] || { echo "✘ MISSING: Saturn's Law (tried protection/, safety/protection/, brand/guardrails/)"; exit 1; }
+
+      - name: LFS sanity (sigil optional)
+        run: |
+          [ -e art/moonchild/sigil.png ] && echo "✔ sigil present" || echo "• sigil missing (ok for now)"
+
+      - name: Markdown link sanity
+        run: |
+          set -e
+          fails=0
+          echo "Scanning for common link typos…"
+          # bad casings/patterns we’ve seen
+          if grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers|00_readme" ; then
+            echo "✘ Found likely bad link casing/path above"; fails=1
+          fi
+          # recommend links to canonical meta file
+          if ! grep -RIn "meta_layers/moon_child_meta_layers.md" --include="*.md" . >/dev/null ; then
+            echo "• heads-up: no md links to meta_layers/moon_child_meta_layers.md"
+          fi
+          [ $fails -eq 0 ] || exit 1
+
+      - name: Registry sanity
+        run: |
+          set -e
+          if grep -qi "Moonchild" 04_registry-meta/registry.md ; then
+            echo "✔ Moonchild mentioned in registry"
+          else
+            echo "✘ MISSING: Moonchild entry in 04_registry-meta/registry.md"; exit 1
+          fi
+
+      - name: Summarize findings
+        run: |
+          echo "Moonchild Diagnose completed. See steps above for any ✘ lines." >> $GITHUB_STEP_SUMMARY
