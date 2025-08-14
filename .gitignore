@@ -1,0 +1,25 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore environment files
+.env
+venv/
+*.venv/
+
+# Ignore temporary notes or scratchpads
+*.tmp
+*.log
+
+# Ignore generated output (if you have builds or compiled assets)
+build/
+dist/
+
+# Ignore private keys or sensitive configs
+*.key
+*.pem
+*.secret
