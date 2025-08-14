@@ -1,3 +1,7 @@
+# Moonchild -- Canon Profile (Registry)
+_Registry Node: Circuitum 99 -- Alpha et Omega / characters:moonchild / coord: MC-PROFILE-0001_
+<!-- symbolbus: numkey=33 | geom=vesica | chrom=silver_yesod | pHour=Moon -->
+
 ---
 title: Moonchild Profile
 registry-id: MC-PROFILE-0001
