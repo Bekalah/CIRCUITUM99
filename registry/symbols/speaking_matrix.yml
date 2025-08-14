@@ -1,0 +1,12 @@
+matrix:
+  S000: ["G001","G002","PT_MOON","PT_SATURN","BADGE_GATE","BADGE_LOCK"]
+  G001: ["S000","PT_MOON","BADGE_GATE"]
+  G002: ["S000","PT_SATURN","BADGE_LOCK"]
+  PT_MOON: ["S000","G001"]
+  PT_SATURN: ["S000","G002"]
+  BADGE_GATE: ["S000","G001","PT_MOON"]
+  BADGE_LOCK: ["S000","PT_SATURN"]
+policies:
+  brand_immutable: true
+  authentic_only: true
+  forbid_cross_category_hacks: true
