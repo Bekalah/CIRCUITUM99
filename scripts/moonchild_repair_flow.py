@@ -38,6 +38,9 @@ P_GATE_33 = REG / "01_main-narrative" / "gate_33.md"
 
 DIR_REALMS = REG / "02_grimoire" / "realms"            # *.md
 
+from pathlib import Path
+REC = (Path(__file__).resolve().parents[1] / "recovery" / "intake")
+
 # ---------- REGEX ----------
 RE_HEADER_COMMENT = re.compile(r'<!--\s*symbolbus:.*?-->\s*$', re.IGNORECASE)
 RE_HAS_H1         = re.compile(r'^\s*#\s+', re.MULTILINE)
