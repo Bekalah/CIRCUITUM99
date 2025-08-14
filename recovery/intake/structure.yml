@@ -1,0 +1,18 @@
+# Circuitum 99 -- Recovery Structure (intake)
+registry_node: "C99-RECOVERY-INTAKE"
+static_story_lock: true    # never auto-edit canon
+propose_gate_files: false  # set true later when you add gates
+chapter_order:
+  - 00
+  - 10
+  # add more as you find them
+narrative_rules:
+  title_case: "Title Case"
+  separator: " -- "
+  allow_numbers_prefix: true
+coherence_checks:
+  - chapters_index_exists
+  - missing_chapter_files
+  - duplicate_ids
+  - realm_slug_conflicts
+  - art_missing_files
