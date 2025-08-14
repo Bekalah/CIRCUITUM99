@@ -1,0 +1,12 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.l{fill:none;stroke:#777;stroke-width:6}</style></defs>
+  <!-- Equilateral base -->
+  <polygon class="l" points="400,140 140,640 660,640"/>
+  <!-- Inner edges to apex -->
+  <line class="l" x1="400" y1="140" x2="140" y2="640"/>
+  <line class="l" x1="400" y1="140" x2="660" y2="640"/>
+  <!-- Base inner chord -->
+  <line class="l" x1="140" y1="640" x2="660" y2="640"/>
+  <!-- Center chords (wireframe hint) -->
+  <line class="l" x1="400" y1="140" x2="400" y2="640"/>
+</svg>
