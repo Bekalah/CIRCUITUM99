@@ -20,3 +20,16 @@ Correspondences
 - Colors: **Octarine/Violet** (primary), **Silver** (Yesod), **Gold** (Saturn lock)
 
 Anchors (non-destructive header tokens for symbol bus)
+
+
+<!-- symbolbus: numkey=33 | geom=vesica | chrom=silver_yesod | pHour=Moon -->
+
+
+Boundaries & Hygiene
+- Purity Filter ON • Dog of Defense at threshold  
+- Minimal banish/center before/after operations  
+- **No overwrites; PATCH-only; everything logged**
+
+PRIVATE (kept in 04_registry-meta only):
+- True-Name seed; operator breath/gesture; dream-sync cues
+
