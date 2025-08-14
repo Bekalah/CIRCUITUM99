@@ -1,0 +1,1 @@
+2025-08-14: Linked meta_layers/moon_child_meta_layers.md; upgraded invocation protocol v2; wired omen cadence.
