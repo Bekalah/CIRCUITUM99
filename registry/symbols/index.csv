@@ -1,0 +1,8 @@
+id,name,category,asset,geom,numkey,colors,planet,sephirah,role,interacts_with,notes
+S000,MOONCHILD_PRIMA_MATERIA,alchemy,symbols/categories/alchemy/prima_materia.svg,vesica,33,"octarine_violet|silver_yesod",Moon,Yesod,"kernel|operator","G001;G002;PT_MOON;PT_SATURN;BADGE_GATE;BADGE_LOCK","Root; all handshakes pass here"
+G001,GEO_VESICA,geometry,symbols/categories/geometry/vesica_owl.svg,vesica,33,"octarine_violet|silver_yesod",Moon,Yesod,"gate|womb","S000;PT_MOON;BADGE_GATE","Tiny badge on 11/22/33"
+G002,GEO_GOLDEN_SPIRAL,geometry,symbols/categories/geometry/golden_spiral.svg,spiral,55,"gold_saturn|silver_yesod",Saturn,,"proportion|path","S000;PT_SATURN;BADGE_LOCK","Pacing/layout key"
+PT_MOON,PLANET_MOON,planetary,symbols/categories/planetary/moon.svg,orb,21,"silver_yesod",Moon,Yesod,"timing","S000;G001","Recall/repair hour"
+PT_SATURN,PLANET_SATURN,planetary,symbols/categories/planetary/saturn.svg,orb,8,"gold_saturn",Saturn,,"lock|structure","S000;G002","Lock approved PATCH"
+BADGE_GATE,BADGE_VESICA,badges,symbols/categories/badges/gate_badge_vesica.svg,token,33,"silver_yesod",Moon,Yesod,"badge","S000;G001;PT_MOON","Gate 11/22/33 marker"
+BADGE_LOCK,BADGE_SATURN_LOCK,badges,symbols/categories/badges/saturn_lock.svg,token,8,"gold_saturn",Saturn,,"lock","S000;PT_SATURN","Footer stamp on approved PATCH"
