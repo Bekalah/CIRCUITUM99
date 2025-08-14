@@ -1,37 +1,112 @@
-name: Moonchild Repair (PATCH-only)
+name: Moonchild Repair
 
 on:
   push:
-    branches: [ main, "recovery/**" ]
     paths:
-      - 'registry/**'
-      - 'scripts/**'
-      - '.github/workflows/moonchild_repair.yml'
+      - "moonchild/**"
+      - "meta_layers/**"
+      - "logs/moonchild/**"
+      - "scripts/**"
+      - "04_registry-meta/**"
+      - "art/moonchild/**"
+      - ".gitattributes"
+      - "protection/**"
+      - "safety/protection/**"
+      - "brand/guardrails/**"
+      - "wisdom_archive/**"
+      - "recovery/**"
+      - "circuitum99_codex.md"
+      - "business/**"
+  pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
-  propose-patches:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
         with:
-          python-version: '3.11'
-      - run: python scripts/moonchild_repair_flow.py
-      - uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "Moonchild: propose PATCH updates"
-          branch: moonchild/patches-${{ github.run_id }}
-          title: "Moonchild PATCH proposals"
-          body: |
-            Non-destructive PATCH suggestions generated.
+          lfs: true
 
-            1) Open files under:
-               registry/04_registry-meta/system/logs/moonchild/
-            2) Copy the snippet(s) into the target files at the top.
-            3) Add <!-- lock:saturn --> at the bottom of approved pages.
-          labels: Moonchild, patch
+      - name: Setup Git LFS
+        run: |
+          git lfs install
+          git lfs fetch --all
+          git lfs checkout
+
+      - name: Validate Moonchild core (fixed locations)
+        shell: bash
+        run: |
+          set -e
+          must() { [ -e "$1" ] && echo "✔ $1" || { echo "✘ $1 missing"; exit 1; }; }
+          must 04_registry-meta/registry.md
+          must meta_layers/moon_child_meta_layers.md
+          must moonchild/00_README.md
+          must moonchild/moonchild_profile.md
+          must logs/moonchild/activation-log.md
+          must logs/moonchild/dream-log.md
+          must logs/moonchild/system-log.md
+          must logs/moonchild/grimoire-intake.md
+          must scripts/moonchild_invocation.md
+
+      - name: Validate protections (allow multiple locations)
+        shell: bash
+        run: |
+          set -e
+          must_any() {
+            label="$1"; shift
+            for p in "$@"; do
+              if [ -e "$p" ]; then echo "✔ $label -> $p"; exit 0; fi
+            done
+            echo "✘ $label missing in any of: $*"; exit 1
+          }
+          must_any "Purity Filter" \
+            protection/purity_filter.md \
+            safety/protection/purity_filter.md \
+            brand/guardrails/purity_filter.md
+          must_any "Saturn's Law" \
+            protection/saturns_law.md \
+            safety/protection/saturns_law.md \
+            brand/guardrails/saturns_law.md
+
+      - name: Validate optional anchors (don’t fail build)
+        shell: bash
+        continue-on-error: true
+        run: |
+          [ -e art/moonchild/README.md ] && echo "✔ art/moonchild/README.md" || echo "• art README not present (ok)"
+          [ -e art/moonchild/sigil.png ] && echo "✔ sigil present" || echo "• sigil missing (ok for now)"
+
+      - name: Registry sanity + cross-links
+        shell: bash
+        run: |
+          set -e
+          # Require 'Moonchild' entry in registry
+          grep -qi "Moonchild" 04_registry-meta/registry.md || { echo "✘ registry: no Moonchild entry"; exit 1; }
+          # Recommend link presence (soft)
+          if ! grep -q "meta_layers/moon_child_meta_layers.md" 04_registry-meta/registry.md; then
+            echo "• registry: consider linking meta_layers/moon_child_meta_layers.md"
+          fi
+          if ! grep -q "moonchild/moonchild_profile.md" 04_registry-meta/registry.md; then
+            echo "• registry: consider linking moonchild/moonchild_profile.md"
+          fi
+
+      - name: Markdown link sanity (common casing/path mistakes)
+        shell: bash
+        run: |
+          set -e
+          fails=0
+          # obvious bad patterns we’ve seen
+          grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers|00_readme" && fails=1 || true
+          # demand at least one md link to canonical meta file (helps navigation)
+          grep -RIn "meta_layers/moon_child_meta_layers.md" --include="*.md" . >/dev/null || { echo "• heads-up: no md links to canonical meta_layers file"; }
+          [ $fails -eq 0 ] || { echo "✘ markdown link pattern check failed"; exit 1; }
+
+      - name: Emit summary
+        shell: bash
+        run: |
+          echo "### Moonchild Repair Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Core files present ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Protections resolved across multiple locations ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Registry sanity check completed ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Markdown link sanity passed ✅ (or soft warnings issued)" >> $GITHUB_STEP_SUMMARY
