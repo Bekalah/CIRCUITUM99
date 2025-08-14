@@ -1,0 +1,25 @@
+symbol_bus:
+  background:
+    id: "G001"
+    file: "symbols/categories/geometry/vesica_owl.svg"
+    opacity: 0.06
+    placement: "center"
+    scale: "auto"
+    allowed_pages:
+      - "main/registry/characters/**"
+      - "main/registry/02_grimoire/**"
+      - "main/registry/01_main-narrative/**/gate_11*.md"
+      - "main/registry/01_main-narrative/**/gate_22*.md"
+      - "main/registry/01_main-narrative/**/gate_33*.md"
+  channels:
+    numerology: { keys: [11,21,33,42,44,55,66,77,88,99], header_token: "numkey" }
+    geometry:   { primitives: ["vesica","spiral","tetra","cube","octa","dodeca","icosa"], header_token: "geom" }
+    planetary:  { hour_map: { Moon: "symbols/categories/planetary/moon.svg", Saturn: "symbols/categories/planetary/saturn.svg" }, header_token: "pHour" }
+    color:      { palette: { primary: "octarine_violet", accents: ["silver_yesod","gold_saturn"] }, header_token: "chrom" }
+  handshake:
+    required_tokens: ["numkey","geom"]
+    optional_tokens: ["chrom","pHour","gate"]
+    gate_badge: { file: "symbols/categories/badges/gate_badge_vesica.svg", gates: [11,22,33] }
+  locks:
+    saturn_lock: { file: "symbols/categories/badges/saturn_lock.svg", visibility: 0.08 }
+  sources_router: "main/registry/04_registry-meta/indices/sources_router.yml"
