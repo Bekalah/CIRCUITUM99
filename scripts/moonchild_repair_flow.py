@@ -312,6 +312,8 @@ def main():
 
     # Realms
     process_realms(DIR_REALMS)
+    
+        propose_index_from_intake()
 
     print("\n✓ Done. Review PATCH files in logs and paste into targets you approve.")
     print("  After pasting, add this at the bottom of each approved page:\n")
