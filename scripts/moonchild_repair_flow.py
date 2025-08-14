@@ -266,6 +266,54 @@ def main():
     print("\n✓ Done. Review PATCH files in logs and paste into targets you approve.")
     print("  After pasting, add this at the bottom of each approved page:\n")
     print("    <!-- lock:saturn -->\n")
+# -------- CHAPTER INDEX PROPOSAL (book/chapters -> registry index) --------
+def human_title_from_filename(fname: str) -> str:
+    # "10-circuitum99-formation.md" -> "10 -- Circuitum99 Formation"
+    stem = Path(fname).stem
+    parts = stem.split("-", 1)
+    if len(parts) == 2 and parts[0].isdigit():
+        num, rest = parts
+        title = rest.replace("-", " ").strip().title()
+        return f"{num} -- {title}"
+    # fallback
+    return stem.replace("-", " ").strip().title()
 
+def propose_chapter_index():
+    chapters_dir = ROOT / "book" / "chapters"
+    index_target = REG / "01_main-narrative" / "chapters_index.md"
+    if not chapters_dir.exists():
+        print(f"• Scan: {chapters_dir.relative_to(ROOT)} (no chapters dir yet)")
+        return
+
+    # Gather chapter files in numeric order when possible
+    files = sorted(chapters_dir.glob("*.md"), key=lambda p: p.name)
+    if not files:
+        print("  ⚠ No chapter files found in book/chapters.")
+        return
+
+    # Build a non-destructive index body
+    lines = []
+    lines.append("# Chapters -- Working Index")
+    lines.append("_Registry Node: Circuitum 99 -- Alpha et Omega / narrative:index / coord: CIDX-0001_")
+    lines.append("")
+    lines.append("> Proposed by Moonchild (PATCH-only). Paste into chapters_index.md.")
+    lines.append("")
+    for f in files:
+        nice = human_title_from_filename(f.name)
+        rel = os.path.relpath(f, REG / "01_main-narrative")  # link relative to narrative folder
+        # Link back to the actual chapter file in /book/chapters
+        lines.append(f"- [{nice}](../{rel.replace(os.sep,'/')})")
+
+    body = "\n".join(lines)
+    # Write the PATCH file; target may or may not exist yet
+    patch_content = (
+        f"# PATCH for {index_target}\n\n"
+        "## Steps\n"
+        "- Create or replace the contents of `chapters_index.md` with the snippet below.\n"
+        "- This does not alter any chapter files; it only creates an index.\n\n"
+        "## Snippet\n```markdown\n" + body + "\n```\n"
+    )
+    out = write_patch_for(index_target, patch_content)
+    print(f"  ↳ Wrote PATCH: {out.relative_to(ROOT)} (chapter index)")
 if __name__ == "__main__":
     main()
