@@ -2,10 +2,9 @@ name: Moonchild Repair (PATCH-only)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, "recovery/**" ]
     paths:
       - 'registry/**'
-      - 'symbols/**'
       - 'scripts/**'
       - '.github/workflows/moonchild_repair.yml'
   workflow_dispatch:
@@ -23,12 +22,6 @@ jobs:
         with:
           python-version: '3.11'
       - run: python scripts/moonchild_repair_flow.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: moonchild-logs
-          path: |
-            registry/04_registry-meta/system/logs/moonchild/**
-            registry/04_registry-meta/system/quarantine/**
       - uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Moonchild: propose PATCH updates"
