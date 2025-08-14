@@ -1,0 +1,1 @@
+**Tooling:** see `scripts/moonchild_diff.py` (PATCH generator) and `scripts/README.md`.
