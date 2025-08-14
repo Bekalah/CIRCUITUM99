@@ -1,0 +1,29 @@
+# Exclude heavy or internal stuff from source archives (Download ZIP / heads/main.zip)
+.gitignore                    export-ignore
+.gitattributes                export-ignore
+.gitmodules                   export-ignore
+
+# Build/system logs & temp
+registry/04_registry-meta/system/logs/**    export-ignore
+registry/04_registry-meta/system/quarantine/** export-ignore
+recovery/logs/**             export-ignore
+recovery/patches/**          export-ignore
+
+# Raw/source assets you don’t need to share
+assets/raw/**                 export-ignore
+assets/reference/**           export-ignore
+
+# Big binary/source formats (keep your final SVG/PNG/JPG)
+*.psd                         export-ignore
+*.ai                          export-ignore
+*.indd                        export-ignore
+*.blend                       export-ignore
+*.wav                         export-ignore
+*.aif                         export-ignore
+*.mp4                         export-ignore
+*.mov                         export-ignore
+*.zip                         export-ignore
+*.7z                          export-ignore
+
+# Optional: exclude workflows from the public zip
+#.github/**                   export-ignore
