@@ -6,6 +6,10 @@ recovery/patches/**                                     export-ignore
 assets/raw/**                                           export-ignore
 assets/reference/**                                     export-ignore
 
+# keep logs & quarantine out of source ZIPs
+main/registry/04_registry-meta/system/logs/**       export-ignore
+main/registry/00_CRUCIBLE/build/**                  export-ignore
+
 # Normalize text files
 *.md   text eol=lf
 *.yml  text eol=lf
