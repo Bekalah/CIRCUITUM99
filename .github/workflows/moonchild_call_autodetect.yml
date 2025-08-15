@@ -1,9 +1,7 @@
-         name: Moonchild · Call Autodetect
+       name: Moonchild · Call Autodetect
 
 on:
-  # Manual run button
   workflow_dispatch:
-  # Auto-run when you change the registry or anything under Circuitum99’s registry tree
   push:
     paths:
       - 'circuitum99/main/04_registry-meta/registry.md'
@@ -17,33 +15,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # 1) Reuse the scanner (must exist as a reusable workflow)
   autodetect:
     uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
 
-  # 2) Validate the paths that Moonchild needs *in your layout*
   validate:
     needs: autodetect
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (no LFS)
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          lfs: false
+        with: { fetch-depth: 1, lfs: false }
 
-      - name: Resolve targets from autodetect + enforce your tree
+      - name: Resolve & assert canonical files exist (your layout)
         id: resolve
         shell: bash
-        env:
-          REGISTRY_DETECTED:   ${{ needs.autodetect.outputs.REGISTRY }}
-          READ_ME_DETECTED:    ${{ needs.autodetect.outputs.READ_ME }}
-          PROFILE_DETECTED:    ${{ needs.autodetect.outputs.PROFILE }}
-          META_DETECTED:       ${{ needs.autodetect.outputs.META }}
         run: |
           set -euo pipefail
 
-          # Canonical paths under YOUR repo layout
           CANON_REGISTRY="circuitum99/main/04_registry-meta/registry.md"
           CANON_PROFILE="circuitum99/main/registry/characters/moonchild/moonchild_profile.md"
           CANON_PILLAR="circuitum99/main/registry/pillars/pillar_21_moonchild.md"
@@ -51,34 +39,23 @@ jobs:
           CANON_REALMS="circuitum99/main/registry/realms/index.md"
           CANON_CHARS="circuitum99/main/registry/characters/index.md"
 
-          echo "REGISTRY_CANON=$CANON_REGISTRY" >> $GITHUB_OUTPUT
-          echo "PROFILE_CANON=$CANON_PROFILE"   >> $GITHUB_OUTPUT
-          echo "PILLAR_CANON=$CANON_PILLAR"     >> $GITHUB_OUTPUT
-          echo "SPINE_CANON=$CANON_SPINE"       >> $GITHUB_OUTPUT
-          echo "REALMS_CANON=$CANON_REALMS"     >> $GITHUB_OUTPUT
-          echo "CHARS_CANON=$CANON_CHARS"       >> $GITHUB_OUTPUT
-
-          # Summarize what we *expect* to exist
           echo "## Moonchild Call -- Expected Files" >> $GITHUB_STEP_SUMMARY
+          missing=0
           for p in "$CANON_REGISTRY" "$CANON_PROFILE" "$CANON_PILLAR" "$CANON_SPINE" "$CANON_REALMS" "$CANON_CHARS"; do
             if [ -f "$p" ]; then
               echo "- ✅ $p" >> $GITHUB_STEP_SUMMARY
             else
               echo "- ❌ MISSING: $p" >> $GITHUB_STEP_SUMMARY
+              missing=1
             fi
           done
+          [ $missing -eq 0 ] || { echo "::error::One or more required files are missing. See summary above."; exit 1; }
 
-          # Hard fail if the critical pair is missing
-          [ -f "$CANON_REGISTRY" ] || { echo "::error file=$CANON_REGISTRY::Registry file not found"; exit 1; }
-          [ -f "$CANON_PROFILE"  ] || { echo "::error file=$CANON_PROFILE::Moonchild profile not found"; exit 1; }
-
-      - name: Link check (relative links from registry)
+      - name: Link check (relative from registry)
         shell: bash
         run: |
           set -euo pipefail
           REG="circuitum99/main/04_registry-meta/registry.md"
-
-          # Check that the registry links match your canonical locations
           REQUIRED_LINKS=(
             "../registry/pillars/pillar_21_moonchild.md"
             "../registry/spine/living_spine_33.md"
@@ -87,25 +64,20 @@ jobs:
             "../registry/characters/moonchild/moonchild_profile.md"
           )
 
-          echo "## Link Check (from $REG)" >> $GITHUB_STEP_SUMMARY
+          echo "## Link Check (relative to $REG)" >> $GITHUB_STEP_SUMMARY
+          base_dir="$(dirname "$REG")"
           for rel in "${REQUIRED_LINKS[@]}"; do
-            # Resolve the relative path to a file path
-            base_dir="$(dirname "$REG")"
             abs="$(python - <<'PY'
 import os,sys
-base=sys.argv[1]; rel=sys.argv[2]
-print(os.path.normpath(os.path.join(base, rel)))
+print(os.path.normpath(os.path.join(sys.argv[1], sys.argv[2])))
 PY
 "$base_dir" "$rel")"
             if [ -f "$abs" ]; then
               echo "- ✅ $rel → $abs" >> $GITHUB_STEP_SUMMARY
             else
-              echo "::warning::Missing target for link: $rel (resolved to $abs)"
               echo "- ❌ $rel → $abs (missing)" >> $GITHUB_STEP_SUMMARY
             fi
           done
 
       - name: Success summary
-        if: ${{ success() }}
-        run: |
-          echo "Moonchild Call Autodetect completed." >> $GITHUB_STEP_SUMMARY
+        run: echo "Moonchild Call Autodetect completed." >> $GITHUB_STEP_SUMMARY
