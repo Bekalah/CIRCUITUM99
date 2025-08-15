@@ -24,7 +24,9 @@ jobs:
     steps:
       - name: Checkout (no LFS)
         uses: actions/checkout@v4
-        with: { fetch-depth: 1, lfs: false }
+        with: 
+          fetch-depth: 1
+          lfs: false
 
       - name: Resolve & assert canonical files exist (your layout)
         id: resolve
