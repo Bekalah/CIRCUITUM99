@@ -1,0 +1,75 @@
+name: Crucible · Dry Mix (read-only)
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  drymix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, lfs: false }
+
+      - name: Dry-mix per crucible.yml (no writes to sources)
+        shell: bash
+        run: |
+          set -euo pipefail
+          CFG="main/registry/00_CRUCIBLE/crucible.yml"
+          PREVIEW_DIR="$(yq '.output.preview_dir' "$CFG")"
+          INDEX_FILE="$(yq '.output.index_file'  "$CFG")"
+          SIGILS_DIR="$(yq '.art.sigils_dir'     "$CFG")"
+          mkdir -p "$PREVIEW_DIR"
+
+          mapfile -t ORDER < <(yq '.precedence[]' "$CFG")
+          echo "# Crucible Preview Index" > "$INDEX_FILE"
+          echo "_This is a read-only mix. Sources are untouched._" >> "$INDEX_FILE"
+          echo >> "$INDEX_FILE"
+
+          # index sigils
+          if [ -d "$SIGILS_DIR" ]; then
+            echo "## Sigils" >> "$INDEX_FILE"
+            find "$SIGILS_DIR" -maxdepth 1 -type f -iregex '.*\\.(svg|png|jpg|jpeg)' -printf "- %f\n" >> "$INDEX_FILE" || true
+            echo >> "$INDEX_FILE"
+          fi
+
+          # chapter table: prefer higher precedence
+          echo "## Chapters (highest layer wins)" >> "$INDEX_FILE"
+          declare -A SEEN
+          for layer in "${ORDER[@]}"; do
+            SRC=$(yq ".inputs.$layer" "$CFG")
+            [ -d "$SRC" ] || continue
+            while IFS= read -r -d '' f; do
+              base="$(basename "$f")"
+              key="${base,,}"
+              if [ -z "${SEEN[$key]:-}" ]; then
+                SEEN[$key]="$layer"
+                # copy to preview layer folder
+                mkdir -p "$PREVIEW_DIR/$layer"
+                cp -n "$f" "$PREVIEW_DIR/$layer/$base" || true
+                # list in index
+                title="$(grep -m1 -E '^# ' "$f" | sed 's/^# //; s/|/-/g' || echo "$base")"
+                wcw="$(wc -w < "$f" | tr -d ' ')"
+                echo "| $title | $layer | $base | ${wcw:-0} words |" >> "$INDEX_FILE"
+              fi
+            done < <(find "$SRC" -type f -name "*.md" -print0)
+          done
+
+          # header for table
+          sed -i '1i\\n| Title | Layer | File | Size |\\n|---|---|---|---|' "$INDEX_FILE"
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crucible-preview
+          path: main/registry/00_CRUCIBLE/build/preview
+          if-no-files-found: warn
+
+      - name: Summarize
+        run: |
+          echo "Preview built to main/registry/00_CRUCIBLE/build/preview (not committed)."
+          echo "Download the 'crucible-preview' artifact from this run."
