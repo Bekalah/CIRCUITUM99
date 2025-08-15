@@ -1,21 +1,79 @@
 name: Moonchild Diagnose (Manual)
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch: {}      # run from the Actions tab
+  push:
+    branches: ['**']         # also runs on your next push
 
 jobs:
   diag:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 1, lfs: false }
-      - name: Tree + quick scan
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Repo tree (top 4)
         run: |
           (command -v tree >/dev/null || sudo apt-get update && sudo apt-get install -y tree) >/dev/null 2>&1
-          echo "### TREE (top 4)"
-          tree -a -L 4 -I ".git" || true
-          echo
-          echo "### FOUND"
-          for f in registry.md 00_readme.md moonchild_profile.md moonchild_meta_layers.md activation-log.md dream-log.md system-log.md grimoire-intake.md moonchild_invocation.md purity_filter.md saturns_law.md; do
-            find . -type f -iname "$f" | sed "s|^\./||" || true
-          done
+          tree -a -L 4 -I ".git" | tee repo_tree.txt
+
+      - name: Find key Moonchild files
+        id: scan
+        shell: bash
+        run: |
+          set -e
+          scan(){ f="$1"; echo "---- $f"; find . -type f -iname "$f" | sed 's|^\./||' || true; }
+          {
+            echo "### FOUND PATHS"
+            scan "registry.md"
+            scan "00_readme.md"
+            scan "moonchild_profile.md"
+            scan "moonchild_meta_layers.md"
+            scan "moon_child_meta_layers.md"
+            scan "activation-log.md"
+            scan "dream-log.md"
+            scan "system-log.md"
+            scan "grimoire-intake.md"
+            scan "moonchild_invocation.md"
+            scan "purity_filter.md"
+            scan "saturns_law.md"
+            scan "moonchild_diagnose.md"
+          } | tee scan_found.txt
+
+      - name: Show moonchild_diagnose.md (if present)
+        shell: bash
+        run: |
+          set -e
+          FILE="$(find . -type f -iname 'moonchild_diagnose.md' | head -n1 || true)"
+          if [ -n "$FILE" ]; then
+            echo "### moonchild_diagnose.md (@ $FILE)" >> $GITHUB_STEP_SUMMARY
+            echo '```markdown' >> $GITHUB_STEP_SUMMARY
+            head -n 200 "$FILE" >> $GITHUB_STEP_SUMMARY || true
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### moonchild_diagnose.md not found" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Write run summary
+        run: |
+          echo "## Moonchild Diagnose" >> $GITHUB_STEP_SUMMARY
+          echo "### Repo tree (top 4)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          head -n 400 repo_tree.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+          echo "### Found paths" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat scan_found.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: moonchild-diagnose
+          path: |
+            repo_tree.txt
+            scan_found.txt
