@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Check registry.md
         run: test -f "circuitum99/main/04_registry-meta/registry.md" || (echo "::error::Missing circuitum99/main/04_registry-meta/registry.md" && exit 1)
       - name: Check moonchild_profile.md
@@ -24,4 +25,6 @@ jobs:
         run: test -f "circuitum99/main/registry/realms/index.md" || (echo "::error::Missing circuitum99/main/registry/realms/index.md" && exit 1)
       - name: Check characters/index.md
         run: test -f "circuitum99/main/registry/characters/index.md" || (echo "::error::Missing circuitum99/main/registry/characters/index.md" && exit 1)
-      - run: echo "All required files present."
+
+      - name: Done
+        run: echo "All required files present."
