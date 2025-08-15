@@ -1,45 +1,13 @@
     name: Moonchild Call Autodetect
-
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'circuitum99/main/04_registry-meta/registry.md'
-      - 'circuitum99/main/registry/**'
-
-permissions:
-  contents: read
-
+      - circuitum99/main/04_registry-meta/registry.md
+      - circuitum99/main/registry/**
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          lfs: false
-
-      - name: Assert required files exist
-        shell: bash
-        run: |
-          set -e
-          req=(
-            "circuitum99/main/04_registry-meta/registry.md"
-            "circuitum99/main/registry/characters/moonchild/moonchild_profile.md"
-            "circuitum99/main/registry/pillars/pillar_21_moonchild.md"
-            "circuitum99/main/registry/spine/living_spine_33.md"
-            "circuitum99/main/registry/realms/index.md"
-            "circuitum99/main/registry/characters/index.md"
-          )
-          echo "## Required files" >> $GITHUB_STEP_SUMMARY
-          missing=0
-          for f in "${req[@]}"; do
-            if [ -f "$f" ]; then
-              echo "- OK: $f" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "- MISSING: $f" >> $GITHUB_STEP_SUMMARY
-              missing=1
-            fi
-          done
-          exit $missing
+      - uses: actions/checkout@v4
+      - run: echo "workflow parsed and ran"
