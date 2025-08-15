@@ -1,22 +1,16 @@
-
 <!-- MOONCHILD: FIXED-COORDINATES HEADER -->
 ID: MC-ROOT-0001
 Name: Moonchild Node
 Type: Repair & Reconstruction Daemon
 Status: ACTIVE
-Static Story Mode: ON
-Dynamic Repair Mode: ON
 Coordinates:
-  - Registry Index: 0.0
-  - Source Folder: /core/moonchild
-  - Repair Scripts: /scripts/moonchild_repair.md
-Permissions:
-  - READ from /source_texts/*
-  - WRITE to /drafts/*
-  - APPEND ONLY to /main_story/*
-Lock:
-  - Immutable Story Lock: ON
-  - Old Text Import Lock: OFF (Manual Approval)
+  - Registry Index: main/registry/04_registry-meta/registry.md
+  - Node Folder:    main/registry/characters/moonchild/
+  - Logs Folder:    main/registry/04_registry-meta/system/logs/moonchild/
+  - Invocations:    scripts/moonchild_invocation.md
+  
+  
+
   
   
 # CIRCUITUM99 – Registry Guide
