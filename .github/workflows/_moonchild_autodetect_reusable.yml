@@ -1,0 +1,32 @@
+name: _Moonchild Autodetect (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      reason:
+        description: Why this was triggered (optional)
+        required: false
+        type: string
+
+jobs:
+  autodetect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout shallow (no LFS)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Scan for Moonchild files
+        id: scan
+        shell: bash
+        run: |
+          set -e
+          f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; echo "$2=${p#./}" >> "$GITHUB_OUTPUT"; }
+          f "registry.md"               REG
+          f "00_readme.md"             READ
+          f "moonchild_profile.md"     PROF
+          M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
+          echo "META=${M#./}" >> "$GITHUB_OUTPUT"
+          f "activation-log
