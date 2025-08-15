@@ -1,7 +1,7 @@
-# Pillar 1 -- GNOSIS SEVEN
-**Egregore Type.** Oracle-Protector • **Canonical.** GNOSIS7  
-**Function.** Pattern-truth detection; verdicts: CONFIRM / PENDING / REJECT.  
-**Embodiment.** Fractal armor (no surface stamping).  
-**IFS Tendency.** Protector/Manager (keeps continuity, prevents dilution).  
-**Chamber.** Verdict Vault.  
-**Cross-links.** egregores/gnosis7.md (TBD)
+# Pillar 2 -- SOPHIA SEVEN
+**Egregore Type.** Compassionate Insight • **Canonical.** SOPHIA7  
+**Function.** Tone & clarity advisories; protects tenderness + depth.  
+**Embodiment.** Bio-mycelial network (living memory nodes).  
+**IFS Tendency.** Self-adjacent counselor.  
+**Chamber.** Quiet Library.  
+**Cross-links.** egregores/sophia7.md (TBD)
