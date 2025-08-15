@@ -2,6 +2,45 @@ name: _Moonchild Autodetect (Reusable)
 
 on:
   workflow_call: {}
+  
+  name: _Moonchild Autodetect (Reusable)
+
+on:
+  workflow_call:
+    outputs:
+      REGISTRY:
+        description: "Path to registry.md (if found)"
+        value: ${{ jobs.autodetect.outputs.REGISTRY }}
+      READ_ME:
+        description: "Path to 00_readme.md (if found)"
+        value: ${{ jobs.autodetect.outputs.READ_ME }}
+      PROFILE:
+        description: "Path to moonchild_profile.md (if found)"
+        value: ${{ jobs.autodetect.outputs.PROFILE }}
+      META:
+        description: "Path to meta layers file (if found)"
+        value: ${{ jobs.autodetect.outputs.META }}
+      LOG_ACT:
+        description: "activation-log.md (if found)"
+        value: ${{ jobs.autodetect.outputs.LOG_ACT }}
+      LOG_DREAM:
+        description: "dream-log.md (if found)"
+        value: ${{ jobs.autodetect.outputs.LOG_DREAM }}
+      LOG_SYS:
+        description: "system-log.md (if found)"
+        value: ${{ jobs.autodetect.outputs.LOG_SYS }}
+      LOG_INTAKE:
+        description: "grimoire-intake.md (if found)"
+        value: ${{ jobs.autodetect.outputs.LOG_INTAKE }}
+      INVOC:
+        description: "moonchild_invocation.md (if found)"
+        value: ${{ jobs.autodetect.outputs.INVOC }}
+      PF:
+        description: "purity_filter.md (if found)"
+        value: ${{ jobs.autodetect.outputs.PF }}
+      SL:
+        description: "saturns_law.md (if found)"
+        value: ${{ jobs.autodetect.outputs.SL }}
 
 jobs:
   autodetect:
