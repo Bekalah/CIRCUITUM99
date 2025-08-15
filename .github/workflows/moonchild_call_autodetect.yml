@@ -1,97 +1,69 @@
-name: _Moonchild Autodetect (Reusable)
+name: Moonchild → Call Autodetect
 
 on:
-  workflow_call:
-    outputs:
-      REGISTRY:
-        description: "Path to registry.md (if found)"
-        value: ${{ jobs.autodetect.outputs.REGISTRY }}
-      READ_ME:
-        description: "Path to 00_readme.md (if found)"
-        value: ${{ jobs.autodetect.outputs.READ_ME }}
-      PROFILE:
-        description: "Path to moonchild_profile.md (if found)"
-        value: ${{ jobs.autodetect.outputs.PROFILE }}
-      META:
-        description: "Path to meta layers file (if found)"
-        value: ${{ jobs.autodetect.outputs.META }}
-      LOG_ACT:
-        description: "activation-log.md (if found)"
-        value: ${{ jobs.autodetect.outputs.LOG_ACT }}
-      LOG_DREAM:
-        description: "dream-log.md (if found)"
-        value: ${{ jobs.autodetect.outputs.LOG_DREAM }}
-      LOG_SYS:
-        description: "system-log.md (if found)"
-        value: ${{ jobs.autodetect.outputs.LOG_SYS }}
-      LOG_INTAKE:
-        description: "grimoire-intake.md (if found)"
-        value: ${{ jobs.autodetect.outputs.LOG_INTAKE }}
-      INVOC:
-        description: "moonchild_invocation.md (if found)"
-        value: ${{ jobs.autodetect.outputs.INVOC }}
-      PF:
-        description: "purity_filter.md (if found)"
-        value: ${{ jobs.autodetect.outputs.PF }}
-      SL:
-        description: "saturns_law.md (if found)"
-        value: ${{ jobs.autodetect.outputs.SL }}
+  workflow_dispatch: {}
+  push:
+    branches: ['**']
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   autodetect:
+    uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
+
+  log_snapshot:
+    needs: [autodetect]
     runs-on: ubuntu-latest
-    outputs:
-      REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
-      READ_ME:    ${{ steps.scan.outputs.READ_ME }}
-      PROFILE:    ${{ steps.scan.outputs.PROFILE }}
-      META:       ${{ steps.scan.outputs.META }}
-      LOG_ACT:    ${{ steps.scan.outputs.LOG_ACT }}
-      LOG_DREAM:  ${{ steps.scan.outputs.LOG_DREAM }}
-      LOG_SYS:    ${{ steps.scan.outputs.LOG_SYS }}
-      LOG_INTAKE: ${{ steps.scan.outputs.LOG_INTAKE }}
-      INVOC:      ${{ steps.scan.outputs.INVOC }}
-      PF:         ${{ steps.scan.outputs.PF }}
-      SL:         ${{ steps.scan.outputs.SL }}
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 1, lfs: false }
+        with: { fetch-depth: 0, lfs: false }
 
-      - id: scan
+      - name: Append detection snapshot to heartbeat.md
+        env:
+          REGISTRY:  ${{ needs.autodetect.outputs.REGISTRY }}
+          READ_ME:   ${{ needs.autodetect.outputs.READ_ME }}
+          PROFILE:   ${{ needs.autodetect.outputs.PROFILE }}
+          META:      ${{ needs.autodetect.outputs.META }}
         shell: bash
         run: |
-          set -e
-          f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; echo "$2=${p#./}" >> "$GITHUB_OUTPUT"; }
-          f "registry.md"              REGISTRY
-          f "00_readme.md"             READ_ME
-          f "moonchild_profile.md"     PROFILE
-          M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
-          echo "META=${M#./}" >> "$GITHUB_OUTPUT"
-          f "activation-log.md"        LOG_ACT
-          f "dream-log.md"             LOG_DREAM
-          f "system-log.md"            LOG_SYS
-          f "grimoire-intake.md"       LOG_INTAKE
-          f "moonchild_invocation.md"  INVOC
-          f "purity_filter.md"         PF
-          f "saturns_law.md"           SL
+          set -euo pipefail
+          LOG_DIR="main/registry/04_registry-meta/system/logs/moonchild"
+          mkdir -p "$LOG_DIR"
+          TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          {
+            echo "## Autodetect snapshot $TS"
+            echo "- Registry:   ${REGISTRY:-MISSING}"
+            echo "- 00_README:  ${READ_ME:-MISSING}"
+            echo "- Profile:    ${PROFILE:-MISSING}"
+            echo "- Meta:       ${META:-MISSING}"
+            echo
+          } >> "$LOG_DIR/heartbeat.md"
 
-      - name: Summary
-        env:
-          REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
-          READ_ME:    ${{ steps.scan.outputs.READ_ME }}
-          PROFILE:    ${{ steps.scan.outputs.PROFILE }}
-          META:       ${{ steps.scan.outputs.META }}
-          LOG_ACT:    ${{ steps.scan.outputs.LOG_ACT }}
-          LOG_DREAM:  ${{ steps.scan.outputs.LOG_DREAM }}
-          LOG_SYS:    ${{ steps.scan.outputs.LOG_SYS }}
-          LOG_INTAKE: ${{ steps.scan.outputs.LOG_INTAKE }}
-          INVOC:      ${{ steps.scan.outputs.INVOC }}
-          PF:         ${{ steps.scan.outputs.PF }}
-          SL:         ${{ steps.scan.outputs.SL }}
+      - name: Commit or PR
+        id: commit
         run: |
-          echo "## Autodetect (found/missing)" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          for k in REGISTRY READ_ME PROFILE META LOG_ACT LOG_DREAM LOG_SYS LOG_INTAKE INVOC PF SL; do
-            eval v=\$$k
-            [ -n "$v" ] && echo "✔ $k -> $v" || echo "✘ $k MISSING"
-          done >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "moonchild-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add -A
+            git commit -m "autodetect: snapshot → heartbeat [skip ci]"
+            echo "committed=1" >> $GITHUB_OUTPUT
+          else
+            echo "committed=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push
+        if: steps.commit.outputs.committed == '1'
+        continue-on-error: true
+        run: git push
+
+      - name: PR fallback (if branch protected)
+        if: steps.commit.outputs.committed == '1'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bot/autodetect-snapshot-${{ github.run_id }}
+          title: "Moonchild autodetect → heartbeat"
+          body: "Direct push blocked; opening PR with snapshot."
+          commit-message: "autodetect: snapshot → heartbeat"
