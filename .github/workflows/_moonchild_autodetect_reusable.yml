@@ -1,90 +1,91 @@
-name: Moonchild · Call Autodetect
+name: _Moonchild Autodetect (Reusable)
 
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - 'circuitum99/main/04_registry-meta/registry.md'
-      - 'circuitum99/main/registry/**'
-
-permissions:
-  contents: read
-
-concurrency:
-  group: moonchild-call-${{ github.ref }}
-  cancel-in-progress: true
+  workflow_call:
+    outputs:
+      REGISTRY:
+        value: ${{ jobs.autodetect.outputs.REGISTRY }}
+      READ_ME:
+        value: ${{ jobs.autodetect.outputs.READ_ME }}
+      PROFILE:
+        value: ${{ jobs.autodetect.outputs.PROFILE }}
+      META:
+        value: ${{ jobs.autodetect.outputs.META }}
+      LOG_ACT:
+        value: ${{ jobs.autodetect.outputs.LOG_ACT }}
+      LOG_DREAM:
+        value: ${{ jobs.autodetect.outputs.LOG_DREAM }}
+      LOG_SYS:
+        value: ${{ jobs.autodetect.outputs.LOG_SYS }}
+      LOG_INTAKE:
+        value: ${{ jobs.autodetect.outputs.LOG_INTAKE }}
+      INVOC:
+        value: ${{ jobs.autodetect.outputs.INVOC }}
+      PF:
+        value: ${{ jobs.autodetect.outputs.PF }}
+      SL:
+        value: ${{ jobs.autodetect.outputs.SL }}
 
 jobs:
   autodetect:
-    uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
-
-  validate:
-    needs: autodetect
     runs-on: ubuntu-latest
+    outputs:
+      REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
+      READ_ME:    ${{ steps.scan.outputs.READ_ME }}
+      PROFILE:    ${{ steps.scan.outputs.PROFILE }}
+      META:       ${{ steps.scan.outputs.META }}
+      LOG_ACT:    ${{ steps.scan.outputs.LOG_ACT }}
+      LOG_DREAM:  ${{ steps.scan.outputs.LOG_DREAM }}
+      LOG_SYS:    ${{ steps.scan.outputs.LOG_SYS }}
+      LOG_INTAKE: ${{ steps.scan.outputs.LOG_INTAKE }}
+      INVOC:      ${{ steps.scan.outputs.INVOC }}
+      PF:         ${{ steps.scan.outputs.PF }}
+      SL:         ${{ steps.scan.outputs.SL }}
     steps:
-      - name: Checkout (no LFS)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with: { fetch-depth: 1, lfs: false }
 
-      - name: Resolve & assert canonical files exist
-        id: resolve
+      - id: scan
         shell: bash
         run: |
-          set -euo pipefail
+          set -e
+          # helper: find first file case-insensitively; write to $GITHUB_OUTPUT
+          f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; echo "$2=${p#./}" >> "$GITHUB_OUTPUT"; }
 
-          CANON_REGISTRY="circuitum99/main/04_registry-meta/registry.md"
-          CANON_PROFILE="circuitum99/main/registry/characters/moonchild/moonchild_profile.md"
-          CANON_PILLAR="circuitum99/main/registry/pillars/pillar_21_moonchild.md"
-          CANON_SPINE="circuitum99/main/registry/spine/living_spine_33.md"
-          CANON_REALMS="circuitum99/main/registry/realms/index.md"
-          CANON_CHARS="circuitum99/main/registry/characters/index.md"
+          # core files (case-insensitive so 00_README.md is caught)
+          f "registry.md"              REGISTRY
+          f "00_readme.md"             READ_ME
+          f "moonchild_profile.md"     PROFILE
+          M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
+          echo "META=${M#./}" >> "$GITHUB_OUTPUT"
 
-          echo "REGISTRY_CANON=$CANON_REGISTRY" >> $GITHUB_OUTPUT
-          echo "PROFILE_CANON=$CANON_PROFILE"   >> $GITHUB_OUTPUT
-          echo "PILLAR_CANON=$CANON_PILLAR"     >> $GITHUB_OUTPUT
-          echo "SPINE_CANON=$CANON_SPINE"       >> $GITHUB_OUTPUT
-          echo "REALMS_CANON=$CANON_REALMS"     >> $GITHUB_OUTPUT
-          echo "CHARS_CANON=$CANON_CHARS"       >> $GITHUB_OUTPUT
+          # logs & protections anywhere
+          f "activation-log.md"        LOG_ACT
+          f "dream-log.md"             LOG_DREAM
+          f "system-log.md"            LOG_SYS
+          f "grimoire-intake.md"       LOG_INTAKE
+          f "moonchild_invocation.md"  INVOC
+          f "purity_filter.md"         PF
+          f "saturns_law.md"           SL
 
-          echo "## Moonchild Call -- Expected Files" >> $GITHUB_STEP_SUMMARY
-          missing=0
-          for p in "$CANON_REGISTRY" "$CANON_PROFILE" "$CANON_PILLAR" "$CANON_SPINE" "$CANON_REALMS" "$CANON_CHARS"; do
-            if [ -f "$p" ]; then
-              echo "- ✅ $p" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "- ❌ MISSING: $p" >> $GITHUB_STEP_SUMMARY
-              missing=1
-            fi
-          done
-          [ $missing -eq 0 ] || { echo "::error::One or more required files are missing. See summary above."; exit 1; }
-
-      - name: Link check (from registry)
-        shell: bash
+      - name: Summary
+        env:
+          REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
+          READ_ME:    ${{ steps.scan.outputs.READ_ME }}
+          PROFILE:    ${{ steps.scan.outputs.PROFILE }}
+          META:       ${{ steps.scan.outputs.META }}
+          LOG_ACT:    ${{ steps.scan.outputs.LOG_ACT }}
+          LOG_DREAM:  ${{ steps.scan.outputs.LOG_DREAM }}
+          LOG_SYS:    ${{ steps.scan.outputs.LOG_SYS }}
+          LOG_INTAKE: ${{ steps.scan.outputs.LOG_INTAKE }}
+          INVOC:      ${{ steps.scan.outputs.INVOC }}
+          PF:         ${{ steps.scan.outputs.PF }}
+          SL:         ${{ steps.scan.outputs.SL }}
         run: |
-          set -euo pipefail
-          REG="circuitum99/main/04_registry-meta/registry.md"
-          REQUIRED_LINKS=(
-            "../registry/pillars/pillar_21_moonchild.md"
-            "../registry/spine/living_spine_33.md"
-            "../registry/realms/index.md"
-            "../registry/characters/index.md"
-            "../registry/characters/moonchild/moonchild_profile.md"
-          )
-
-          echo "## Link Check (relative to $REG)" >> $GITHUB_STEP_SUMMARY
-          base_dir="$(dirname "$REG")"
-          for rel in "${REQUIRED_LINKS[@]}"; do
-            abs="$(python - <<'PY'
-import os,sys
-print(os.path.normpath(os.path.join(sys.argv[1], sys.argv[2])))
-PY
-"$base_dir" "$rel")"
-            if [ -f "$abs" ]; then
-              echo "- ✅ $rel → $abs" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "- ❌ $rel → $abs (missing)" >> $GITHUB_STEP_SUMMARY
-            fi
-          done
-
-      - name: Success summary
-        run: echo "Moonchild Call Autodetect completed." >> $GITHUB_STEP_SUMMARY
+          echo "## Autodetect (found/missing)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          for k in REGISTRY READ_ME PROFILE META LOG_ACT LOG_DREAM LOG_SYS LOG_INTAKE INVOC PF SL; do
+            eval v=\$$k
+            [ -n "$v" ] && echo "✔ $k -> $v" || echo "✘ $k MISSING"
+          done >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
