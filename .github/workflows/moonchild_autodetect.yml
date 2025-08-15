@@ -1,0 +1,131 @@
+name: Moonchild Autodetect
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['**']
+
+jobs:
+  autodetect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup LFS (safe)
+        run: |
+          git lfs install
+          git lfs fetch --all || true
+          git lfs checkout || true
+
+      - name: Autodetect key Moonchild files anywhere in repo
+        id: scan
+        shell: bash
+        run: |
+          set -e
+
+          find_one() {
+            pat="$1"; hint="$2"
+            path="$(find . -type f -iname "$pat" | head -n 1 || true)"
+            if [ -n "$path" ]; then
+              echo "FOUND: $hint -> $path"
+              printf "%s=%s\n" "$hint" "${path#./}" >> $GITHUB_OUTPUT
+            else
+              echo "MISSING: $hint (looked for *$pat*)"
+              printf "%s=%s\n" "$hint" "" >> $GITHUB_OUTPUT
+            fi
+          }
+
+          echo "::group::Searching…"
+          find_one "registry.md" REGISTRY
+          find_one "00_readme.md" READ_ME
+          find_one "moonchild_profile.md" PROFILE
+          find_one "moonchild_meta_layers.md" META_FILE_A
+          find_one "moon_child_meta_layers.md" META_FILE_B
+          find_one "activation-log.md" LOG_ACT
+          find_one "dream-log.md" LOG_DREAM
+          find_one "system-log.md" LOG_SYS
+          find_one "grimoire-intake.md" LOG_INTAKE
+          find_one "moonchild_invocation.md" INVOCATION
+          # protections (anywhere)
+          find_one "purity_filter.md" PF
+          find_one "saturns_law.md" SL
+          echo "::endgroup::"
+
+      - name: Report & propose exact fixes
+        shell: bash
+        run: |
+          set -e
+          get() { eval "echo \"${{$1}}\""; }
+
+          REG="$(get steps.scan.outputs.REGISTRY)"
+          RM="$(get steps.scan.outputs.READ_ME)"
+          PR="$(get steps.scan.outputs.PROFILE)"
+          MA="$(get steps.scan.outputs.META_FILE_A)"
+          MB="$(get steps.scan.outputs.META_FILE_B)"
+          LA="$(get steps.scan.outputs.LOG_ACT)"
+          LD="$(get steps.scan.outputs.LOG_DREAM)"
+          LS="$(get steps.scan.outputs.LOG_SYS)"
+          LI="$(get steps.scan.outputs.LOG_INTAKE)"
+          IV="$(get steps.scan.outputs.INVOCATION)"
+          PF="$(get steps.scan.outputs.PF)"
+          SL="$(get steps.scan.outputs.SL)"
+
+          echo "### Autodetect results"
+          echo "- Registry:      ${REG:-MISSING}"
+          echo "- 00_README:     ${RM:-MISSING}"
+          echo "- Profile:       ${PR:-MISSING}"
+          echo "- Meta (A):      ${MA:-not found}"
+          echo "- Meta (B):      ${MB:-not found}"
+          echo "- Activation log:${LA:-MISSING}"
+          echo "- Dream log:     ${LD:-MISSING}"
+          echo "- System log:    ${LS:-MISSING}"
+          echo "- Intake log:    ${LI:-MISSING}"
+          echo "- Invocation:    ${IV:-MISSING}"
+          echo "- Purity Filter: ${PF:-MISSING}"
+          echo "- Saturn's Law:  ${SL:-MISSING}"
+
+          # choose meta file whichever exists
+          MF="${MA:-$MB}"
+
+          echo ""
+          echo "### Canonical targets we expect"
+          echo "main/registry/04_registry-meta/registry.md"
+          echo "main/registry/characters/moonchild/00_README.md"
+          echo "main/registry/characters/moonchild/moonchild_profile.md"
+          echo "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
+          echo "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
+          echo "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
+          echo "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
+          echo "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
+          echo "scripts/moonchild_invocation.md"
+          echo "(protections can live anywhere; stubs at protection/*.md are fine)"
+
+          echo ""
+          echo "### Suggested 'git mv' commands (only if you WANT to standardize)"
+          move_cmd() {
+            found="$1"; target="$2"
+            [ -n "$found" ] && [ "$found" != "$target" ] && echo "git mkdir -p \"$(dirname "$target")\" 2>/dev/null || true; git mv \"$found\" \"$target\""
+          }
+
+          move_cmd "$REG" "main/registry/04_registry-meta/registry.md"
+          move_cmd "$RM"  "main/registry/characters/moonchild/00_README.md"
+          move_cmd "$PR"  "main/registry/characters/moonchild/moonchild_profile.md"
+          move_cmd "$MF"  "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
+          move_cmd "$LA"  "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
+          move_cmd "$LD"  "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
+          move_cmd "$LS"  "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
+          move_cmd "$LI"  "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
+          move_cmd "$IV"  "scripts/moonchild_invocation.md"
+
+          echo ""
+          echo "### If you DON'T want to move files"
+          echo "- Keep files where they are. Update your workflow paths to the detected locations above."
+          echo "- Update links in 00_README.md to use correct relative paths from its folder."
+
+      - name: Add run summary
+        shell: bash
+        run: |
+          echo "See the job log above for FOUND/MISSING and suggested 'git mv' lines." >> $GITHUB_STEP_SUMMARY
