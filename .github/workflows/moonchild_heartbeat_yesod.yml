@@ -1,0 +1,32 @@
+name: Moonchild Heartbeat Yesod
+on:
+  schedule:
+    - cron: "*/33 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Append heartbeat line
+        run: |
+          set -e
+          LOG="circuitum99/main/04_registry-meta/system/logs/moonchild/heartbeat.md"
+          mkdir -p "$(dirname "$LOG")"
+          printf "## Pulse %s UTC -- OK\n" "$(date -u +'%Y-%m-%d %H:%M:%S')" >> "$LOG"
+      - name: Commit (if changed)
+        run: |
+          set -e
+          git config user.name  "moonchild-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "heartbeat: yesod pulse [skip ci]"
+            git push
+          else
+            echo "No changes."
+          fi
