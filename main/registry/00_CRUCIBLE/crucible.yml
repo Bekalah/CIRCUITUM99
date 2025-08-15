@@ -1,6 +1,5 @@
-# LIVING CRUCIBLE CONFIG (read-only mixer)
 version: 1
-precedence: [canon, confirmed, lore, recovered]   # higher wins; nothing is overwritten
+precedence: [canon, confirmed, lore, recovered]   # higher wins in preview
 inputs:
   canon:     main/registry/00_CRUCIBLE/sources/canon
   confirmed: main/registry/00_CRUCIBLE/sources/confirmed
@@ -16,4 +15,4 @@ rules:
   never_overwrite_sources: true
   allow_preview_only: true
   allowed_extensions: [md, png, jpg, jpeg, svg]
-  chapter_glob: ["**/chapter*.md", "**/*_chapter_*.md", "chapters/**/*.md"]
+  chapter_glob: ["**/CH-*.md", "chapters/**/*.md", "**/chapter*.md"]
