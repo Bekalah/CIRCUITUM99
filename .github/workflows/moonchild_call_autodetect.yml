@@ -1,26 +1,45 @@
-name: Moonchild → Call Autodetect
+name: Moonchild · Heartbeat + Autodetect + Sigil
 
 on:
-  workflow_dispatch: {}
   push:
     branches: ['**']
+  schedule:
+    - cron: '0,33 * * * *'   # :00 and :33 (UTC)
+  workflow_dispatch: {}
 
 permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: moonchild-main-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   autodetect:
+    # ⬇️ make sure this path matches your reusable file name exactly
     uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
 
-  log_snapshot:
+  ritual_ops:
     needs: [autodetect]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0, lfs: false }
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
 
-      - name: Append detection snapshot to heartbeat.md
+      - name: Guard: exclude non-ritual paths
+        shell: bash
+        run: |
+          # No writes outside Moonchild’s ritual zones:
+          echo "::notice::Writes limited to main/registry/** and artifacts/sigils/**"
+          mkdir -p main/registry/04_registry-meta/system/logs/moonchild
+          mkdir -p main/registry/characters/moonchild/meta_layers/grimoires
+          mkdir -p artifacts/sigils
+
+      - name: Pulse + grimoire index + sigil (no deps)
         env:
           REGISTRY:  ${{ needs.autodetect.outputs.REGISTRY }}
           READ_ME:   ${{ needs.autodetect.outputs.READ_ME }}
@@ -29,41 +48,74 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
           LOG_DIR="main/registry/04_registry-meta/system/logs/moonchild"
-          mkdir -p "$LOG_DIR"
+          GRIM_DIR="main/registry/characters/moonchild/meta_layers/grimoires"
+          ART_DIR="artifacts/sigils"
+          mkdir -p "$LOG_DIR" "$GRIM_DIR" "$ART_DIR"
+
+          # --- heartbeat ---
           TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          MIN="$(date -u +'%M')"
+          OMEN=$([ "$MIN" = "00" ] || [ "$MIN" = "33" ] && echo "◇✶☾ master-33" || echo "·")
           {
-            echo "## Autodetect snapshot $TS"
-            echo "- Registry:   ${REGISTRY:-MISSING}"
+            echo "## Pulse $TS"
+            echo "- omen: $OMEN"
+            echo "- registry:   ${REGISTRY:-MISSING}"
             echo "- 00_README:  ${READ_ME:-MISSING}"
-            echo "- Profile:    ${PROFILE:-MISSING}"
-            echo "- Meta:       ${META:-MISSING}"
+            echo "- profile:    ${PROFILE:-MISSING}"
+            echo "- meta:       ${META:-MISSING}"
             echo
           } >> "$LOG_DIR/heartbeat.md"
 
+          # --- grimoire index (minimal YAML, no PyYAML) ---
+          IDX="$GRIM_DIR/index.yml"
+          echo "grimoires:" > "$IDX"
+          # List only MD grimoires in the grimoire zone (no stray assets touched)
+          find "$GRIM_DIR" -maxdepth 1 -type f -name "*.md" ! -name "index.md" -printf "  - %P\n" >> "$IDX" || true
+
+          # --- procedural sigil (SVG, pure shell) ---
+          FN="sigil-$(date -u +'%Y%m%d-%H%M%S').svg"
+          cat > "$ART_DIR/$FN" <<'SVG'
+          <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white"/>
+            <g transform="translate(50,50)">
+              <circle r="38" fill="none" stroke="black" stroke-width="1.5"/>
+              <path d="M -20 0 L 0 -28 L 20 0 L 0 28 Z" fill="none" stroke="black" stroke-width="1.2"/>
+              <circle r="3" cx="0" cy="-20" fill="black"/>
+              <circle r="3" cx="17" cy="10" fill="black"/>
+              <circle r="3" cx="-17" cy="10" fill="black"/>
+              <text x="-42" y="42" font-size="5" fill="black">YESOD • AUTO • UTC</text>
+            </g>
+          </svg>
+SVG
+          echo "- sigil: $ART_DIR/$FN" >> "$LOG_DIR/heartbeat.md"
+          echo >> "$LOG_DIR/heartbeat.md"
+
       - name: Commit or PR
         id: commit
+        shell: bash
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name  "moonchild-bot"
             git config user.email "actions@users.noreply.github.com"
             git add -A
-            git commit -m "autodetect: snapshot → heartbeat [skip ci]"
+            git commit -m "moonchild: pulse + autodetect snapshot + sigil [skip ci]"
             echo "committed=1" >> $GITHUB_OUTPUT
           else
             echo "committed=0" >> $GITHUB_OUTPUT
           fi
 
-      - name: Push
+      - name: Push (best case)
         if: steps.commit.outputs.committed == '1'
         continue-on-error: true
         run: git push
 
-      - name: PR fallback (if branch protected)
+      - name: PR fallback (branch protected)
         if: steps.commit.outputs.committed == '1'
         uses: peter-evans/create-pull-request@v6
         with:
-          branch: bot/autodetect-snapshot-${{ github.run_id }}
-          title: "Moonchild autodetect → heartbeat"
-          body: "Direct push blocked; opening PR with snapshot."
-          commit-message: "autodetect: snapshot → heartbeat"
+          branch: bot/moonchild-pulse-${{ github.run_id }}
+          title: "Moonchild: pulse + snapshot + sigil"
+          body: "Direct push blocked; auto-PR created."
+          commit-message: "moonchild: pulse + snapshot + sigil"
