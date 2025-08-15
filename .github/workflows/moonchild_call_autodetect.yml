@@ -1,4 +1,4 @@
-       name: Moonchild · Call Autodetect
+    name: Moonchild · Call Autodetect (Standalone)
 
 on:
   workflow_dispatch:
@@ -15,21 +15,65 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  autodetect:
-    uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
-
-  validate:
-    needs: autodetect
+  scan_and_validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (no LFS)
         uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 1
           lfs: false
 
-      - name: Resolve & assert canonical files exist (your layout)
-        id: resolve
+      - name: Autodetect Moonchild files (case-insensitive)
+        id: scan
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # helper: find first match (case-insensitive)
+          f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; printf "%s=%s\n" "$2" "${p#./}" >> "$GITHUB_OUTPUT"; }
+
+          # core files
+          f "registry.md"              REGISTRY
+          f "00_readme.md"             READ_ME
+          f "moonchild_profile.md"     PROFILE
+          M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
+          echo "META=${M#./}" >> "$GITHUB_OUTPUT"
+
+          # logs & protections anywhere
+          f "activation-log.md"        LOG_ACT
+          f "dream-log.md"             LOG_DREAM
+          f "system-log.md"            LOG_SYS
+          f "grimoire-intake.md"       LOG_INTAKE
+          f "moonchild_invocation.md"  INVOC
+          f "purity_filter.md"         PF
+          f "saturns_law.md"           SL
+
+      - name: Summary (what the scan found)
+        shell: bash
+        env:
+          REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
+          READ_ME:    ${{ steps.scan.outputs.READ_ME }}
+          PROFILE:    ${{ steps.scan.outputs.PROFILE }}
+          META:       ${{ steps.scan.outputs.META }}
+          LOG_ACT:    ${{ steps.scan.outputs.LOG_ACT }}
+          LOG_DREAM:  ${{ steps.scan.outputs.LOG_DREAM }}
+          LOG_SYS:    ${{ steps.scan.outputs.LOG_SYS }}
+          LOG_INTAKE: ${{ steps.scan.outputs.LOG_INTAKE }}
+          INVOC:      ${{ steps.scan.outputs.INVOC }}
+          PF:         ${{ steps.scan.outputs.PF }}
+          SL:         ${{ steps.scan.outputs.SL }}
+        run: |
+          echo "## Autodetect (found/missing)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          for k in REGISTRY READ_ME PROFILE META LOG_ACT LOG_DREAM LOG_SYS LOG_INTAKE INVOC PF SL; do
+            eval v=\$$k
+            [ -n "$v" ] && echo "✔ $k -> $v" || echo "✘ $k MISSING"
+          done >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Enforce your canonical paths (must exist)
+        id: enforce
         shell: bash
         run: |
           set -euo pipefail
@@ -53,7 +97,7 @@ jobs:
           done
           [ $missing -eq 0 ] || { echo "::error::One or more required files are missing. See summary above."; exit 1; }
 
-      - name: Link check (relative from registry)
+      - name: Link check (relative links inside registry.md)
         shell: bash
         run: |
           set -euo pipefail
@@ -69,11 +113,8 @@ jobs:
           echo "## Link Check (relative to $REG)" >> $GITHUB_STEP_SUMMARY
           base_dir="$(dirname "$REG")"
           for rel in "${REQUIRED_LINKS[@]}"; do
-            abs="$(python - <<'PY'
-import os,sys
-print(os.path.normpath(os.path.join(sys.argv[1], sys.argv[2])))
-PY
-"$base_dir" "$rel")"
+            # Resolve relative → absolute without requiring Python
+            abs="$(node -e "const path=require('path');console.log(path.normalize(path.join(process.argv[1],process.argv[2])))" "$base_dir" "$rel")"
             if [ -f "$abs" ]; then
               echo "- ✅ $rel → $abs" >> $GITHUB_STEP_SUMMARY
             else
@@ -82,4 +123,4 @@ PY
           done
 
       - name: Success summary
-        run: echo "Moonchild Call Autodetect completed." >> $GITHUB_STEP_SUMMARY
+        run: echo "Moonchild Call Autodetect (Standalone) completed." >> $GITHUB_STEP_SUMMARY
