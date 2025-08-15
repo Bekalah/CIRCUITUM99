@@ -28,8 +28,8 @@ jobs:
       - name: Setup Git LFS
         run: |
           git lfs install
-          git lfs fetch --all
-          git lfs checkout
+          git lfs fetch --all || true
+          git lfs checkout || true
 
       - name: Validate Moonchild core (your real paths)
         shell: bash
@@ -37,25 +37,22 @@ jobs:
           set -e
           must() { [ -e "$1" ] && echo "✔ $1" || { echo "✘ $1 missing"; exit 1; }; }
 
-          # Registry & node
-          must main/registry/4\04_registry-meta/registry.md  # (escaped \0 handled by shell)
-          # the above escape can be finicky in sh; use the next exact line instead:
+          # Registry & node (REAL paths in your repo)
           must main/registry/04_registry-meta/registry.md
-
           must main/registry/characters/moonchild/00_README.md
           must main/registry/characters/moonchild/moonchild_profile.md
           must main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md
 
-          # Logs (system memory)
+          # Logs (REAL paths in your repo)
           must main/registry/04_registry-meta/system/logs/moonchild/activation-log.md
           must main/registry/04_registry-meta/system/logs/moonchild/dream-log.md
           must main/registry/04_registry-meta/system/logs/moonchild/system-log.md
           must main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md
 
-          # Invocation
+          # Invocation script (present at repo root/scripts)
           must scripts/moonchild_invocation.md
 
-      - name: Validate protections (allow multiple locations)
+      - name: Validate protections (allow multiple homes)
         shell: bash
         run: |
           set -e
@@ -80,9 +77,9 @@ jobs:
         run: |
           set -e
           fails=0
-          # bad casings/patterns
+          # Common bad patterns we saw earlier
           grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers\.md|00_readme\.md" && fails=1 || true
-          [ $fails -eq 0 ] || { echo "✘ markdown link pattern check failed"; exit 1; }
+          [ $fails -eq 0 ] || { echo "✘ markdown link pattern check failed (fix casing/filenames)"; exit 1; }
 
       - name: Emit summary
         shell: bash
