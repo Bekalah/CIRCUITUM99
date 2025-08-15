@@ -2,31 +2,99 @@ name: _Moonchild Autodetect (Reusable)
 
 on:
   workflow_call:
-    inputs:
-      reason:
-        description: Why this was triggered (optional)
-        required: false
-        type: string
+    outputs:
+      REGISTRY:
+        description: "Path to registry.md (if found)"
+        value: ${{ jobs.autodetect.outputs.REGISTRY }}
+      READ_ME:
+        description: "Path to 00_README.md (if found)"
+        value: ${{ jobs.autodetect.outputs.READ_ME }}
+      PROFILE:
+        description: "Path to moonchild_profile.md (if found)"
+        value: ${{ jobs.autodetect.outputs.PROFILE }}
+      META:
+        description: "Path to meta layers file (if found)"
+        value: ${{ jobs.autodetect.outputs.META }}
+      LOGS_ROOT:
+        description: "Canonical logs directory"
+        value: ${{ jobs.autodetect.outputs.LOGS_ROOT }}
+      MISSING_ANY:
+        description: "1 if any core item missing; else 0"
+        value: ${{ jobs.autodetect.outputs.MISSING_ANY }}
 
 jobs:
   autodetect:
     runs-on: ubuntu-latest
+    outputs:
+      REGISTRY:   ${{ steps.scan.outputs.REGISTRY }}
+      READ_ME:    ${{ steps.scan.outputs.READ_ME }}
+      PROFILE:    ${{ steps.scan.outputs.PROFILE }}
+      META:       ${{ steps.scan.outputs.META }}
+      LOGS_ROOT:  ${{ steps.scan.outputs.LOGS_ROOT }}
+      MISSING_ANY:${{ steps.validate.outputs.MISSING_ANY }}
     steps:
-      - name: Checkout shallow (no LFS)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
           lfs: false
 
-      - name: Scan for Moonchild files
-        id: scan
+      - id: scan
         shell: bash
         run: |
           set -e
           f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; echo "$2=${p#./}" >> "$GITHUB_OUTPUT"; }
-          f "registry.md"               REG
-          f "00_readme.md"             READ
-          f "moonchild_profile.md"     PROF
+          f "registry.md"              REGISTRY
+          f "00_readme.md"             READ_ME
+          f "moonchild_profile.md"     PROFILE
           M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
           echo "META=${M#./}" >> "$GITHUB_OUTPUT"
-          f "activation-log
+          echo "LOGS_ROOT=main/registry/04_registry-meta/system/logs/moonchild" >> "$GITHUB_OUTPUT"
+
+      - id: validate
+        shell: bash
+        env:
+          REGISTRY: ${{ steps.scan.outputs.REGISTRY }}
+          READ_ME:  ${{ steps.scan.outputs.READ_ME }}
+          PROFILE:  ${{ steps.scan.outputs.PROFILE }}
+          META:     ${{ steps.scan.outputs.META }}
+        run: |
+          miss=0
+          for k in REGISTRY READ_ME PROFILE META; do
+            v="${!k}"
+            if [ -z "$v" ]; then
+              echo "✘ missing: $k"; miss=1
+            else
+              echo "✔ $k -> $v"
+            fi
+          done
+          echo "MISSING_ANY=$miss" >> "$GITHUB_OUTPUT"
+
+      - name: Run Summary
+        env:
+          REGISTRY:  ${{ steps.scan.outputs.REGISTRY }}
+          READ_ME:   ${{ steps.scan.outputs.READ_ME }}
+          PROFILE:   ${{ steps.scan.outputs.PROFILE }}
+          META:      ${{ steps.scan.outputs.META }}
+          LOGS_ROOT: ${{ steps.scan.outputs.LOGS_ROOT }}
+        run: |
+          echo "## Moonchild Autodetect" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Found paths**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "Registry:   ${REGISTRY:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo "00_README:  ${READ_ME:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo "Profile:    ${PROFILE:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo "Meta:       ${META:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo "Logs root:  ${LOGS_ROOT}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload found files (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: moonchild-autodetect
+          path: |
+            ${{ steps.scan.outputs.REGISTRY }}
+            ${{ steps.scan.outputs.READ_ME }}
+            ${{ steps.scan.outputs.PROFILE }}
+            ${{ steps.scan.outputs.META }}
+          if-no-files-found: ignore
