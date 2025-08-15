@@ -20,8 +20,8 @@ jobs:
         run: test -f "circuitum99/main/registry/pillars/pillar_21_moonchild.md" || (echo "::error::Missing circuitum99/main/registry/pillars/pillar_21_moonchild.md" && exit 1)
       - name: Check living_spine_33.md
         run: test -f "circuitum99/main/registry/spine/living_spine_33.md" || (echo "::error::Missing circuitum99/main/registry/spine/living_spine_33.md" && exit 1)
-      - name: Check realms index.md
+      - name: Check realms/index.md
         run: test -f "circuitum99/main/registry/realms/index.md" || (echo "::error::Missing circuitum99/main/registry/realms/index.md" && exit 1)
-      - name: Check characters index.md
+      - name: Check characters/index.md
         run: test -f "circuitum99/main/registry/characters/index.md" || (echo "::error::Missing circuitum99/main/registry/characters/index.md" && exit 1)
       - run: echo "All required files present."
