@@ -1,0 +1,19 @@
+# LIVING CRUCIBLE CONFIG (read-only mixer)
+version: 1
+precedence: [canon, confirmed, lore, recovered]   # higher wins; nothing is overwritten
+inputs:
+  canon:     main/registry/00_CRUCIBLE/sources/canon
+  confirmed: main/registry/00_CRUCIBLE/sources/confirmed
+  lore:      main/registry/00_CRUCIBLE/sources/lore
+  recovered: main/registry/00_CRUCIBLE/sources/recovered
+  ritual:    main/registry/00_CRUCIBLE/sources/ritual
+art:
+  sigils_dir: circuitum99/art/img/sigils
+output:
+  preview_dir: main/registry/00_CRUCIBLE/build/preview
+  index_file:  main/registry/00_CRUCIBLE/build/preview/_INDEX.md
+rules:
+  never_overwrite_sources: true
+  allow_preview_only: true
+  allowed_extensions: [md, png, jpg, jpeg, svg]
+  chapter_glob: ["**/chapter*.md", "**/*_chapter_*.md", "chapters/**/*.md"]
