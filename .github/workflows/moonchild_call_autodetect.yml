@@ -1,37 +1,111 @@
-          - name: Stage ONLY Moonchild files
-        id: stage
+         name: Moonchild · Call Autodetect
+
+on:
+  # Manual run button
+  workflow_dispatch:
+  # Auto-run when you change the registry or anything under Circuitum99’s registry tree
+  push:
+    paths:
+      - 'circuitum99/main/04_registry-meta/registry.md'
+      - 'circuitum99/main/registry/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: moonchild-call-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # 1) Reuse the scanner (must exist as a reusable workflow)
+  autodetect:
+    uses: ./.github/workflows/_moonchild_autodetect_reusable.yml
+
+  # 2) Validate the paths that Moonchild needs *in your layout*
+  validate:
+    needs: autodetect
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (no LFS)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Resolve targets from autodetect + enforce your tree
+        id: resolve
+        shell: bash
+        env:
+          REGISTRY_DETECTED:   ${{ needs.autodetect.outputs.REGISTRY }}
+          READ_ME_DETECTED:    ${{ needs.autodetect.outputs.READ_ME }}
+          PROFILE_DETECTED:    ${{ needs.autodetect.outputs.PROFILE }}
+          META_DETECTED:       ${{ needs.autodetect.outputs.META }}
+        run: |
+          set -euo pipefail
+
+          # Canonical paths under YOUR repo layout
+          CANON_REGISTRY="circuitum99/main/04_registry-meta/registry.md"
+          CANON_PROFILE="circuitum99/main/registry/characters/moonchild/moonchild_profile.md"
+          CANON_PILLAR="circuitum99/main/registry/pillars/pillar_21_moonchild.md"
+          CANON_SPINE="circuitum99/main/registry/spine/living_spine_33.md"
+          CANON_REALMS="circuitum99/main/registry/realms/index.md"
+          CANON_CHARS="circuitum99/main/registry/characters/index.md"
+
+          echo "REGISTRY_CANON=$CANON_REGISTRY" >> $GITHUB_OUTPUT
+          echo "PROFILE_CANON=$CANON_PROFILE"   >> $GITHUB_OUTPUT
+          echo "PILLAR_CANON=$CANON_PILLAR"     >> $GITHUB_OUTPUT
+          echo "SPINE_CANON=$CANON_SPINE"       >> $GITHUB_OUTPUT
+          echo "REALMS_CANON=$CANON_REALMS"     >> $GITHUB_OUTPUT
+          echo "CHARS_CANON=$CANON_CHARS"       >> $GITHUB_OUTPUT
+
+          # Summarize what we *expect* to exist
+          echo "## Moonchild Call -- Expected Files" >> $GITHUB_STEP_SUMMARY
+          for p in "$CANON_REGISTRY" "$CANON_PROFILE" "$CANON_PILLAR" "$CANON_SPINE" "$CANON_REALMS" "$CANON_CHARS"; do
+            if [ -f "$p" ]; then
+              echo "- ✅ $p" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ❌ MISSING: $p" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+          # Hard fail if the critical pair is missing
+          [ -f "$CANON_REGISTRY" ] || { echo "::error file=$CANON_REGISTRY::Registry file not found"; exit 1; }
+          [ -f "$CANON_PROFILE"  ] || { echo "::error file=$CANON_PROFILE::Moonchild profile not found"; exit 1; }
+
+      - name: Link check (relative links from registry)
         shell: bash
         run: |
           set -euo pipefail
-          echo "---- git status (pre-stage) ----"
-          git status --porcelain
+          REG="circuitum99/main/04_registry-meta/registry.md"
 
-          # Unstage anything that might already be staged
-          git restore --staged :/ || true
-
-          # Whitelist the ONLY paths this bot is allowed to touch
-          ALLOW=(
-            "main/registry/04_registry-meta/system/logs/moonchild"                     # heartbeat + grimoire-intake.md
-            "main/registry/characters/moonchild/meta_layers/grimoires/index.yml"       # grimoire index
-            "circuitum99/art/img/sigils"                                               # your real sigil folder
+          # Check that the registry links match your canonical locations
+          REQUIRED_LINKS=(
+            "../registry/pillars/pillar_21_moonchild.md"
+            "../registry/spine/living_spine_33.md"
+            "../registry/realms/index.md"
+            "../registry/characters/index.md"
+            "../registry/characters/moonchild/moonchild_profile.md"
           )
 
-          for p in "${ALLOW[@]}"; do
-            [ -e "$p" ] && git add "$p" || true
+          echo "## Link Check (from $REG)" >> $GITHUB_STEP_SUMMARY
+          for rel in "${REQUIRED_LINKS[@]}"; do
+            # Resolve the relative path to a file path
+            base_dir="$(dirname "$REG")"
+            abs="$(python - <<'PY'
+import os,sys
+base=sys.argv[1]; rel=sys.argv[2]
+print(os.path.normpath(os.path.join(base, rel)))
+PY
+"$base_dir" "$rel")"
+            if [ -f "$abs" ]; then
+              echo "- ✅ $rel → $abs" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "::warning::Missing target for link: $rel (resolved to $abs)"
+              echo "- ❌ $rel → $abs (missing)" >> $GITHUB_STEP_SUMMARY
+            fi
           done
 
-          echo "---- git status (post-stage) ----"
-          git status --porcelain
-
-          # Safety: if anything outside the whitelist is staged, abort
-          if git diff --name-only --cached | grep -Ev '^(main/registry/04_registry-meta/system/logs/moonchild|main/registry/characters/moonchild/meta_layers/grimoires/index.yml|circuitum99/art/img/sigils)($|/)' ; then
-            echo "::error::Detected staged changes outside allowed paths. Aborting commit."
-            exit 1
-          fi
-
-          # Flag whether we have anything to commit
-          if [ -n "$(git diff --cached --name-only)" ]; then
-            echo "staged=1" >> $GITHUB_OUTPUT
-          else
-            echo "staged=0" >> $GITHUB_OUTPUT
-          fi
+      - name: Success summary
+        if: ${{ success() }}
+        run: |
+          echo "Moonchild Call Autodetect completed." >> $GITHUB_STEP_SUMMARY
