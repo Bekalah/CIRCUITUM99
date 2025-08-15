@@ -1,4 +1,4 @@
-# Exclude from source archives
+# Exclude from source archives (Download ZIP)
 main/registry/04_registry-meta/system/logs/**           export-ignore
 main/registry/04_registry-meta/system/quarantine/**     export-ignore
 recovery/logs/**                                        export-ignore
@@ -6,24 +6,19 @@ recovery/patches/**                                     export-ignore
 assets/raw/**                                           export-ignore
 assets/reference/**                                     export-ignore
 
-# Text normalize
-*.md  text eol=lf
-*.yml text eol=lf
+# Normalize text files
+*.md   text eol=lf
+*.yml  text eol=lf
 *.yaml text eol=lf
-*.py  text eol=lf
+*.py   text eol=lf
 
-# Images as binary (safer diffs)
+# Treat images as binary (no line-ending/auto-rename weirdness)
 *.png  binary
 *.jpg  binary
 *.jpeg binary
 *.webp binary
 *.gif  binary
 *.tif  binary
-*.svg  text eol=lf
 
-# If you REALLY want LFS (see section 2), replace the above image rules with LFS rules.
-# *.png  filter=lfs diff=lfs merge=lfs -text
-# *.jpg  filter=lfs diff=lfs merge=lfs -text
-# *.jpeg filter=lfs diff=lfs merge=lfs -text
-# *.webp filter=lfs diff=lfs merge=lfs -text
-# *.tif  filter=lfs diff=lfs merge=lfs -text
+# SVG are text; keep LF
+*.svg  text eol=lf
