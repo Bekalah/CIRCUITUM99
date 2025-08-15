@@ -32,3 +32,18 @@ Every file belongs in one of these numbered sections:
 
 Keep `_index.md` as the clickable map.  
 Update `registry.md` whenever you add a new section or rule.
+
+## Circuitum99 Indices (Recovered)
+
+- Pillar 21 (Moonchild): ../pillars/pillar_21_moonchild.md
+- Living Spine (33): ../spine/living_spine_33.md
+- Realms Index: ../realms/index.md
+- Characters Index: ../characters/index.md
+- Moonchild (character): ../characters/moonchild/moonchild_profile.md
+
+### Logs (Moonchild)
+- Heartbeat: ./system/logs/moonchild/heartbeat.md
+- Activation: ./system/logs/moonchild/activation-log.md
+- Dream: ./system/logs/moonchild/dream-log.md
+- System: ./system/logs/moonchild/system-log.md
+- Grimoire Intake: ./system/logs/moonchild/grimoire-intake.md
