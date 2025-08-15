@@ -1,0 +1,121 @@
+name: Moonchild Repair (Debug)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['**']
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup LFS
+        run: |
+          git lfs install
+          git lfs fetch --all || true
+          git lfs checkout || true
+
+      - name: Show repo info
+        run: |
+          echo "DEFAULT BRANCH: $GITHUB_REF_NAME"
+          echo "WORKSPACE: $GITHUB_WORKSPACE"
+          echo "PWD: $(pwd)"
+          echo "Top-level:"
+          ls -la
+          echo
+          echo "Try to print a 4-level tree (might install tree):"
+          (command -v tree >/dev/null || sudo apt-get update && sudo apt-get install -y tree) >/dev/null 2>&1
+          tree -a -L 4 -I ".git" || true
+
+      - name: Check required files (do NOT fail early)
+        run: |
+          set -e
+          red=0
+          found(){ printf "✔ FOUND  %s\n" "$1"; }
+          miss(){ printf "✘ MISSING %s\n" "$1"; red=1; }
+
+          # >>>>> EDIT THESE PATHS IF YOUR FILES LIVE ELSEWHERE <<<<<
+          REQ=(
+            "main/registry/04_registry-meta/registry.md"
+            "main/registry/characters/moonchild/00_README.md"
+            "main/registry/characters/moonchild/moonchild_profile.md"
+            "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
+            "scripts/moonchild_invocation.md"
+          )
+
+          for f in "${REQ[@]}"; do
+            if [ -e "$f" ]; then found "$f"; else miss "$f"; fi
+          done
+
+          # Protections (multi-location)
+          PF_CAND=(
+            "protection/purity_filter.md"
+            "safety/protection/purity_filter.md"
+            "brand/guardrails/purity_filter.md"
+          )
+          SL_CAND=(
+            "protection/saturns_law.md"
+            "safety/protection/saturns_law.md"
+            "brand/guardrails/saturns_law.md"
+          )
+
+          pf_found=0
+          for p in "${PF_CAND[@]}"; do
+            if [ -e "$p" ]; then found "$p"; pf_found=1; break; fi
+          done
+          [ $pf_found -eq 1 ] || miss "Purity Filter (tried ${PF_CAND[*]})"
+
+          sl_found=0
+          for p in "${SL_CAND[@]}"; do
+            if [ -e "$p" ]; then found "$p"; sl_found=1; break; fi
+          done
+          [ $sl_found -eq 1 ] || miss "Saturn's Law (tried ${SL_CAND[*]})"
+
+          echo
+          if [ $red -eq 0 ]; then
+            echo "All required items present."
+          else
+            echo "Some required items are missing (listed above)."
+          fi
+          # Do NOT fail here--let the next step summarize nicely.
+          exit 0
+
+      - name: Summarize to Actions Summary (always runs)
+        run: |
+          echo "### Moonchild Debug Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Found/Missing list from previous step:**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          # Re-run checks but only print, to capture in summary
+          REQ=(
+            "main/registry/04_registry-meta/registry.md"
+            "main/registry/characters/moonchild/00_README.md"
+            "main/registry/characters/moonchild/moonchild_profile.md"
+            "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
+            "scripts/moonchild_invocation.md"
+          )
+          for f in "${REQ[@]}"; do
+            [ -e "$f" ] && echo "✔ $f" || echo "✘ $f"
+          done
+          PF_CAND=("protection/purity_filter.md" "safety/protection/purity_filter.md" "brand/guardrails/purity_filter.md")
+          SL_CAND=("protection/saturns_law.md" "safety/protection/saturns_law.md" "brand/guardrails/saturns_law.md")
+          pf_hit=""
+          for p in "${PF_CAND[@]}"; do [ -e "$p" ] && pf_hit="$p" && break; done
+          sl_hit=""
+          for p in "${SL_CAND[@]}"; do [ -e "$p" ] && sl_hit="$p" && break; done
+          echo "Purity Filter -> ${pf_hit:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo "Saturn's Law  -> ${sl_hit:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
