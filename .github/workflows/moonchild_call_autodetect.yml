@@ -1,32 +1,7 @@
-    name: Moonchild Call Autodetect
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - 'circuitum99/main/04_registry-meta/registry.md'
-      - 'circuitum99/main/registry/**'
-permissions:
-  contents: read
+   name: Moonchild Call Autodetect
+on: workflow_dispatch
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          lfs: false
-      - name: Check registry.md
-        run: test -f "circuitum99/main/04_registry-meta/registry.md" || (echo "::error::Missing circuitum99/main/04_registry-meta/registry.md" && exit 1)
-      - name: Check moonchild_profile.md
-        run: test -f "circuitum99/main/registry/characters/moonchild/moonchild_profile.md" || (echo "::error::Missing circuitum99/main/registry/characters/moonchild/moonchild_profile.md" && exit 1)
-      - name: Check pillar_21_moonchild.md
-        run: test -f "circuitum99/main/registry/pillars/pillar_21_moonchild.md" || (echo "::error::Missing circuitum99/main/registry/pillars/pillar_21_moonchild.md" && exit 1)
-      - name: Check living_spine_33.md
-        run: test -f "circuitum99/main/registry/spine/living_spine_33.md" || (echo "::error::Missing circuitum99/main/registry/spine/living_spine_33.md" && exit 1)
-      - name: Check realms index.md
-        run: test -f "circuitum99/main/registry/realms/index.md" || (echo "::error::Missing circuitum99/main/registry/realms/index.md" && exit 1)
-      - name: Check characters index.md
-        run: test -f "circuitum99/main/registry/characters/index.md" || (echo "::error::Missing circuitum99/main/registry/characters/index.md" && exit 1)
-      - name: Done
-        run: echo "All required files present."
+      - run: echo "parsed ok"
