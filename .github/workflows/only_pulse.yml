@@ -1,0 +1,58 @@
+name: ONLY PULSE (must work)
+
+on:
+  push:
+    branches: ['**']          # runs on THIS commit
+  schedule:
+    - cron: '0,33 * * * *'    # every :00 and :33 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: only-pulse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, lfs: false }
+
+      - name: Write a heartbeat line (no deps)
+        run: |
+          set -euo pipefail
+          LOG_DIR="main/registry/04_registry-meta/system/logs/moonchild"
+          mkdir -p "$LOG_DIR"
+          TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          echo "## Pulse $TS -- ✅ hello from ONLY PULSE" >> "$LOG_DIR/heartbeat.md"
+
+      - name: Commit or PR (so you SEE it)
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "moonchild-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add -A
+            git commit -m "only-pulse: write heartbeat [skip ci]"
+            echo "committed=1" >> $GITHUB_OUTPUT
+          else
+            echo "committed=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push
+        if: steps.commit.outputs.committed == '1'
+        continue-on-error: true
+        run: git push
+
+      - name: PR fallback (if branch is protected)
+        if: steps.commit.outputs.committed == '1'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bot/only-pulse-${{ github.run_id }}
+          title: "ONLY PULSE: heartbeat"
+          body: "Auto PR because direct push was blocked."
+          commit-message: "only-pulse: write heartbeat"
