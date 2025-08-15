@@ -1,167 +1,61 @@
-name: Moonchild Autodetect
+name: _Moonchild Autodetect (Reusable)
 
 on:
-  workflow_dispatch:
-  push:
-    branches: ['**']
+  workflow_call: {}
 
 jobs:
   autodetect:
     runs-on: ubuntu-latest
+    outputs:
+      REGISTRY: ${{ steps.scan.outputs.REGISTRY }}
+      READ_ME:  ${{ steps.scan.outputs.READ_ME }}
+      PROFILE:  ${{ steps.scan.outputs.PROFILE }}
+      META:     ${{ steps.scan.outputs.META }}
+      LOG_ACT:  ${{ steps.scan.outputs.LOG_ACT }}
+      LOG_DREAM:${{ steps.scan.outputs.LOG_DREAM }}
+      LOG_SYS:  ${{ steps.scan.outputs.LOG_SYS }}
+      LOG_INTAKE:${{ steps.scan.outputs.LOG_INTAKE }}
+      INVOC:    ${{ steps.scan.outputs.INVOC }}
+      PF:       ${{ steps.scan.outputs.PF }}
+      SL:       ${{ steps.scan.outputs.SL }}
     steps:
-      - name: Checkout (with LFS)
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-
-      - name: Setup LFS (safe)
-        run: |
-          git lfs install
-          git lfs fetch --all || true
-          git lfs checkout || true
-
-      - name: Autodetect key Moonchild files anywhere in repo
-        id: scan
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1, lfs: false }
+      - id: scan
         shell: bash
         run: |
           set -e
-          find_one() {
-            pat="$1"; key="$2"
-            path="$(find . -type f -iname "$pat" | head -n 1 || true)"
-            if [ -n "$path" ]; then
-              echo "FOUND: $key -> $path"
-              printf "%s=%s\n" "$key" "${path#./}" >> "$GITHUB_OUTPUT"
-            else
-              echo "MISSING: $key (looked for *$pat*)"
-              printf "%s=\n" "$key" >> "$GITHUB_OUTPUT"
-            fi
-          }
-
-          echo "::group::Searching…"
-          find_one "registry.md" REGISTRY
-          find_one "00_readme.md" READ_ME
-          find_one "moonchild_profile.md" PROFILE
-          find_one "moonchild_meta_layers.md" META_FILE_A
-          find_one "moon_child_meta_layers.md" META_FILE_B
-          find_one "activation-log.md" LOG_ACT
-          find_one "dream-log.md" LOG_DREAM
-          find_one "system-log.md" LOG_SYS
-          find_one "grimoire-intake.md" LOG_INTAKE
-          find_one "moonchild_invocation.md" INVOCATION
-          find_one "purity_filter.md" PF
-          find_one "saturns_law.md" SL
-          echo "::endgroup::"
-
-      - name: Report & propose exact fixes
-        id: report
-        env:
-          REG: ${{ steps.scan.outputs.REGISTRY }}
-          RM:  ${{ steps.scan.outputs.READ_ME }}
-          PR:  ${{ steps.scan.outputs.PROFILE }}
-          MA:  ${{ steps.scan.outputs.META_FILE_A }}
-          MB:  ${{ steps.scan.outputs.META_FILE_B }}
-          LA:  ${{ steps.scan.outputs.LOG_ACT }}
-          LD:  ${{ steps.scan.outputs.LOG_DREAM }}
-          LS:  ${{ steps.scan.outputs.LOG_SYS }}
-          LI:  ${{ steps.scan.outputs.LOG_INTAKE }}
-          IV:  ${{ steps.scan.outputs.INVOCATION }}
-          PF:  ${{ steps.scan.outputs.PF }}
-          SL:  ${{ steps.scan.outputs.SL }}
-        shell: bash
-        run: |
-          set -e
-          echo "### Autodetect results"
-          echo "- Registry:       ${REG:-MISSING}"
-          echo "- 00_README:      ${RM:-MISSING}"
-          echo "- Profile:        ${PR:-MISSING}"
-          echo "- Meta (A):       ${MA:-not found}"
-          echo "- Meta (B):       ${MB:-not found}"
-          echo "- Activation log: ${LA:-MISSING}"
-          echo "- Dream log:      ${LD:-MISSING}"
-          echo "- System log:     ${LS:-MISSING}"
-          echo "- Intake log:     ${LI:-MISSING}"
-          echo "- Invocation:     ${IV:-MISSING}"
-          echo "- Purity Filter:  ${PF:-MISSING}"
-          echo "- Saturn's Law:   ${SL:-MISSING}"
-
-          # prefer whichever meta name exists
-          MF="${MA:-$MB}"
-
-          echo ""
-          echo "### Canonical targets we expect"
-          cat <<'EOF'
-main/registry/04_registry-meta/registry.md
-main/registry/characters/moonchild/00_README.md
-main/registry/characters/moonchild/moonchild_profile.md
-main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md
-main/registry/04_registry-meta/system/logs/moonchild/activation-log.md
-main/registry/04_registry-meta/system/logs/moonchild/dream-log.md
-main/registry/04_registry-meta/system/logs/moonchild/system-log.md
-main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md
-scripts/moonchild_invocation.md
-(protections can live anywhere; stubs at protection/*.md are fine)
-EOF
-
-          echo ""
-          echo "### Suggested 'git mv' commands (only if you WANT to standardize)"
-          move_cmd() {
-            found="$1"; target="$2"
-            [ -n "$found" ] && [ "$found" != "$target" ] && echo "mkdir -p \"$(dirname "$target")\"; git mv \"$found\" \"$target\""
-          }
-          move_cmd "$REG" "main/registry/04_registry-meta/registry.md"
-          move_cmd "$RM"  "main/registry/characters/moonchild/00_README.md"
-          move_cmd "$PR"  "main/registry/characters/moonchild/moonchild_profile.md"
-          move_cmd "$MF"  "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
-          move_cmd "$LA"  "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
-          move_cmd "$LD"  "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
-          move_cmd "$LS"  "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
-          move_cmd "$LI"  "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
-          move_cmd "$IV"  "scripts/moonchild_invocation.md"
-
-          # set a MISS flag for the next step (fails only if core missing)
-          miss=0
-          for need in REG RM PR MF LA LD LS LI IV; do
-            val="${!need}"
-            [ -n "$val" ] || { echo "✘ Missing: $need"; miss=1; }
-          done
-          echo "MISSING=$miss" >> "$GITHUB_OUTPUT"
-
+          f(){ p="$(find . -type f -iname "$1" | head -n 1 || true)"; echo "$2=${p#./}" >> "$GITHUB_OUTPUT"; }
+          f "registry.md"              REGISTRY
+          f "00_readme.md"            READ_ME
+          f "moonchild_profile.md"    PROFILE
+          M=$(find . -type f \( -iname "moonchild_meta_layers.md" -o -iname "moon_child_meta_layers.md" \) | head -n 1 || true)
+          echo "META=${M#./}" >> "$GITHUB_OUTPUT"
+          f "activation-log.md"       LOG_ACT
+          f "dream-log.md"            LOG_DREAM
+          f "system-log.md"           LOG_SYS
+          f "grimoire-intake.md"      LOG_INTAKE
+          f "moonchild_invocation.md" INVOC
+          f "purity_filter.md"        PF
+          f "saturns_law.md"          SL
       - name: Summary
-        if: always()
         env:
-          REG: ${{ steps.scan.outputs.REGISTRY }}
-          RM:  ${{ steps.scan.outputs.READ_ME }}
-          PR:  ${{ steps.scan.outputs.PROFILE }}
-          MA:  ${{ steps.scan.outputs.META_FILE_A }}
-          MB:  ${{ steps.scan.outputs.META_FILE_B }}
-          LA:  ${{ steps.scan.outputs.LOG_ACT }}
-          LD:  ${{ steps.scan.outputs.LOG_DREAM }}
-          LS:  ${{ steps.scan.outputs.LOG_SYS }}
-          LI:  ${{ steps.scan.outputs.LOG_INTAKE }}
-          IV:  ${{ steps.scan.outputs.INVOCATION }}
-          PF:  ${{ steps.scan.outputs.PF }}
-          SL:  ${{ steps.scan.outputs.SL }}
+          REGISTRY: ${{ steps.scan.outputs.REGISTRY }}
+          READ_ME:  ${{ steps.scan.outputs.READ_ME }}
+          PROFILE:  ${{ steps.scan.outputs.PROFILE }}
+          META:     ${{ steps.scan.outputs.META }}
+          LOG_ACT:  ${{ steps.scan.outputs.LOG_ACT }}
+          LOG_DREAM:${{ steps.scan.outputs.LOG_DREAM }}
+          LOG_SYS:  ${{ steps.scan.outputs.LOG_SYS }}
+          LOG_INTAKE:${{ steps.scan.outputs.LOG_INTAKE }}
+          INVOC:    ${{ steps.scan.outputs.INVOC }}
+          PF:       ${{ steps.scan.outputs.PF }}
+          SL:       ${{ steps.scan.outputs.SL }}
         run: |
-          MF="${MA:-$MB}"
-          echo "## Moonchild Autodetect Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Detected paths**" >> $GITHUB_STEP_SUMMARY
+          echo "## Autodetect (found/missing)" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          echo "Registry:       ${REG:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "00_README:      ${RM:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Profile:        ${PR:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Meta Layers:    ${MF:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Activation log: ${LA:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Dream log:      ${LD:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "System log:     ${LS:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Intake log:     ${LI:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Invocation:     ${IV:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Purity Filter:  ${PF:-MISSING}" >> $GITHUB_STEP_SUMMARY
-          echo "Saturn's Law:   ${SL:-MISSING}" >> $GITHUB_STEP_SUMMARY
+          for k in REGISTRY READ_ME PROFILE META LOG_ACT LOG_DREAM LOG_SYS LOG_INTAKE INVOC PF SL; do
+            eval v=\$$k
+            [ -n "$v" ] && echo "✔ $k -> $v" || echo "✘ $k MISSING"
+          done >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-
-      - name: Fail if core missing
-        if: steps.report.outputs.MISSING == '1'
-        run: |
-          echo "At least one required item is missing (see Summary for ✘)."
-          exit 1
