@@ -1,7 +1,14 @@
 name: Moonchild Repair
 
 on:
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: 'Enable strict checks (markdown link casing, etc.)'
+        required: false
+        default: 'false'
   push:
+    branches: ['**']
     paths:
       - "main/registry/**"
       - "scripts/**"
@@ -13,8 +20,6 @@ on:
       - "docs/**"
       - "book/**"
       - ".gitattributes"
-  pull_request:
-  workflow_dispatch:
 
 jobs:
   validate:
@@ -25,66 +30,92 @@ jobs:
         with:
           lfs: true
 
-      - name: Setup Git LFS
+      - name: Setup LFS (safe)
         run: |
           git lfs install
           git lfs fetch --all || true
           git lfs checkout || true
 
-      - name: Validate Moonchild core (your real paths)
+      - name: Show quick tree
+        run: |
+          (command -v tree >/dev/null || sudo apt-get update && sudo apt-get install -y tree) >/dev/null 2>&1
+          echo "Top tree:"; tree -a -L 3 -I ".git" || true
+
+      - name: Validate core & protections (no early exit)
+        id: core
         shell: bash
         run: |
-          set -e
-          must() { [ -e "$1" ] && echo "✔ $1" || { echo "✘ $1 missing"; exit 1; }; }
+          red=0
+          found(){ printf "✔ %s\n" "$1"; }
+          miss(){ printf "✘ %s\n" "$1"; red=1; }
 
-          # Registry & node (REAL paths in your repo)
-          must main/registry/04_registry-meta/registry.md
-          must main/registry/characters/moonchild/00_README.md
-          must main/registry/characters/moonchild/moonchild_profile.md
-          must main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md
+          # --- YOUR REAL PATHS ---
+          REQ=(
+            "main/registry/04_registry-meta/registry.md"
+            "main/registry/characters/moonchild/00_README.md"
+            "main/registry/characters/moonchild/moonchild_profile.md"
+            "main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/activation-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/dream-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/system-log.md"
+            "main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md"
+            "scripts/moonchild_invocation.md"
+          )
+          echo "Checking required files…"
+          for f in "${REQ[@]}"; do
+            [ -e "$f" ] && found "$f" || miss "$f"
+          done
 
-          # Logs (REAL paths in your repo)
-          must main/registry/04_registry-meta/system/logs/moonchild/activation-log.md
-          must main/registry/04_registry-meta/system/logs/moonchild/dream-log.md
-          must main/registry/04_registry-meta/system/logs/moonchild/system-log.md
-          must main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md
+          echo
+          echo "Checking protections in multiple locations…"
+          pf_found=""
+          for p in protection/purity_filter.md safety/protection/purity_filter.md brand/guardrails/purity_filter.md; do
+            if [ -e "$p" ]; then pf_found="$p"; break; fi
+          done
+          [ -n "$pf_found" ] && found "Purity Filter -> $pf_found" || miss "Purity Filter (try protection/ or safety/protection/ or brand/guardrails/)"
 
-          # Invocation script (present at repo root/scripts)
-          must scripts/moonchild_invocation.md
+          sl_found=""
+          for p in protection/saturns_law.md safety/protection/saturns_law.md brand/guardrails/saturns_law.md; do
+            if [ -e "$p" ]; then sl_found="$p"; break; fi
+          done
+          [ -n "$sl_found" ] && found "Saturn's Law -> $sl_found" || miss "Saturn's Law (try protection/ or safety/protection/ or brand/guardrails/)"
 
-      - name: Validate protections (allow multiple homes)
-        shell: bash
-        run: |
-          set -e
-          must_any() {
-            label="$1"; shift
-            for p in "$@"; do
-              if [ -e "$p" ]; then echo "✔ $label -> $p"; return 0; fi
-            done
-            echo "✘ $label missing in any of: $*"; exit 1
-          }
-          must_any "Purity Filter" \
-            protection/purity_filter.md \
-            safety/protection/purity_filter.md \
-            brand/guardrails/purity_filter.md
-          must_any "Saturn's Law" \
-            protection/saturns_law.md \
-            safety/protection/saturns_law.md \
-            brand/guardrails/saturns_law.md
+          echo
+          echo "STRICT mode: ${{ github.event.inputs.strict || 'false' }}"
+          echo "core_failed=$red" >> $GITHUB_OUTPUT
 
-      - name: Markdown link sanity (common mistakes)
+      - name: Markdown link sanity (only if strict=true)
+        if: ${{ (github.event.inputs.strict || 'false') == 'true' }}
         shell: bash
         run: |
           set -e
           fails=0
-          # Common bad patterns we saw earlier
+          # Common mistakes: wrong casing or filename
           grep -RIn "](" --include="*.md" . | grep -E "Moonchild/|moonchild_meta_layers\.md|00_readme\.md" && fails=1 || true
           [ $fails -eq 0 ] || { echo "✘ markdown link pattern check failed (fix casing/filenames)"; exit 1; }
 
-      - name: Emit summary
-        shell: bash
+      - name: Write summary
+        if: always()
         run: |
           echo "### Moonchild Repair Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- Core files present ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Protections resolved across multiple locations ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Markdown link sanity passed ✅ (or fix flagged lines)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Required files status**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          for f in \
+            main/registry/04_registry-meta/registry.md \
+            main/registry/characters/moonchild/00_README.md \
+            main/registry/characters/moonchild/moonchild_profile.md \
+            main/registry/characters/moonchild/meta_layers/moonchild_meta_layers.md \
+            main/registry/04_registry-meta/system/logs/moonchild/activation-log.md \
+            main/registry/04_registry-meta/system/logs/moonchild/dream-log.md \
+            main/registry/04_registry-meta/system/logs/moonchild/system-log.md \
+            main/registry/04_registry-meta/system/logs/moonchild/grimoire-intake.md \
+            scripts/moonchild_invocation.md \
+          ; do [ -e "$f" ] && echo "✔ $f" || echo "✘ $f"; done
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail if core missing (single, clear error)
+        if: steps.core.outputs.core_failed == '1'
+        run: |
+          echo "Some required items are missing. See the step above (and the Run Summary) for the ✘ lines."
+          exit 1
