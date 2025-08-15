@@ -1,0 +1,56 @@
+name: Moonchild Heartbeat · YESOD
+
+on:
+  # Master-number pulse + Monday hourly touch; you can tweak later
+  schedule:
+    - cron: "*/33 * * * *"     # every 33 minutes (UTC)
+    - cron: "0 * * * MON"      # top of every hour on Mondays (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: moonchild-heartbeat-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo (no LFS)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps (astral)
+        run: |
+          python -m pip install --upgrade pip
+          pip install astral pytz
+
+      - name: Run YESOD heartbeat
+        env:
+          # Optional overrides (Repo → Settings → Variables → Actions)
+          LOCATION_LAT: ${{ vars.LOCATION_LAT }}
+          LOCATION_LON: ${{ vars.LOCATION_LON }}
+          TIMEZONE:     ${{ vars.TIMEZONE }}
+        run: |
+          python scripts/heartbeat_yesod.py
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name  "moonchild-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "heartbeat(yesod): pulse + grimoire index update [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
