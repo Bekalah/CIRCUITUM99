@@ -10,3 +10,9 @@
 - Meta:       main/registry/characters/moonchild/meta_layers/_archive/moonchild_meta_layers.md
 
 ## Pulse 2025-08-15 04:18 UTC -- ✅ hello from ONLY PULSE
+## Autodetect snapshot 2025-08-15 04:18 UTC
+- Registry:   lore/registry.md
+- 00_README:  main/registry/characters/moonchild/00_README.md
+- Profile:    main/registry/characters/moonchild/moonchild_profile.md
+- Meta:       main/registry/characters/moonchild/meta_layers/_archive/moonchild_meta_layers.md
+
