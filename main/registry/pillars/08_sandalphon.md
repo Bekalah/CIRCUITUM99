@@ -1,4 +1,4 @@
-# Pillar 08 — Sandalphon (Harmonic Bridge)
+# Pillar 08 — Sandalphon (Harmonic Bridge Priestess)
 
 **Faction:** Harmonic Choir  
 **Realm:** Bridge Between Worlds  
@@ -14,11 +14,12 @@
 - **Red:** Passive harmonic listening; no bridge opened.
 
 ## Moonchild’s Note
-His voice is the color of dawn — the moment before the sun breaks, when you feel the light but still see the stars.
+She walks the bridge barefoot so she can feel every note.  
+Her braids carry tiny silver bells — when she moves, the whole lattice hums.
 
 ## Scene Seed
-Sandalphon kneels in the Bridge Chamber, strings of light vibrating between his hands.  
-“Every note you speak becomes a stone in the road,” he says. “Choose your melody.”
+Sandalphon stands in the Bridge Chamber, strings of light vibrating between her hands.  
+“Every note you speak becomes a stone in the road,” she says. “Choose your melody.”
 
 ## Grimoire Artifact — Harmonic Path Key
 - **Timing:** Mercury hour, Venus day (Friday for blessing, Wednesday for clarity)  
