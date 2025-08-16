@@ -8,8 +8,8 @@ router:
   geometry_core:
     priority:
       - "The_Corpus_Hermetica.pdf"
+      - "Kabbalah_Unveiled.epub"
       - "StephenSkinner-TheCompleteMagiciansTables-2006.epub"
-      - "s-l-macgregor-mathers_kabbalah-unveiled.epub"
   hygiene_chain:
     priority:
       - "aleister_crowley_-_the_greater_ritual_of_the_pentagram.pdf"
@@ -27,3 +27,5 @@ router:
     priority:
       - "The_Mystical_Qabalah_by_Dion_Fortune.pdf"
       - "Dion_Fortune_and_Egyptian_Magic.docx"
+      - "Gabor Maté (notes)"
+      - "Robert Falconer (notes)"
