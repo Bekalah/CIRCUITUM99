@@ -1,35 +1,50 @@
----
-title: "CIRCUITUM99 – Registry Master Index"
-url: "/registry/"
+—
+title: “CIRCUITUM99 – Registry Master Index”
+url: “/registry/“
 weight: 1
----
+—
 
 # CIRCUITUM99 – Registry Master Index
 
 Welcome to the central map of the CIRCUITUM99 archive.  
 Every file here connects your story, grimoire, codexes, and system layers.
 
----
+—
 
 ## 01 – Main Narrative
 - [Outline](/01_main_narrative/00_outline/)
 - [Chapters Index](/01_main_narrative/chapters_index/)
 - [Scenes Folder](/01_main_narrative/scenes/)
 
+—
+
 ## 02 – Grimoire
 - [Grimoire Index](/02_grimoire/grimoire_index/)
-- **Meta Layers**
-  - [AKA DUA Layer](/02_grimoire/meta_layers/00_AKA_DUA_LAYER/)
-  - [Book of Lies Layer](/02_grimoire/meta_layers/01_BOOK_OF_LIES_LAYER/)
-  - [Transcendental Magic Layer](/02_grimoire/meta_layers/02_TRANSCENDENTAL_MAGIC_LAYER/)
-- **Summaries**
-  - [Book of Lies -- Summary](/02_grimoire/summaries/Book_of_Lies_SUMMARY/)
-  - [Transcendental Magic -- Summary](/02_grimoire/summaries/Transcendental_Magic_SUMMARY/)
+
+**Meta Layers**
+- [AKA DUA Layer](/02_grimoire/meta_layers/00_AKA_DUA_LAYER/)
+- [Book of Lies Layer](/02_grimoire/meta_layers/01_BOOK_OF_LIES_LAYER/)
+- [Transcendental Magic Layer](/02_grimoire/meta_layers/02_TRANSCENDENTAL_MAGIC_LAYER/)
+- [Fox Trickster Node](/02_grimoire/meta_layers/03_Fox_Trickster_Node/)
+- [Scarlet Lady Node](/02_grimoire/meta_layers/04_Scarlet_Lady_Node/)
+- [Morgan le Fay Layer](/02_grimoire/meta_layers/summaries/05_Morgan_le_Fay_Layer.md/)
+- [White Rabbit Layer](/02_grimoire/meta_layers/06_White_Rabbit_Layer.md/)
+- [Silver Violet Flame Layer](/02_grimoire/meta_layers/07_Silver_Violet_Flame_Layer.md/)
+
+**Summaries**
+- [Book of Lies – Summary](/02_grimoire/summaries/Book_of_Lies_SUMMARY/)
+- [Transcendental Magic – Summary](/02_grimoire/summaries/Transcendental_Magic_SUMMARY/)
+
+—
 
 ## 03 – Codexes
 - [Archetype Codex](/03_codexes/archetype_codex/)
 - [Reiki Systems Codex](/03_codexes/reiki_systems_codex/)
 - [Elemental Correspondences Codex](/03_codexes/elemental_correspondences_codex/)
+- [Daimon Codex](/03_codexes/daimons/)
+  - [Twin Lightning](/03_codexes/daimons/Twin_Lightning.md)
+
+—
 
 ## 04 – Registry Meta
 - [About the Registry](/04_registry_meta/registry/)
@@ -37,12 +52,14 @@ Every file here connects your story, grimoire, codexes, and system layers.
 - [Naming Conventions](/04_registry_meta/naming_conventions/)
 - [Update Log](/04_registry_meta/update_log/)
 
+—
+
 ## Characters
 - [Moonchild](/characters/moonchild/moonchild_profile/)
 - [Gnosis7](/characters/gnosis7/gnosis7_profile/)
 - [Virelai Ezra Lux](/characters/Virelai_Ezra_Lux/Virelai_Ezra_Lux_profile/)
 
----
+—
 
 # Games & Expansions
 
@@ -50,7 +67,7 @@ Every file here connects your story, grimoire, codexes, and system layers.
 > If not using Hugo, keep this table and update manually.
 
 | Game Title | Description | Path |
-|---|---|---|
+|————|-————|——|
 | Witch Mods | Customizable avatar & mod-building | /games/witch_mods/ |
 | Old Gods vs New Gods | Mythic battle & factions | /games/old_gods_vs_new_gods/ |
 | Alice & Meme World | Nostalgia RPG | /games/alice_meme_world/ |
@@ -69,13 +86,15 @@ Every file here connects your story, grimoire, codexes, and system layers.
 | Meme World Expansion | Avatar/meme creator | /games/meme_world_expansion/ |
 | Fashion Core Psycho Magic Expansion | Global style systems | /games/fashion_core_expansion/ |
 
----
+—
 
 # Business & Branding
 - [Creative License & Copyright](/main/docs/CREATIVE_LICENSE/)
 - [Patch History & Update Logs](/main/docs/PATCH_HISTORY/)
 - [Style Guides & Brand Identity](/main/business_style_guide/)
 - [Registry & Security Policies](/main/registry/) · [/main/security/]
+
+—
 
 # Lore & Reference
 - [Lore Registry](/main/lore/registry/)
@@ -84,19 +103,14 @@ Every file here connects your story, grimoire, codexes, and system layers.
 - [Angel Tech & Mystic Teachings](/main/lore/angel_tech/)
 - [Character & Daimon Lore](/main/lore/characters/)
 
+—
+
 # Assets & Media
 - Logos & Symbols: `/assets/logo/circuitum99.png`
 - Character Art: `/assets/characters/`
 - Game Media: `/assets/media/`
 
----- 
+—
 
-**05 – Morgan le Fay Layer**  
-  Source: Dion Fortune’s Avalon writings + LuxCrux integration.  
-  [View Layer](../02_grimoire/meta_layers/summaries/05_Morgan_le_Fay_Layer.md)
-
-## Main Game for Book
-- `/games/luxcrux_v/` -- V-linked game using GameBridge (flags/items sync with Book)
-
-### Guardians
-- [Twin Lightning](03_codexes/daimons/Twin_Lightning.md) -- Storm-born horse, guardian of the Isle of Return, linked to Morgan le Fay and the Silver Violet Flame.
+## Guardians
+- [Twin Lightning](/03_codexes/daimons/Twin_Lightning.md) — Storm-born horse, guardian of the Isle of Return, linked to Morgan le Fay and the Silver Violet Flame.
