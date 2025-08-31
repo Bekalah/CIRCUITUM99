@@ -3,6 +3,31 @@ __pycache__/
 *.pyc
 *.pyo
 
+# local exports
+*.json.export
+*.snapshot.json
+*.local.json
+stone-grimoire-*.json
+
+# system
+.DS_Store
+Thumbs.db
+
+# recovery and archives
+recovery/*
+*.zip
+
+# large media (prefer LFS)
+*.wav
+*.aiff
+*.mp3
+*.mp4
+*.mov
+*.webm
+
+# editors
+.vscode/
+.idea/
 # Ignore macOS system files
 .DS_Store
 
