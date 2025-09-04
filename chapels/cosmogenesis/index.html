@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cosmogenesis Chapel</title>
+  <script type="module">
+    import { drawFractal } from '/assets/js/engines/fractal-engine.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('fractal');
+      drawFractal(canvas);
+    });
+  </script>
+</head>
+<body>
+  <canvas id="fractal" width="400" height="400"></canvas>
+</body>
+</html>
