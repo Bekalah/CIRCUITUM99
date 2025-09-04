@@ -1,9 +1,9 @@
 """
-✦ Codex 144:99 — preserve original intention
+✦ Codex 144:99 - preserve original intention
 Visionary palette generator.
 """
 
-# ✦ Codex 144:99 — preserve original intention
+# ✦ Codex 144:99 - preserve original intention
 
 import argparse
 import json

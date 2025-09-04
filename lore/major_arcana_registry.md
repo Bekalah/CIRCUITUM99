@@ -11,7 +11,7 @@ Each entry includes:
 - **Psyche Layer** (Wetiko, Part/Daimon, Trauma → Medicine)
 - **Technical Fields** (BioGeometry, Solfeggio, App Pulls)
 
-## 0. The Fool — Rebecca Respawn
+## 0. The Fool - Rebecca Respawn
 - Letter: Aleph (Air).
 - Astrology: Uranus / Aquarius.
 - Ray: Electric Blue.
@@ -22,13 +22,13 @@ Each entry includes:
 - Pigment: Lapis lazuli.
 - HGA Fragment: Breath of Innocence.
 - Pattern Glyph: Air spiral.
-- Thought-form: Beginner’s mind, leap of trust.
+- Thought-form: Beginner's mind, leap of trust.
 - Secret Tara: White Tara (protection, long life).
 - Psyche: Wetiko = self-doubt; Part = White Fox; Trauma = rejection → Medicine = curiosity.
 - Technical: BioGeometry = BG3 White. Solfeggio = 852 Hz (Uranus).
 - App Pulls: visuals[prisms], music[flutes], learning[Ars Notoria beginnings], game[threshold trial], artifact[Spiral Key].
 
-## I. The Magician — Virelai Ezra Lux
+## I. The Magician - Virelai Ezra Lux
 - Letter: Beth (House).
 - Astrology: Mercury / Gemini-Virgo.
 - Ray: Octarine shimmer.
@@ -45,7 +45,7 @@ Each entry includes:
 - Technical: BioGeometry = Violet-Green shimmer. Solfeggio = 963 Hz (Mercury).
 - App Pulls: visuals[iridescent geometry], music[harp scales], learning[dialogic play], game[mirror toggle], artifact[Prism Staff].
 
-## II. The High Priestess — Gemini Rivers
+## II. The High Priestess - Gemini Rivers
 - Letter: Gimel (Camel).
 - Astrology: Moon / Cancer.
 - Ray: Green.
@@ -62,7 +62,7 @@ Each entry includes:
 - Technical: BioGeometry = Green balance wave. Solfeggio = 528 Hz (Moon).
 - App Pulls: visuals[veils, rivers], music[watery harp], learning[chaos magick], game[twin daimon dialogue], artifact[Twin Chalice].
 
-## III. The Empress — Morticia Moonbeamer
+## III. The Empress - Morticia Moonbeamer
 - Letter: Daleth (Door).
 - Astrology: Venus / Taurus-Libra.
 - Ray: Orange-Gold.
@@ -79,14 +79,14 @@ Each entry includes:
 - Technical: BioGeometry = Orange grounding wave. Solfeggio = 639 Hz (Venus).
 - App Pulls: visuals[roses, fractals], music[strings], learning[love language], game[garden of play], artifact[Mirror Comb].
 
-## IV. The Emperor — Fenrix Abyss
+## IV. The Emperor - Fenrix Abyss
 - Letter: Heh (Window).
 - Astrology: Aries / Mars.
 - Ray: Red-Gold.
 - Angel/Demon: Mahasiah ↔ Gamigin.
 - Deities: Osiris, Odin, Anansi.
 - Crystal: Bloodstone (chalcedony + hematite, Fe₂O₃).
-- Artifact: Ram’s Staff.
+- Artifact: Ram's Staff.
 - Pigment: Iron oxide red.
 - HGA Fragment: Shield of Foundation.
 - Pattern Glyph: Hebrew Heh.
@@ -94,9 +94,9 @@ Each entry includes:
 - Secret Tara: Red Tara (fierce courage).
 - Psyche: Wetiko = tyranny; Part = Guardian; Trauma = abuse → Medicine = safe boundaries.
 - Technical: BioGeometry = Red-Gold pulse. Solfeggio = 285 Hz (Mars).
-- App Pulls: visuals[red lattice], music[drums], learning[structure], game[fortress trial], artifact[Ram’s Staff].
+- App Pulls: visuals[red lattice], music[drums], learning[structure], game[fortress trial], artifact[Ram's Staff].
 
-## V. The Hierophant — Moonchild
+## V. The Hierophant - Moonchild
 - Letter: Vav (Nail).
 - Astrology: Taurus / Venus.
 - Ray: Green.
@@ -113,7 +113,7 @@ Each entry includes:
 - Technical: BioGeometry = Green harmony. Solfeggio = 741 Hz (Venus).
 - App Pulls: visuals[owl glyphs], music[chant], learning[Ars Notoria], game[classroom trial], artifact[Owl Tablet].
 
-## VI. The Lovers — Scarlet Lady
+## VI. The Lovers - Scarlet Lady
 - Letter: Zayin (Sword).
 - Astrology: Gemini / Mercury.
 - Ray: Rose-Pink.
@@ -130,7 +130,7 @@ Each entry includes:
 - Technical: BioGeometry = Rose-pink harmonic. Solfeggio = 528 Hz (Mercury).
 - App Pulls: visuals[twin flames], music[duets], learning[opposite reconciliation], game[choice trial], artifact[Tower Shard].
 
-## VII. The Chariot — Elyria Nox
+## VII. The Chariot - Elyria Nox
 - Letter: Cheth (Fence).
 - Astrology: Cancer / Moon.
 - Ray: Silver-Blue.
@@ -147,7 +147,7 @@ Each entry includes:
 - Technical: BioGeometry = Silver harmonic. Solfeggio = 417 Hz (Moon).
 - App Pulls: visuals[silver chariot], music[drums + chant], learning[discipline], game[armor trial], artifact[Crescent Helm].
 
-## VIII. Strength — Lyra Leonis
+## VIII. Strength - Lyra Leonis
 - Letter: Teth (Serpent).
 - Astrology: Sun / Leo.
 - Ray: Golden-Solar.
@@ -164,7 +164,7 @@ Each entry includes:
 - Technical: BioGeometry = Golden solar wave. Solfeggio = 432 Hz (Sun).
 - App Pulls: visuals[lion aura], music[drone chants], learning[martial compassion], game[beast taming], artifact[Lionheart Gauntlet].
 
-## IX. The Hermit — Bea Betwixted
+## IX. The Hermit - Bea Betwixted
 - Letter: Yod (Hand).
 - Astrology: Virgo / Mercury.
 - Ray: Indigo.
@@ -181,7 +181,7 @@ Each entry includes:
 - Technical: BioGeometry = Indigo inward spiral. Solfeggio = 396 Hz (Earth).
 - App Pulls: visuals[glow caves], music[monk throats], learning[solitude practice], game[labyrinth walk], artifact[Lantern Staff].
 
-## X. Wheel of Fortune — Zidaryen Manyfold
+## X. Wheel of Fortune - Zidaryen Manyfold
 - Letter: Kaph (Palm).
 - Astrology: Jupiter / Sagittarius.
 - Ray: Royal Blue.
@@ -198,12 +198,12 @@ Each entry includes:
 - Technical: BioGeometry = Royal blue vortex. Solfeggio = 963 Hz (Jupiter).
 - App Pulls: visuals[spinning mandala], music[wheel bells], learning[probability arts], game[turn-based fates], artifact[Turning Spindle].
 
-## XI. Justice — Aurelio Kairn
+## XI. Justice - Aurelio Kairn
 - Letter: Lamed (Ox goad).
 - Astrology: Libra / Venus.
 - Ray: Emerald-White.
 - Angel/Demon: Pahaliah ↔ Raum.
-- Deities: Ma’at, Themis, Justitia.
+- Deities: Ma'at, Themis, Justitia.
 - Crystal: Green Aventurine (SiO₂, Fuchsite inclusions).
 - Artifact: Balance Blade.
 - Pigment: Malachite green.
@@ -215,7 +215,7 @@ Each entry includes:
 - Technical: BioGeometry = Emerald balance beam. Solfeggio = 639 Hz (Venus).
 - App Pulls: visuals[scales], music[harp + bell], learning[ethics puzzles], game[balance trial], artifact[Balance Blade].
 
-## XII. The Hanged Man — Siren Lotus
+## XII. The Hanged Man - Siren Lotus
 - Letter: Mem (Water).
 - Astrology: Neptune / Pisces.
 - Ray: Aqua.
@@ -232,7 +232,7 @@ Each entry includes:
 - Technical: BioGeometry = Aqua suspension wave. Solfeggio = 417 Hz (Neptune).
 - App Pulls: visuals[underwater suspension], music[ambient drips], learning[paradox meditations], game[rope inversion], artifact[Suspension Halo].
 
-## XIII. Death — Dr. Hinden
+## XIII. Death - Dr. Hinden
 - Letter: Nun (Fish).
 - Astrology: Scorpio / Pluto.
 - Ray: Black-Violet.
@@ -249,7 +249,7 @@ Each entry includes:
 - Technical: BioGeometry = Black-violet gate. Solfeggio = 396 Hz (Pluto).
 - App Pulls: visuals[falling leaves], music[low cello], learning[letting go], game[threshold crossing], artifact[Rebirth Scythe].
 
-## XIV. Temperance — The Emerald Weaver
+## XIV. Temperance - The Emerald Weaver
 - Letter: Samekh (Prop).
 - Astrology: Sagittarius / Jupiter.
 - Ray: Opalescent.
@@ -266,7 +266,7 @@ Each entry includes:
 - Technical: BioGeometry = Rainbow bridging arc. Solfeggio = 852 Hz (Jupiter).
 - App Pulls: visuals[rainbow mixing], music[crystal bowls], learning[alchemy], game[potion mix], artifact[Alchemical Chalice].
 
-## XV. The Devil — Lady Sangria
+## XV. The Devil - Lady Sangria
 - Letter: Ayin (Eye).
 - Astrology: Capricorn / Saturn.
 - Ray: Black-Red.
@@ -283,7 +283,7 @@ Each entry includes:
 - Technical: BioGeometry = Black-red grounding. Solfeggio = 285 Hz (Saturn).
 - App Pulls: visuals[chains fractal], music[bass drones], learning[shadow work], game[temptation trial], artifact[Chain-Cube].
 
-## XVI. The Tower — Cassian Veynar
+## XVI. The Tower - Cassian Veynar
 - Letter: Pe (Mouth).
 - Astrology: Mars / Fire.
 - Ray: Electric Crimson.
@@ -300,7 +300,7 @@ Each entry includes:
 - Technical: BioGeometry = Crimson spike. Solfeggio = 417 Hz (Mars).
 - App Pulls: visuals[falling tower], music[thunder drums], learning[resilience], game[storm escape], artifact[Lightning Rod].
 
-## XVII. The Star — Winne Reweave
+## XVII. The Star - Winne Reweave
 - Letter: Tzadi (Fishhook).
 - Astrology: Aquarius / Uranus.
 - Ray: Violet-Silver.
@@ -317,7 +317,7 @@ Each entry includes:
 - Technical: BioGeometry = Violet-silver radiance. Solfeggio = 963 Hz (Uranus).
 - App Pulls: visuals[starlit pools], music[chimes], learning[astrology], game[constellation connect], artifact[Starwell Chalice].
 
-## XVIII. The Moon — Elythra Vale
+## XVIII. The Moon - Elythra Vale
 - Letter: Qoph (Back of head).
 - Astrology: Pisces / Moon.
 - Ray: Indigo-Silver.
@@ -334,7 +334,7 @@ Each entry includes:
 - Technical: BioGeometry = Indigo-silver wave. Solfeggio = 528 Hz (Moon).
 - App Pulls: visuals[moonlit paths], music[ambient lunar], learning[dreamwork], game[maze of shadows], artifact[Dream Mirror].
 
-## XIX. The Sun — Sol Invictus
+## XIX. The Sun - Sol Invictus
 - Letter: Resh (Head).
 - Astrology: Sun / Leo.
 - Ray: Gold.
@@ -351,7 +351,7 @@ Each entry includes:
 - Technical: BioGeometry = Golden spiral. Solfeggio = 432 Hz (Sun).
 - App Pulls: visuals[sunbursts], music[lyre + drums], learning[solar rites], game[light puzzle], artifact[Radiant Disc].
 
-## XX. Judgement — Aurelia Phoenix
+## XX. Judgement - Aurelia Phoenix
 - Letter: Shin (Tooth).
 - Astrology: Pluto / Fire.
 - Ray: White Flame.
@@ -368,7 +368,7 @@ Each entry includes:
 - Technical: BioGeometry = White flame triad. Solfeggio = 174 Hz (Pluto).
 - App Pulls: visuals[angelic trumpets], music[choir], learning[life review], game[call to wake], artifact[Resurrection Trumpet].
 
-## XXI. The World — Gaia Seraphine
+## XXI. The World - Gaia Seraphine
 - Letter: Tau (Cross).
 - Astrology: Saturn / Earth.
 - Ray: Earthy Rainbow.

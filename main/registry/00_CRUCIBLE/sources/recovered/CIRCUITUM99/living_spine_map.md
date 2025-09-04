@@ -1,7 +1,7 @@
 # Living Spine -- 33 Stations (Alpha et Omega)
 
 > 3 acts × 11 stations. Fill titles you remember; leave blanks otherwise.
-## Act I (1–11)
+## Act I (1-11)
 1. (title)  
 2. (title)  
 3. (title)  
@@ -14,7 +14,7 @@
 10. (title)  
 11. (title)  
 
-## Act II (12–22)
+## Act II (12-22)
 12. (title)  
 13. (title)  
 14. (title)  
@@ -27,7 +27,7 @@
 21. **Moonchild -- Pillar 21** (continuity lock)  
 22. (title)
 
-## Act III (23–33)
+## Act III (23-33)
 23. (title)  
 24. (title)  
 25. (title)  

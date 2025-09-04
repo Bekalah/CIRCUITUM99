@@ -21,18 +21,18 @@
 ## Pulse 2025-08-15 04:28 UTC -- ✅ hello from ONLY PULSE
 ## Pulse 2025-08-15 04:29 UTC -- ✅ hello from ONLY PULSE
 ## Pulse 2025-08-15 06:53 UTC -- Yesod
-- preview artifact: see Action ‘crucible-preview’
+- preview artifact: see Action 'crucible-preview'
 
 ## Pulse 2025-08-15 07:16 UTC -- Yesod
-- preview artifact: see Action ‘crucible-preview’
+- preview artifact: see Action 'crucible-preview'
 
 ## Pulse 2025-08-15 07:41 UTC -- Yesod
-- preview artifact: see Action ‘crucible-preview’
+- preview artifact: see Action 'crucible-preview'
 
 ## Pulse 2025-08-15 08:21 UTC -- Yesod
-- preview artifact: see Action ‘crucible-preview’
+- preview artifact: see Action 'crucible-preview'
 
 ## Pulse 2025-08-15 08:49 UTC -- Yesod
-- preview artifact: see Action ‘crucible-preview’
+- preview artifact: see Action 'crucible-preview'
 
 ## Pulse 2025-08-15 04:19 UTC -- ✅ hello from ONLY PULSE

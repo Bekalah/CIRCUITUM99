@@ -21,7 +21,7 @@
 
 
 <h1>Cathedral Realm -- <span style="color:var(--gold)">Stone Grimoire</span> ✕ <span style="color:var(--rose)">Living Book</span></h1>
-<p class="note">Do what thou wilt shall be the whole of the Law. This master scroll binds the <em>two towers</em> and the <em>heaven stair</em> into one working: a 33‑chapter spine book for angel–dæmon reconciliation, IFS‑aware healing, and museum‑grade mystic art. Code/text here is public‑safe; keep oath‑bound materials private.</p>
+<p class="note">Do what thou wilt shall be the whole of the Law. This master scroll binds the <em>two towers</em> and the <em>heaven stair</em> into one working: a 33‑chapter spine book for angel-dæmon reconciliation, IFS‑aware healing, and museum‑grade mystic art. Code/text here is public‑safe; keep oath‑bound materials private.</p>
 
 <div class="banner">
   <div class="tower">
@@ -91,7 +91,7 @@
         <div id="chapel" style="margin-top:8px;"></div>
       </div>
       <div>
-        <h3>Curator’s Note</h3>
+        <h3>Curator's Note</h3>
         <textarea id="curatorNote" placeholder="Why this chapel matters to your Work…"></textarea>
         <button class="btn" onclick="saveCurator()">Save Note</button>
       </div>
@@ -100,7 +100,7 @@
 </div>
 
 <h2 style="margin-top:14px;">↟ Heaven Stair -- The 33‑Chapter Spine</h2>
-<p><small>Ten Sephiroth ↑, twenty‑two Paths →, and Da’ath (Knowledge) as the hidden 33rd. Cycle with the <strong>Spiral Code</strong>: Nigredo → Albedo → Citrinitas → Rubedo.</small></p>
+<p><small>Ten Sephiroth ↑, twenty‑two Paths →, and Da'ath (Knowledge) as the hidden 33rd. Cycle with the <strong>Spiral Code</strong>: Nigredo → Albedo → Citrinitas → Rubedo.</small></p>
 
 <div class="grid three" id="spine"></div>
 
@@ -283,7 +283,7 @@ function saveAD(){
   localStorage.setItem('ad-sphere', document.getElementById('ad-sphere').value);
   localStorage.setItem('ad-pair', document.getElementById('ad-pair').value);
   localStorage.setItem('ad-aim', document.getElementById('ad-aim').value);
-  alert('Angel–dæmon entry saved locally.');
+  alert('Angel-dæmon entry saved locally.');
 }
 
 // ---------- CHAPELS ----------
@@ -291,7 +291,7 @@ const CHAPELS = {
   hilma: `<p><b>Hilma af Klint -- Spiral Temple</b><br><small>Build the spiral: concentric cycles of 3×11. Curate a series with palette (lapis/rose/gold), and a wall‑text on spiritual lineage (Theosophy, Anthroposophy) and your Thelemic synthesis.</small></p>`,
   varo: `<p><b>Remedios Varo -- Laboratory of Dreams</b><br><small>Workshop vibe: instruments, alchemical glassware, cats. Document your <i>technique</i> like a lab book.</small></p>`,
   carrington: `<p><b>Leonora Carrington -- Bestiary of Gnosis</b><br><small>Myth‑animals as parts (IFS). Paint or write a reconciliation tale.</small></p>`,
-  hermetic: `<p><b>Hermetic Qabalah -- Tree & Paths</b><br><small>Use the 10 Sephiroth + 22 Paths + Da’ath map as your curriculum. Cite public‑domain sources; see also one‑reed.org.</small></p>`,
+  hermetic: `<p><b>Hermetic Qabalah -- Tree & Paths</b><br><small>Use the 10 Sephiroth + 22 Paths + Da'ath map as your curriculum. Cite public‑domain sources; see also one‑reed.org.</small></p>`,
   thelema: `<p><b>Thelema -- Love under Will</b><br><small>Magick = intention + technique. Keep oath‑bound material private; rely on public sources like oto‑usa.org for organizational info.</small></p>`
 };
 function renderChapel(){

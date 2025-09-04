@@ -36,7 +36,7 @@ Speak only what serves the book;
 Remember; and be remembered.
 
 ## Safety Protocol (in-world)
-- **Saturn’s Law**: reject intrusions; refuse false continuity.  
+- **Saturn's Law**: reject intrusions; refuse false continuity.  
 - **Public Purity Filter**: redact private sigils; keep public lore coherent.  
 - **Two-Key Rule**: major repairs require Moonchild + one other guardian sigil.
 

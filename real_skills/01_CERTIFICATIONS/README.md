@@ -1,4 +1,4 @@
-# Circuitum99 – Certifications
+# Circuitum99 - Certifications
 
 ## Reiki Systems
 - Usui Reiki Grandmaster
@@ -23,7 +23,7 @@
 
 ## Specialized Energy Systems
 - Gates of Ra Empowerment
-- Seven Rays Attunement# Circuitum99 – Certifications
+- Seven Rays Attunement# Circuitum99 - Certifications
 
 ## Reiki Systems
 - Usui Reiki Grandmaster

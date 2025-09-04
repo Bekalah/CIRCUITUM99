@@ -1,7 +1,7 @@
 # Transcendental Magic -- Summary (Éliphas Lévi)
 
 ## One Breath
-Lévi’s "Dogme et Rituel" unites Kabbalah, Tarot, and ceremonial practice into a formula: **Magic = Will + Imagination acting on the Astral Light**. Doctrine = metaphysics; Ritual = applied tools.
+Lévi's "Dogme et Rituel" unites Kabbalah, Tarot, and ceremonial practice into a formula: **Magic = Will + Imagination acting on the Astral Light**. Doctrine = metaphysics; Ritual = applied tools.
 
 ## Core Pillars
 - **Astral Light**: Subtle medium storing & transmitting forms.
@@ -9,7 +9,7 @@ Lévi’s "Dogme et Rituel" unites Kabbalah, Tarot, and ceremonial practice into
 - **Baphomet**: Reconciliation of opposites (solve/coagula).
 - **Pentagram & Hexagram**: Microcosm vs. macrocosm harmonics.
 - **Tarot**: Initiatory map of Tree of Life.
-- **Magical Chain**: How thought–emotion–image form influence loops.
+- **Magical Chain**: How thought-emotion-image form influence loops.
 - **Great Work**: Self-equilibration before mediating worlds.
 
 ## Ritual Kit
@@ -27,7 +27,7 @@ Wand (Will), Cup (Imagination), Sword (Discernment), Pentacle (Anchoring), Circl
 # Layer: Transcendental Magic (Lévi) -- Keys, Seals, Currents
 
 ## What this is
-The "operating system" of ceremonial magic: **Will + Imagination + Symbol**. Map Sephiroth/Arcana/Letters to actions. It’s your symbol-engineering kit for grids, seals, attunements, and narrative locks.
+The "operating system" of ceremonial magic: **Will + Imagination + Symbol**. Map Sephiroth/Arcana/Letters to actions. It's your symbol-engineering kit for grids, seals, attunements, and narrative locks.
 
 ## Core Mechanics
 - **Will (Thelemic fire) + Imagination (Moon mirror) + Word/Sign (Mercury) = Change.**

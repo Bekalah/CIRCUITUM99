@@ -1,4 +1,4 @@
-// ✦ Codex 144:99 — preserve original intention
+// ✦ Codex 144:99 - preserve original intention
 import * as THREE from 'three';
 
 export default class TesseractEngine {
@@ -261,3 +261,4 @@ export default class Tesseract {
     });
   }
 }
+
