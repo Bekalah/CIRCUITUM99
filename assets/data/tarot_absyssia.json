@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "The Fool",
+    "arcana": "major",
+    "realm": "absyssia",
+    "stylepack": "standard",
+    "toneHz": 432,
+    "angelId": "Raziel",
+    "daemonId": "Bael"
+  },
+  {
+    "id": 1,
+    "name": "The Magician",
+    "arcana": "major",
+    "realm": "absyssia",
+    "stylepack": "standard",
+    "toneHz": 480
+  }
+]
