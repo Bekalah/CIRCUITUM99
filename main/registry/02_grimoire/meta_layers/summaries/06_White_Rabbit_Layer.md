@@ -3,9 +3,9 @@
 # White Rabbit Layer
 
 ## Summary
-The White Rabbit archetype serves as a **threshold guide** -- a figure who disrupts ordinary perception and draws the seeker across a liminal boundary into deeper reality. Historically rooted in Lewis Carroll's *Alice’s Adventures in Wonderland*, the White Rabbit functions as an initiator in the Fool’s Journey: not a teacher, but a catalyst who forces the protagonist to choose between comfort and awakening.
+The White Rabbit archetype serves as a **threshold guide** -- a figure who disrupts ordinary perception and draws the seeker across a liminal boundary into deeper reality. Historically rooted in Lewis Carroll's *Alice's Adventures in Wonderland*, the White Rabbit functions as an initiator in the Fool's Journey: not a teacher, but a catalyst who forces the protagonist to choose between comfort and awakening.
 
-In folklore and mystery traditions, rabbit figures often represent **speed, intuition, and timing**. The "late" rabbit is paradoxically right on time for the soul’s unfolding. Within *The Book of Abyssia* meta-system, the White Rabbit acts as a **living key** to the Underworld trials and paradox riddles, closely aligned with the Fox Trickster and Scarlet Lady layers.
+In folklore and mystery traditions, rabbit figures often represent **speed, intuition, and timing**. The "late" rabbit is paradoxically right on time for the soul's unfolding. Within *The Book of Abyssia* meta-system, the White Rabbit acts as a **living key** to the Underworld trials and paradox riddles, closely aligned with the Fox Trickster and Scarlet Lady layers.
 
 ## Meta Layer Integration
 - **Realm Alignment:** Liminal Gateways / SubTavers  

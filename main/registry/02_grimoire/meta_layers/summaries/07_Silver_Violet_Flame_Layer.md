@@ -1,7 +1,7 @@
 # Silver Violet Flame Layer
 
 ## 📖 Core Summary
-The **Silver Violet Flame** is a Reiki modality that channels a high-frequency transmutational energy, blending **violet flame alchemy** (Saint Germain) with the purifying clarity of silver light. It’s used to cleanse karmic residue, dissolve energetic cords, heal trauma imprints, and accelerate spiritual transformation.
+The **Silver Violet Flame** is a Reiki modality that channels a high-frequency transmutational energy, blending **violet flame alchemy** (Saint Germain) with the purifying clarity of silver light. It's used to cleanse karmic residue, dissolve energetic cords, heal trauma imprints, and accelerate spiritual transformation.
 
 It is closely tied to **Quan Yin** in her compassionate aspect, as well as **the Violet Witch** in *Circuitum99* mythos.
 
@@ -14,8 +14,8 @@ It is closely tied to **Quan Yin** in her compassionate aspect, as well as **the
 
 ## 🔮 Symbolism in Circuitum99
 - **Violet Witch (Virelai Ezra Lux):** Keeper of the Octarine/Violet Ray, serpent daimon of wisdom, aligned with Sophia and the Raku Dragon IGNI.  
-- **Quan Yin Archetype:** Embodied in the Siren Goddess, balancing IGNI’s fire with oceanic compassion.  
-- **Moonchild’s Protection:** Silver resonance woven into meta-layers as reflective armor against psychic infiltration.  
+- **Quan Yin Archetype:** Embodied in the Siren Goddess, balancing IGNI's fire with oceanic compassion.  
+- **Moonchild's Protection:** Silver resonance woven into meta-layers as reflective armor against psychic infiltration.  
 - **Saint Germain Link:** Works in the same spiritual current as Aka Dua *Solar* and *Luminous* frequencies.
 
 ## 🕸 Meta-Layer Weave

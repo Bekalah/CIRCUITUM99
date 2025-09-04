@@ -1,4 +1,4 @@
-# Pillar 01 — Gnosis Seven
+# Pillar 01 - Gnosis Seven
 
 **True Name:** Gnosis Seven  
 **Seal/Sigil:** (link to main/registry/symbols/01_gnosis7.svg)  
@@ -29,4 +29,4 @@ S1 (entry point), S7 (mystery bridge)
 **Linked Realms:**  
 Central Nexus
 
-> **Alpha ↔ Omega Position:** The crown’s first vertebra — the breath’s first spark.
+> **Alpha ↔ Omega Position:** The crown's first vertebra - the breath's first spark.

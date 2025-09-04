@@ -1,4 +1,4 @@
-# CIRCUITUM99 × STONE_GRIMOIRE × COSMOGENESIS — MASTER FOLDERS • PATHS • CODE • RITUAL
+# CIRCUITUM99 × STONE_GRIMOIRE × COSMOGENESIS - MASTER FOLDERS • PATHS • CODE • RITUAL
 
 ## WHY
 One style spine, three bodies:
@@ -8,7 +8,7 @@ One style spine, three bodies:
 
 No CI required. No new directories beyond those listed. You can paste this whole doc into your iPad, then copy file-by-file.
 
-—
+-
 
 # 0) SHARED CONVENTIONS
 
@@ -20,12 +20,12 @@ No CI required. No new directories beyond those listed. You can paste this whole
 All consuming apps read from `/bridge/c99-bridge.json` and apply classes:  
 `.visionary-grid`, `.obsidian-sculpt`, `.obsidian-glint`, `.obsidian-facets`, `.raku-seal`, `.lava-brim`, `.use-secondary`.
 
-Accessibility: `”a11y”: { “min_contrast”: 4.5, “motion”: “reduce”, “autoplay”: false, “strobe”: false }`
+Accessibility: `"a11y": { "min_contrast": 4.5, "motion": "reduce", "autoplay": false, "strobe": false }`
 
-—
+-
 
 # 1) REPO: stone_grimoire
-**Purpose:** Art & style source. Ingests art → writes processed assets, thumbnails/webp, and the **bridge manifest**. Mirrors tokens+css to the learning engine’s public folder.
+**Purpose:** Art & style source. Ingests art → writes processed assets, thumbnails/webp, and the **bridge manifest**. Mirrors tokens+css to the learning engine's public folder.
 
 ## 1.1 Folder Tree (unchanged + confirmed)
 stone_grimoire/
@@ -70,8 +70,8 @@ PATH: stone_grimoire/chapels/_filters.html
 PATH: stone_grimoire/bridge/c99-bridge.js
 ```js
 // Minimal helper to fetch the manifest once
-export async function loadBridge(url = ‘/bridge/c99-bridge.json’) {
-  const r = await fetch(url, {cache:’no-store’});
-  if(!r.ok) throw new Error(‘Bridge not found: ‘+url);
+export async function loadBridge(url = '/bridge/c99-bridge.json') {
+  const r = await fetch(url, {cache:'no-store'});
+  if(!r.ok) throw new Error('Bridge not found: '+url);
   return r.json();
 }

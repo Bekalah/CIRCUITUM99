@@ -14,7 +14,7 @@
 **Rule:** bots never edit `canon/` or `confirmed/`.
 
 ## Moonchild (char)
-See: `moonchild_character.md` -- She’s a character **and** guardian (recovery & repair).  
+See: `moonchild_character.md` -- She's a character **and** guardian (recovery & repair).  
 Evidence notes: `moonchild_support_notes.md`.
 
 ## Pillars (21 + extensions)
@@ -24,7 +24,7 @@ Review: `pillar_21_registry.md` (candidates). Promote confirmed items into `conf
 Review: `living_spine_map.md` (evidence & ordering). Use as master ToC.
 
 ## Realms
-Review: `realm_index.md` (names/descriptions). **Filter out breach-era overlays** you didn’t approve.
+Review: `realm_index.md` (names/descriptions). **Filter out breach-era overlays** you didn't approve.
 
 ## Chapters
 Review: `core_chapter_registry.md` (chapter-like candidates). Promote one by one.

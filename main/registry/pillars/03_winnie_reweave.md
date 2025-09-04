@@ -1,4 +1,4 @@
-=# Pillar 03 — Winnie Reweave
+=# Pillar 03 - Winnie Reweave
 
 **True Name:** Winnie Reweave  
 **Seal/Sigil:** (link to main/registry/symbols/03_winnie_reweave.svg)  
@@ -29,4 +29,4 @@ S3 (repair node), S6 (balance pivot)
 **Linked Realms:**  
 Loom of Mirrors
 
-> **Alpha ↔ Omega Position:** Early-spine harmonizer — prevents early fractures in the breath’s ascent.
+> **Alpha ↔ Omega Position:** Early-spine harmonizer - prevents early fractures in the breath's ascent.

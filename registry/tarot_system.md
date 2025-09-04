@@ -5,10 +5,10 @@ Abyssian Tarot of the Living Monad Hieroglyphica
 Author: Rebecca Susan Lemke (Rebecca Respawn)
 ORCID: 0009-0002-2834-3956
 Affiliation: International Alchemy Guild
-Lineage: Alpha et Omega lodge (Paul Foster Case, Dion Fortune) · John Dee’s Monad Hieroglyphica · Splendor Solis · Ars Notoria · Rudd’s Goetia · Codex 144:99 · Abyssia mythos
+Lineage: Alpha et Omega lodge (Paul Foster Case, Dion Fortune) · John Dee's Monad Hieroglyphica · Splendor Solis · Ars Notoria · Rudd's Goetia · Codex 144:99 · Abyssia mythos
 Numerology: 22 (Master Builder)
-Principle: Solve et Coagula — shadow broken apart, recombined in light.
-Seal Motto: “In Codice Abyssiae, Angelus et Daemon concordant.”
+Principle: Solve et Coagula - shadow broken apart, recombined in light.
+Seal Motto: "In Codice Abyssiae, Angelus et Daemon concordant."
 (In the Codex of the Abyss, Angel and Demon are reconciled.)
 
 ⸻
@@ -28,13 +28,13 @@ Seal Motto: “In Codice Abyssiae, Angelus et Daemon concordant.”
 
 Layers:
 •Outer Ring (78): Hebrew letters (22 Majors) + elemental/planetary glyphs (56 Minors).
-•Second Ring (72+72): Authentic Shem angel sigils alternating with Goetia demon seals (Rudd’s tables).
-•Third Ring (33 beads): Alchemical colors (Nigredo–Albedo–Citrinitas–Rubedo). Ars Notoria notae at 11, 22, 33.
+•Second Ring (72+72): Authentic Shem angel sigils alternating with Goetia demon seals (Rudd's tables).
+•Third Ring (33 beads): Alchemical colors (Nigredo-Albedo-Citrinitas-Rubedo). Ars Notoria notae at 11, 22, 33.
 •Hexagram: Six planetary archangel sigils (Michael, Raphael, Gabriel, Uriel, Haniel, Tzaphkiel).
-•Center: John Dee’s Monad Hieroglyphica fused with the LuxCrux cross, in a Vesica Piscis.
-•Hidden Spiral: Soyga cipher letters + seed syllables Zi–Dar–Yen; Ars Notoria mantras faintly inscribed.
+•Center: John Dee's Monad Hieroglyphica fused with the LuxCrux cross, in a Vesica Piscis.
+•Hidden Spiral: Soyga cipher letters + seed syllables Zi-Dar-Yen; Ars Notoria mantras faintly inscribed.
 •Color Palette: Obsidian black, lapis blue, alchemical gold, peacock green, Octarine shimmer.
-•Inscription: “In Codice Abyssiae, Angelus et Daemon concordant.”
+•Inscription: "In Codice Abyssiae, Angelus et Daemon concordant."
 
 Uses:
 •Tarot card back.
@@ -49,10 +49,10 @@ Uses:
 
 Every Major Arcana card carries three layers:
 1.Visible Layer
-•Angel/Demon pairing (Rudd’s schema).
+•Angel/Demon pairing (Rudd's schema).
 •Planet + zodiac glyph.
 •Hebrew letter.
-•Ray color (Bailey’s 7 + Octarine).
+•Ray color (Bailey's 7 + Octarine).
 •Crystal glyph (scientific mineral accuracy).
 •Artifact (key, chalice, mirror, staff, shard).
 •Numerology seal.
@@ -74,7 +74,7 @@ Every Major Arcana card carries three layers:
 •Border = Hebrew letter + Abyssian language glyph.
 •Overlay = crystal glyph.
 •Background = Splendor Solis pigments + geometric yantras.
-•Pattern fragments of Dee’s Monad always present.
+•Pattern fragments of Dee's Monad always present.
 •Hidden in apps: Tara mandala fractals + mantras.
 
 Each card = portable Monad → meditation yantra, ritual key, world portal.
@@ -123,6 +123,6 @@ Each card = portable Monad → meditation yantra, ritual key, world portal.
 
 ⸻
 
-✨ Rebecca — this is now a complete, organized Codex of all we have discussed.
+✨ Rebecca - this is now a complete, organized Codex of all we have discussed.
 It is your living Tarot repo foundation: you can copy this as README.md + REGISTRY/tarot_system.md for your repos.
 

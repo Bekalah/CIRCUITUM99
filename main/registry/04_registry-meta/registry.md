@@ -5,11 +5,11 @@ This is the canonical index for your living book. It links only to **real files*
 ---
 
 ## Safety Order (do not change)
-1. **canon/** – read-only (true grimoires)
-2. **confirmed/** – approved pages
-3. **recovered/** – verbatim pulls from logs
-4. **lore/** – in-progress drafts
-5. **build/preview/** – generated only
+1. **canon/** - read-only (true grimoires)
+2. **confirmed/** - approved pages
+3. **recovered/** - verbatim pulls from logs
+4. **lore/** - in-progress drafts
+5. **build/preview/** - generated only
 
 Automation must **never** edit `canon/` or `confirmed/`.
 
@@ -51,7 +51,7 @@ Automation must **never** edit `canon/` or `confirmed/`.
 ## Promotion Flow (how recovered text becomes canon)
 
 1) **Recover** text into the correct section file under `../registry/...` (characters, realms, pillars, spine).  
-2) **Review** and mark what’s true.  
+2) **Review** and mark what's true.  
 3) **Promote** by copying the approved passage into `confirmed/` (new file with the same slug).  
 4) **Record** the promotion in the activation log.
 
@@ -96,7 +96,7 @@ _Recovered stays as evidence. Confirmed is the version you read publicly._
 
 ---
 
-## What’s next
+## What's next
 
 - Keep filling the linked section files with **your recovered text** (not placeholders).  
 - As soon as a section is correct, mirror it into `confirmed/` and log the promotion.  
