@@ -6,7 +6,7 @@ tags: [Visionary Art, Reiki, Trauma Healing, Psycho Magic, Neurodivergence, Alch
 
 # Rebecca Respawn -- Creative Founder & Visionary Healer
 
-![LuxCrux Logo](../assets/images/luxcrux_logo.png)
+![LuxCrux Logo](/assets/images/luxcrux_logo.png)
 
 I’m Rebecca Respawn -- artist, architect-scribe, and visionary entrepreneur -- emerging from years of trauma and isolation to create a sacred space where healing, magic, and creativity fuse into powerful alchemical expression.
 
