@@ -1,0 +1,578 @@
+[
+  {
+    "egregore_id": 1,
+    "name": "Node 1"
+  },
+  {
+    "egregore_id": 2,
+    "name": "Node 2"
+  },
+  {
+    "egregore_id": 3,
+    "name": "Node 3"
+  },
+  {
+    "egregore_id": 4,
+    "name": "Node 4"
+  },
+  {
+    "egregore_id": 5,
+    "name": "Node 5"
+  },
+  {
+    "egregore_id": 6,
+    "name": "Node 6"
+  },
+  {
+    "egregore_id": 7,
+    "name": "Node 7"
+  },
+  {
+    "egregore_id": 8,
+    "name": "Node 8"
+  },
+  {
+    "egregore_id": 9,
+    "name": "Node 9"
+  },
+  {
+    "egregore_id": 10,
+    "name": "Node 10"
+  },
+  {
+    "egregore_id": 11,
+    "name": "Node 11"
+  },
+  {
+    "egregore_id": 12,
+    "name": "Node 12"
+  },
+  {
+    "egregore_id": 13,
+    "name": "Node 13"
+  },
+  {
+    "egregore_id": 14,
+    "name": "Node 14"
+  },
+  {
+    "egregore_id": 15,
+    "name": "Node 15"
+  },
+  {
+    "egregore_id": 16,
+    "name": "Node 16"
+  },
+  {
+    "egregore_id": 17,
+    "name": "Node 17"
+  },
+  {
+    "egregore_id": 18,
+    "name": "Node 18"
+  },
+  {
+    "egregore_id": 19,
+    "name": "Node 19"
+  },
+  {
+    "egregore_id": 20,
+    "name": "Node 20"
+  },
+  {
+    "egregore_id": 21,
+    "name": "Node 21"
+  },
+  {
+    "egregore_id": 22,
+    "name": "Node 22"
+  },
+  {
+    "egregore_id": 23,
+    "name": "Node 23"
+  },
+  {
+    "egregore_id": 24,
+    "name": "Node 24"
+  },
+  {
+    "egregore_id": 25,
+    "name": "Node 25"
+  },
+  {
+    "egregore_id": 26,
+    "name": "Node 26"
+  },
+  {
+    "egregore_id": 27,
+    "name": "Node 27"
+  },
+  {
+    "egregore_id": 28,
+    "name": "Node 28"
+  },
+  {
+    "egregore_id": 29,
+    "name": "Node 29"
+  },
+  {
+    "egregore_id": 30,
+    "name": "Node 30"
+  },
+  {
+    "egregore_id": 31,
+    "name": "Node 31"
+  },
+  {
+    "egregore_id": 32,
+    "name": "Node 32"
+  },
+  {
+    "egregore_id": 33,
+    "name": "Node 33"
+  },
+  {
+    "egregore_id": 34,
+    "name": "Node 34"
+  },
+  {
+    "egregore_id": 35,
+    "name": "Node 35"
+  },
+  {
+    "egregore_id": 36,
+    "name": "Node 36"
+  },
+  {
+    "egregore_id": 37,
+    "name": "Node 37"
+  },
+  {
+    "egregore_id": 38,
+    "name": "Node 38"
+  },
+  {
+    "egregore_id": 39,
+    "name": "Node 39"
+  },
+  {
+    "egregore_id": 40,
+    "name": "Node 40"
+  },
+  {
+    "egregore_id": 41,
+    "name": "Node 41"
+  },
+  {
+    "egregore_id": 42,
+    "name": "Node 42"
+  },
+  {
+    "egregore_id": 43,
+    "name": "Node 43"
+  },
+  {
+    "egregore_id": 44,
+    "name": "Node 44"
+  },
+  {
+    "egregore_id": 45,
+    "name": "Node 45"
+  },
+  {
+    "egregore_id": 46,
+    "name": "Node 46"
+  },
+  {
+    "egregore_id": 47,
+    "name": "Node 47"
+  },
+  {
+    "egregore_id": 48,
+    "name": "Node 48"
+  },
+  {
+    "egregore_id": 49,
+    "name": "Node 49"
+  },
+  {
+    "egregore_id": 50,
+    "name": "Node 50"
+  },
+  {
+    "egregore_id": 51,
+    "name": "Node 51"
+  },
+  {
+    "egregore_id": 52,
+    "name": "Node 52"
+  },
+  {
+    "egregore_id": 53,
+    "name": "Node 53"
+  },
+  {
+    "egregore_id": 54,
+    "name": "Node 54"
+  },
+  {
+    "egregore_id": 55,
+    "name": "Node 55"
+  },
+  {
+    "egregore_id": 56,
+    "name": "Node 56"
+  },
+  {
+    "egregore_id": 57,
+    "name": "Node 57"
+  },
+  {
+    "egregore_id": 58,
+    "name": "Node 58"
+  },
+  {
+    "egregore_id": 59,
+    "name": "Node 59"
+  },
+  {
+    "egregore_id": 60,
+    "name": "Node 60"
+  },
+  {
+    "egregore_id": 61,
+    "name": "Node 61"
+  },
+  {
+    "egregore_id": 62,
+    "name": "Node 62"
+  },
+  {
+    "egregore_id": 63,
+    "name": "Node 63"
+  },
+  {
+    "egregore_id": 64,
+    "name": "Node 64"
+  },
+  {
+    "egregore_id": 65,
+    "name": "Node 65"
+  },
+  {
+    "egregore_id": 66,
+    "name": "Node 66"
+  },
+  {
+    "egregore_id": 67,
+    "name": "Node 67"
+  },
+  {
+    "egregore_id": 68,
+    "name": "Node 68"
+  },
+  {
+    "egregore_id": 69,
+    "name": "Node 69"
+  },
+  {
+    "egregore_id": 70,
+    "name": "Node 70"
+  },
+  {
+    "egregore_id": 71,
+    "name": "Node 71"
+  },
+  {
+    "egregore_id": 72,
+    "name": "Node 72"
+  },
+  {
+    "egregore_id": 73,
+    "name": "Node 73"
+  },
+  {
+    "egregore_id": 74,
+    "name": "Node 74"
+  },
+  {
+    "egregore_id": 75,
+    "name": "Node 75"
+  },
+  {
+    "egregore_id": 76,
+    "name": "Node 76"
+  },
+  {
+    "egregore_id": 77,
+    "name": "Node 77"
+  },
+  {
+    "egregore_id": 78,
+    "name": "Node 78"
+  },
+  {
+    "egregore_id": 79,
+    "name": "Node 79"
+  },
+  {
+    "egregore_id": 80,
+    "name": "Node 80"
+  },
+  {
+    "egregore_id": 81,
+    "name": "Node 81"
+  },
+  {
+    "egregore_id": 82,
+    "name": "Node 82"
+  },
+  {
+    "egregore_id": 83,
+    "name": "Node 83"
+  },
+  {
+    "egregore_id": 84,
+    "name": "Node 84"
+  },
+  {
+    "egregore_id": 85,
+    "name": "Node 85"
+  },
+  {
+    "egregore_id": 86,
+    "name": "Node 86"
+  },
+  {
+    "egregore_id": 87,
+    "name": "Node 87"
+  },
+  {
+    "egregore_id": 88,
+    "name": "Node 88"
+  },
+  {
+    "egregore_id": 89,
+    "name": "Node 89"
+  },
+  {
+    "egregore_id": 90,
+    "name": "Node 90"
+  },
+  {
+    "egregore_id": 91,
+    "name": "Node 91"
+  },
+  {
+    "egregore_id": 92,
+    "name": "Node 92"
+  },
+  {
+    "egregore_id": 93,
+    "name": "Node 93"
+  },
+  {
+    "egregore_id": 94,
+    "name": "Node 94"
+  },
+  {
+    "egregore_id": 95,
+    "name": "Node 95"
+  },
+  {
+    "egregore_id": 96,
+    "name": "Node 96"
+  },
+  {
+    "egregore_id": 97,
+    "name": "Node 97"
+  },
+  {
+    "egregore_id": 98,
+    "name": "Node 98"
+  },
+  {
+    "egregore_id": 99,
+    "name": "Node 99"
+  },
+  {
+    "egregore_id": 100,
+    "name": "Node 100"
+  },
+  {
+    "egregore_id": 101,
+    "name": "Node 101"
+  },
+  {
+    "egregore_id": 102,
+    "name": "Node 102"
+  },
+  {
+    "egregore_id": 103,
+    "name": "Node 103"
+  },
+  {
+    "egregore_id": 104,
+    "name": "Node 104"
+  },
+  {
+    "egregore_id": 105,
+    "name": "Node 105"
+  },
+  {
+    "egregore_id": 106,
+    "name": "Node 106"
+  },
+  {
+    "egregore_id": 107,
+    "name": "Node 107"
+  },
+  {
+    "egregore_id": 108,
+    "name": "Node 108"
+  },
+  {
+    "egregore_id": 109,
+    "name": "Node 109"
+  },
+  {
+    "egregore_id": 110,
+    "name": "Node 110"
+  },
+  {
+    "egregore_id": 111,
+    "name": "Node 111"
+  },
+  {
+    "egregore_id": 112,
+    "name": "Node 112"
+  },
+  {
+    "egregore_id": 113,
+    "name": "Node 113"
+  },
+  {
+    "egregore_id": 114,
+    "name": "Node 114"
+  },
+  {
+    "egregore_id": 115,
+    "name": "Node 115"
+  },
+  {
+    "egregore_id": 116,
+    "name": "Node 116"
+  },
+  {
+    "egregore_id": 117,
+    "name": "Node 117"
+  },
+  {
+    "egregore_id": 118,
+    "name": "Node 118"
+  },
+  {
+    "egregore_id": 119,
+    "name": "Node 119"
+  },
+  {
+    "egregore_id": 120,
+    "name": "Node 120"
+  },
+  {
+    "egregore_id": 121,
+    "name": "Node 121"
+  },
+  {
+    "egregore_id": 122,
+    "name": "Node 122"
+  },
+  {
+    "egregore_id": 123,
+    "name": "Node 123"
+  },
+  {
+    "egregore_id": 124,
+    "name": "Node 124"
+  },
+  {
+    "egregore_id": 125,
+    "name": "Node 125"
+  },
+  {
+    "egregore_id": 126,
+    "name": "Node 126"
+  },
+  {
+    "egregore_id": 127,
+    "name": "Node 127"
+  },
+  {
+    "egregore_id": 128,
+    "name": "Node 128"
+  },
+  {
+    "egregore_id": 129,
+    "name": "Node 129"
+  },
+  {
+    "egregore_id": 130,
+    "name": "Node 130"
+  },
+  {
+    "egregore_id": 131,
+    "name": "Node 131"
+  },
+  {
+    "egregore_id": 132,
+    "name": "Node 132"
+  },
+  {
+    "egregore_id": 133,
+    "name": "Node 133"
+  },
+  {
+    "egregore_id": 134,
+    "name": "Node 134"
+  },
+  {
+    "egregore_id": 135,
+    "name": "Node 135"
+  },
+  {
+    "egregore_id": 136,
+    "name": "Node 136"
+  },
+  {
+    "egregore_id": 137,
+    "name": "Node 137"
+  },
+  {
+    "egregore_id": 138,
+    "name": "Node 138"
+  },
+  {
+    "egregore_id": 139,
+    "name": "Node 139"
+  },
+  {
+    "egregore_id": 140,
+    "name": "Node 140"
+  },
+  {
+    "egregore_id": 141,
+    "name": "Node 141"
+  },
+  {
+    "egregore_id": 142,
+    "name": "Node 142"
+  },
+  {
+    "egregore_id": 143,
+    "name": "Node 143"
+  },
+  {
+    "egregore_id": 144,
+    "name": "Node 144"
+  }
+]
