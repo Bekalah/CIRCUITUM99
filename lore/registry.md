@@ -1,1 +1,2 @@
 - **White Rabbit Intro** -- The initiating archetype and portal guardian who opens the pathway into Circuitum99. Featured in opening chapters, the White Rabbit guides players/readers through liminal thresholds. [white_rabbit_intro.md](./white_rabbit_intro.md)
+- **Major Arcana Registry** -- Symbolic index of the 22 trump forces, mapping letters, rays, deities, psyche layers, and app pulls for each path. [major_arcana_registry.md](./major_arcana_registry.md)
