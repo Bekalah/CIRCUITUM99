@@ -8,11 +8,11 @@ These spreads embody *solve et coagula*, mirroring both alchemical stages and Ab
 
 2. **Monad Spread (5)**  
    - Sun, Moon, Cross, Fire/Spirit, Self (center).  
-   - Direct invocation of John Dee’s Monad Hieroglyphica.  
+   - Direct invocation of John Dee's Monad Hieroglyphica.  
 
 3. **Double Tree Spread (10 + 22)**  
    - Ten Sephiroth + 22 paths of the Double Tree of Life.  
-   - A spiral map for ascent or descent through Jacob’s Ladder.  
+   - A spiral map for ascent or descent through Jacob's Ladder.  
 
 4. **Spine Spread (33)**  
    - One card per vertebra in the Codex spine.  
@@ -41,7 +41,7 @@ These spreads embody *solve et coagula*, mirroring both alchemical stages and Ab
 
 **Unity Function:**  
 - 72 Shem Angels + 72 Goetia Demons reconciled.  
-- Consecration Angels (from Damien Echols’ Greater Hexagram rite) guard portals.  
+- Consecration Angels (from Damien Echols' Greater Hexagram rite) guard portals.  
 - All factions (Sulphur, Mercury, Salt, Ash, Inner Order) invoke them for consecration and banishment of false light.  
 
 ---
@@ -53,11 +53,11 @@ These spreads embody *solve et coagula*, mirroring both alchemical stages and Ab
 - 72 angelic sigils alternating with 72 demonic seals.  
 - 33 beads marking alchemical colors.  
 - Central Monad Hieroglyphica fused with LuxCrux cross.  
-- Spiral of Soyga cipher + syllables *Zi–Dar–Yen*.  
+- Spiral of Soyga cipher + syllables *Zi-Dar-Yen*.  
 - Inlaid with obsidian black, lapis blue, alchemical gold, Octarine shimmer.  
 
 **Inscription:**  
-*“In Codice Abyssiae, Angelus et Daemon concordant.”*  
+*"In Codice Abyssiae, Angelus et Daemon concordant."*  
 (*In the Codex of the Abyss, Angel and Demon are reconciled.*)  
 
 **Functions:**  

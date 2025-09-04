@@ -1,4 +1,4 @@
-# Meta Layers – Summaries Index
+# Meta Layers - Summaries Index
 
 > Current working index of meta-layer summaries for Circuitum99.  
 > Each layer is a bridge between your grimoire lore, the main narrative, and the game engine.
@@ -21,9 +21,9 @@
 ---
 
 ## Archetype / Character Layers
-3. [Fox Trickster Node](03_fox_trickster_node.md) – Zidaryen’s liminal riddle-keeper presence, merging Pan, Hermes, and satyr-fox energy.
-4. [Scarlet Lady Node](04_scarlet_lady_node.md) – The initiatrix of transformation, alchemical seduction, and threshold trials.
-5. [Morgan le Fay Layer](05_Morgan_le_Fay_Layer.md) – Sovereign of thresholds, fae queen, and weaver of paradox.
+3. [Fox Trickster Node](03_fox_trickster_node.md) - Zidaryen's liminal riddle-keeper presence, merging Pan, Hermes, and satyr-fox energy.
+4. [Scarlet Lady Node](04_scarlet_lady_node.md) - The initiatrix of transformation, alchemical seduction, and threshold trials.
+5. [Morgan le Fay Layer](05_Morgan_le_Fay_Layer.md) - Sovereign of thresholds, fae queen, and weaver of paradox.
 
 ---
 
@@ -34,4 +34,4 @@
 
 ---
 
-6. [White Rabbit Layer](06_White_Rabbit_Layer.md) – Threshold guide of urgency, temporal distortion, and disorienting initiation.
+6. [White Rabbit Layer](06_White_Rabbit_Layer.md) - Threshold guide of urgency, temporal distortion, and disorienting initiation.

@@ -1,4 +1,4 @@
-# Pillar 05 — Ann Abyss
+# Pillar 05 - Ann Abyss
 
 **True Name:** Ann Abyss  
 **Seal/Sigil:** (link to main/registry/symbols/05_ann_abyss.svg)  
@@ -7,7 +7,7 @@
 Voidwalker Sovereign; governs threshold crossings and ensures safe return from liminal spaces.
 
 **Realm Role:**  
-Keeper of the Voidwalkers’ Domain — the quiet heart of nothingness that hides all possible beginnings.
+Keeper of the Voidwalkers' Domain - the quiet heart of nothingness that hides all possible beginnings.
 
 **Planetary Alignment:**  
 Saturn (boundary, endurance) / Pluto (death-rebirth)
@@ -27,6 +27,6 @@ A serene guide who finds peace in the dark spaces others fear. Her presence turn
 S3 (depth passage), S7 (hidden truth)
 
 **Linked Realms:**  
-Voidwalker’s Domain
+Voidwalker's Domain
 
-> **Alpha ↔ Omega Position:** Mid-spine vertebra — transforms fear into navigable pathways.
+> **Alpha ↔ Omega Position:** Mid-spine vertebra - transforms fear into navigable pathways.

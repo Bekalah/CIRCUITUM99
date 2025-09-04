@@ -5,7 +5,7 @@
 - Use rich imagery, but keep language grounded in emotional truth.
 
 ## Structure
-- Maintain chapter numbering (00–10 confirmed so far).
+- Maintain chapter numbering (00-10 confirmed so far).
 - Gated content uses `<!-- gate:flag --> ... <!-- /gate -->`.
 - Fragments use `<!-- fragment:id=... --> ... <!-- /fragment -->`.
 

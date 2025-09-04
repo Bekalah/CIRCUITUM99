@@ -7,7 +7,7 @@
 **Key Traits:** Urgency, riddles, initiation by disruption, synchronicity catalyst  
 **Aka Dua Frequency:** White + Gold  
 **Folkloric Roots:** Celtic lunar hare myths, Slavic trickster spirits, Hermetic "Messenger"  
-**Book of Abyssia Function:** Opens the seeker’s awareness to the path; never stays for the resolution.  
+**Book of Abyssia Function:** Opens the seeker's awareness to the path; never stays for the resolution.  
 **Game Function:** NPC that appears only at pivot points, delivers cryptic clues that require player inference.
 
 ---
@@ -16,7 +16,7 @@
 - **Type:** Daimon Presence / Shamanic Ally
 - **Form:** Horse with twin lightning symbols along the flanks
 - **Elemental Alignment:** Storm / Sky Fire
-- **Associated Astrological Patterns:** Double Yod + Kite (Rebecca’s natal chart)
+- **Associated Astrological Patterns:** Double Yod + Kite (Rebecca's natal chart)
 - **Function:** Place of Power navigator; directs energy through "lightning rod" apex planets and releases pressure through designated release points.
 - **Activation Cue:** Visualize both lightning marks flaring as you exhale; feel a forward surge as if the horse is galloping.
 - **Release Planets:** [To be filled after astrological key check]

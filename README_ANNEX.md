@@ -1,4 +1,4 @@
-🜍 Circuitum 99 — Cathedral Annex (Unified)
+🜍 Circuitum 99 - Cathedral Annex (Unified)
 
 A living codex of art standards, chapel schematics, and archive references.
 For use in Stone Grimoire / Codex 144:99 (museum-grade, ND-friendly).
@@ -27,11 +27,11 @@ Integration:
 II. Apprentice Pillar Chapel (Rosslyn Integration)
 
 Page: /chapels/apprentice-pillar.html
-Theme: Rosslyn’s Apprentice Pillar as a living ladder.
+Theme: Rosslyn's Apprentice Pillar as a living ladder.
     • Geometry: Helix vine = Prima Materia ascent.
-    • Numerology: Mapped to Jacob’s Ladder and the 33-vertebrae spine.
+    • Numerology: Mapped to Jacob's Ladder and the 33-vertebrae spine.
     • Hermetic Role: Entry point for the alchemical journey (Nigredo → Albedo → Citrinitas → Rubedo).
-    • Plaque Note: “The Apprentice Pillar is not failure — it is the beginning. Its spiral holds the prima materia of all further ascent.”
+    • Plaque Note: "The Apprentice Pillar is not failure - it is the beginning. Its spiral holds the prima materia of all further ascent."
 
 Style:
     • Museum-grade parchment layout.
@@ -52,10 +52,10 @@ Function: Master annex connecting rooms, plaques, and schema.
     • Engines (cathedral-engine.js) → applies overlays, tones, curator voice.
 
 Current Anchors:
-    • Frontispiece → “Open the cosmogram.”
-    • Nave → “Boaz | Apprentice | Jachin.”
+    • Frontispiece → "Open the cosmogram."
+    • Nave → "Boaz | Apprentice | Jachin."
     • Pillars (Boaz, Jachin) → Strength / Mercy.
-    • Choir → “Jacob’s Ladder resonance.”
+    • Choir → "Jacob's Ladder resonance."
     • Codex Node → liber-codex99.md (fusion text).
 
 Accessibility:
@@ -68,7 +68,7 @@ Accessibility:
 
 IV. Integration Summary
     • /docs/open_source_art_index.md → reference archive.
-    • /chapels/apprentice-pillar.html → first chapel node, tied to Jacob’s Ladder.
+    • /chapels/apprentice-pillar.html → first chapel node, tied to Jacob's Ladder.
     • /registry/Cathedral_Code_Annex.html → annex manifest, binding routes + plaques.
 
 All three are now fused into one annex entry.

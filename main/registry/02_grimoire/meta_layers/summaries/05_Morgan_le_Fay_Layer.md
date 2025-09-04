@@ -1,9 +1,9 @@
-# Morgan le Fay – The Liminal Queen
+# Morgan le Fay - The Liminal Queen
 
 **Registry Path:** `registry/02_grimoire/meta_layers/summaries/Morgan_le_Fay_Layer.md`  
 **Linked Archetypes:** Scarlet Lady, White Rabbit, Fox Trickster God (Zidaryen)  
 **Book Role:** The fae queen of thresholds and mist, architect of trials that demand sovereignty, discernment, and self-knowledge.  
-**Game Role:** NPC quest-giver, opponent, and shapeshifting ally -- her allegiance changes based on the player’s integrity.
+**Game Role:** NPC quest-giver, opponent, and shapeshifting ally -- her allegiance changes based on the player's integrity.
 
 ---
 
@@ -46,6 +46,6 @@ Morgan le Fay embodies:
 ---
 
 ## Integration Hooks
-- **Main Narrative:** Appears in Act II’s "Veil of Mist" chapter as a threshold guardian.
+- **Main Narrative:** Appears in Act II's "Veil of Mist" chapter as a threshold guardian.
 - **Codex Entry:** Listed under "Liminal Sovereigns" with full fae court hierarchy.
 - **Business Layer:** Embodies brand strategy through mystique and selective revelation.

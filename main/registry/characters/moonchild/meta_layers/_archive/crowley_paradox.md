@@ -1,4 +1,4 @@
-# Moonchild – Reclaimed Paradox Layer
+# Moonchild - Reclaimed Paradox Layer
 **Fusion Source:** Liber CCCXXXIII (*The Book of Lies*) + Circuitum99 archetype system
 
 ## Essence

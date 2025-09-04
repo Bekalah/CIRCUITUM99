@@ -58,7 +58,7 @@ This layer is anchored to:
 - Breath in: "Void"  
 - Hold: "Solar"  
 - Exhale: "Release through Volcanic"  
-Repeat 3–7x, then close.
+Repeat 3-7x, then close.
 
 ---
 
