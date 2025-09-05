@@ -1,20 +1,3 @@
-"""Versatile Visionary Dream art generator.
-
-This demo expands on earlier prototypes by offering multiple palettes and
-pattern modes for rendering a museum-quality piece of visionary art.  The
-output is always saved as ``Visionary_Dream.png`` unless a different path is
-specified via the ``--out`` argument.
-"""
-
-from __future__ import annotations
-
-import argparse
-import math
-import random
-from pathlib import Path
-
-from PIL import Image, ImageDraw
-
 # ---------------------------------------------------------------
 # Palette definitions inspired by visionary artists and movements
 # ---------------------------------------------------------------
@@ -197,3 +180,4 @@ if __name__ == "__main__":  # pragma: no cover - script entry point
 
 if __name__ == "__main__":
     main()
+    max_rad
