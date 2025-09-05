@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visionary Dream</title>
+  <style>
+    /* Center canvas on dark background */
+    body { background:#000; margin:0; display:flex; justify-content:center; align-items:center; height:100vh; }
+    canvas { border:1px solid #fff; }
+    #save { position:absolute; top:20px; left:20px; }
+  </style>
+</head>
+<body>
+  <!-- Canvas renders the visionary art -->
+  <canvas id="art" width="1024" height="1024"></canvas>
+  <button id="save">Save</button>
+  <script>
+    // Acquire drawing context
+    const canvas = document.getElementById('art');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+
+    // Paint a radial gradient background inspired by Alex Grey hues
+    const grad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W/2);
+    grad.addColorStop(0, '#0f0c29');
+    grad.addColorStop(0.5, '#302b63');
+    grad.addColorStop(1, '#24243e');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Draw 144 symmetrical orbiting nodes with vibrant colors
+    ctx.translate(W/2, H/2);
+    const palette = ['#ff4e50','#fc913a','#f9d423','#eae374','#00a8c6','#40c0cb','#f7f4ea'];
+    for (let i = 0; i < 144; i++) {
+      const angle = (Math.PI * 2 * i) / 144;
+      const radius = (i / 144) * (W / 2);
+      ctx.save();
+      ctx.rotate(angle);
+      ctx.fillStyle = palette[i % palette.length];
+      ctx.beginPath();
+      ctx.arc(radius, 0, 12, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    // Enable download of the artwork as Visionary_Dream.png
+    document.getElementById('save').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'Visionary_Dream.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+</body>
+</html>
