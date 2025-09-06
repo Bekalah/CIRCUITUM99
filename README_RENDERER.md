@@ -11,6 +11,14 @@ Static, offline renderer for layered sacred geometry. Double-click `index.html` 
 ## Palette
 Colors are loaded from `data/palette.json`. If the file is missing, the renderer falls back to a built-in ND-safe palette and notes this in the header.
 
+Layer colors map as follows:
+- `layers[0]` – Vesica field
+- `layers[1]` – Tree paths
+- `layers[2]` – Tree nodes
+- `layers[3]` – Fibonacci curve
+- `layers[4]` – Helix strand A
+- `layers[5]` – Helix strand B
+
 ## ND-Safety
 - No animation or motion.
 - Soft contrast on dark background for low visual strain.
