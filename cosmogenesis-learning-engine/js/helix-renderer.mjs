@@ -18,6 +18,7 @@
 
 export function renderHelix(ctx, opts) {
   const { width, height, palette, NUM } = opts;
+  ctx.save();
 
   // background
 

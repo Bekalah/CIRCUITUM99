@@ -25,6 +25,7 @@ cosmogenesis-learning-engine/
 │  └─ palette.json
 └─ README_RENDERER.md
 ```
+=======
 Static, ND-safe renderer for layered sacred geometry.
 
 ## Use
