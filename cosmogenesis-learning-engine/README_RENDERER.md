@@ -25,7 +25,6 @@ cosmogenesis-learning-engine/
 │  └─ palette.json
 └─ README_RENDERER.md
 ```
-=======
 Static, ND-safe renderer for layered sacred geometry.
 
 ## Use
@@ -58,4 +57,5 @@ Static canvas renderer for vesica field, Tree-of-Life scaffold, Fibonacci curve 
 - `js/helix-renderer.mjs` – pure rendering functions.
 - `data/palette.json` – optional palette override.
 
+=======
 =======
