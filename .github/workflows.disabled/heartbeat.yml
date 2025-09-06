@@ -1,0 +1,17 @@
+name: heartbeat
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ok:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Heartbeat
+        run: echo "✅ Circuitum99 is alive at $(date)"
