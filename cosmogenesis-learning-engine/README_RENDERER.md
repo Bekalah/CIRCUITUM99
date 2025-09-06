@@ -1,5 +1,6 @@
 # Cosmic Helix Renderer
 
+Static HTML+Canvas renderer for the Circuitum 99 cosmology. Double‑click `index.html` to view a 1440×900 canvas composed of four calm layers:
 
 1. **Vesica field** – intersecting circles grounding the space.
 2. **Tree‑of‑Life scaffold** – 10 nodes and 22 paths, centered for balance.
@@ -24,7 +25,6 @@ cosmogenesis-learning-engine/
 │  └─ palette.json
 └─ README_RENDERER.md
 ```
-=======
 Static, ND-safe renderer for layered sacred geometry.
 
 ## Use
@@ -57,3 +57,4 @@ Static canvas renderer for vesica field, Tree-of-Life scaffold, Fibonacci curve 
 - `js/helix-renderer.mjs` – pure rendering functions.
 - `data/palette.json` – optional palette override.
 
+=======
