@@ -1,177 +1,121 @@
-# Visionary Dream Generator
-# Produces museum-quality visionary art using Python + Pillow
+"""Visionary Dream Generator
+Creates a museum-quality piece of visionary art using pure Python.
+Color palette inspired by Alex Grey.
+Resolution: 1920x1080.
+Outputs Visionary_Dream.png.
+"""
 
-from PIL import Image, ImageDraw
 import math
 import random
+import struct
+import zlib
 from pathlib import Path
 
-# Step 1: Prepare canvas and output
-WIDTH, HEIGHT = 1024, 1024  # Resolution
-output_path = Path(__file__).resolve().parents[1] / "img" / "Visionary_Dream.png"
-
-# Step 2: Create a midnight backdrop for the vision
-image = Image.new("RGB", (WIDTH, HEIGHT), "black")
-draw = ImageDraw.Draw(image)
-
-# Step 3: Set the psychedelic palette (Alex Grey meets surrealism)
-palette = ["#6A0DAD", "#FF6F61", "#00FFFF", "#FFD700", "#1E90FF"]
-
-# Step 4: Weave radiating symmetry lines from the center
-center = (WIDTH // 2, HEIGHT // 2)
-for i in range(360):
-    angle = math.radians(i * 3)
-    radius = i / 360 * (WIDTH // 2)
-    x = center[0] + radius * math.cos(angle * 2)
-    y = center[1] + radius * math.sin(angle * 2)
-    draw.line([center, (x, y)], fill=palette[i % len(palette)], width=2)
-
-# Step 5: Overlay concentric orbs for layered depth
-for r in range(50, WIDTH // 2, 25):
-    color = random.choice(palette)
-    draw.ellipse([center[0]-r, center[1]-r, center[0]+r, center[1]+r], outline=color, width=3)
-
-# Step 6: Seal the vision as a PNG image
-output_path.parent.mkdir(parents=True, exist_ok=True)
-image.save(output_path)
-import math
-import random
-from PIL import Image, ImageDraw
-
-# Set canvas size
-WIDTH, HEIGHT = 1024, 1024
-
-# Create base image with black background
-img = Image.new("RGB", (WIDTH, HEIGHT), "black")
-draw = ImageDraw.Draw(img)
-
-# Define color palette inspired by Alex Grey's luminous spectra
-palette = [
-    (32, 0, 64),    # deep indigo
-    (64, 0, 128),   # royal violet
-    (0, 128, 255),  # electric blue
-    (255, 165, 0),  # vibrant orange
-    (255, 255, 0),  # golden yellow
-    (255, 0, 128)   # magenta pulse
-]
-
-# Draw radiating lines for visionary geometry
-center = (WIDTH // 2, HEIGHT // 2)
-for i in range(360):
-    angle = math.radians(i)
-    radius = WIDTH // 2
-    x = center[0] + radius * math.cos(angle)
-    y = center[1] + radius * math.sin(angle)
-    color = palette[i % len(palette)]
-    draw.line([center, (x, y)], fill=color, width=1)
-
-# Overlay concentric circles for mandala symmetry
-for r in range(50, WIDTH // 2, 50):
-    color = palette[r // 50 % len(palette)]
-    bbox = [center[0]-r, center[1]-r, center[0]+r, center[1]+r]
-    draw.ellipse(bbox, outline=color)
-
-# Add randomized star-like points for organic patterning
-for _ in range(2000):
-    x = random.randint(0, WIDTH-1)
-    y = random.randint(0, HEIGHT-1)
-    color = random.choice(palette)
-    draw.point((x, y), fill=color)
-
-# Save final image
-img.save("Visionary_Dream.png")
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
-
-
-def main() -> None:
-    """Generate a spiral mandala with an Alex Grey-inspired palette."""
-    # -- Visionary Dream generator --
-    # Resolution for museum-quality output
-    WIDTH, HEIGHT = 1024, 1024
-
-    # Create a spectral palette inspired by Alex Grey
-    colors = [
-        (48/255, 0/255, 108/255),   # deep indigo
-        (0/255, 33/255, 105/255),   # cosmic blue
-        (0/255, 148/255, 68/255),   # vivid green
-        (241/255, 243/255, 54/255), # radiant yellow
-        (255/255, 153/255, 0/255),  # luminous orange
-        (208/255, 0/255, 0/255),    # crimson red
-        (115/255, 0/255, 128/255)   # ultraviolet magenta
-    ]
-    cmap = LinearSegmentedColormap.from_list("alex_grey", colors, N=256)
-
-    # Prepare a radial grid for symmetrical patterns
-    x = np.linspace(-4 * np.pi, 4 * np.pi, WIDTH)
-    y = np.linspace(-4 * np.pi, 4 * np.pi, HEIGHT)
-    X, Y = np.meshgrid(x, y)
-
-    # Calculate spiral waves to form a mandala
-    R = np.sqrt(X**2 + Y**2)
-    Theta = np.arctan2(Y, X)
-    Z = np.sin(R + Theta * 3) * np.cos(R * 2 - Theta * 5)
-
-    # Render the visionary art
-    plt.figure(figsize=(WIDTH/100, HEIGHT/100), dpi=100)
-    plt.axis("off")
-    plt.imshow(Z, cmap=cmap, interpolation="bilinear")
-    plt.tight_layout(pad=0)
-
-    # Save the final image
-    plt.savefig("Visionary_Dream.png", bbox_inches="tight", pad_inches=0)
-
-
-if __name__ == "__main__":
-    main()
-
-import numpy as np
-from PIL import Image, ImageDraw
-import math
-import random
-
-# Canvas dimensions for high-resolution visionary art
+# Prepare canvas and output path
 WIDTH, HEIGHT = 1920, 1080
+OUTPUT = Path(__file__).resolve().parent.parent / "Visionary_Dream.png"
 
-# Color palette inspired by Alex Grey's surreal vision
+# Alex Grey-inspired palette
 PALETTE = [
     (30, 30, 60),    # deep indigo
     (60, 90, 150),   # electric blue
     (120, 180, 200), # aquamarine
     (200, 100, 150), # magenta glow
-    (240, 240, 200)  # ethereal gold
+    (240, 240, 200), # ethereal gold
 ]
 
-# Initialize blank canvas
-img = Image.new("RGB", (WIDTH, HEIGHT))
-pixels = img.load()
+# Initialize pixel buffer with background color
+BASE = bytes(PALETTE[0])
+PIXELS = bytearray(BASE * (WIDTH * HEIGHT))
 
-# Generate layered sine-wave patterns for fractal flow
-for y in range(HEIGHT):
-    for x in range(WIDTH // 2):
-        r = 0
-        for i in range(3):
-            angle = random.random() * 2 * math.pi
-            freq = 0.002 + i * 0.001
-            r += math.sin(freq * (math.cos(angle) * x + math.sin(angle) * y))
-        index = int(abs(r) * len(PALETTE)) % len(PALETTE)
-        color = PALETTE[index]
-        pixels[x, y] = color
-        pixels[WIDTH - 1 - x, y] = color  # mirror for symmetry
 
-# Overlay concentric visionary glyphs
-draw = ImageDraw.Draw(img)
-center = (WIDTH // 2, HEIGHT // 2)
-for radius in range(50, min(WIDTH, HEIGHT) // 2, 80):
-    color = PALETTE[(radius // 80) % len(PALETTE)]
-    bbox = [
-        center[0] - radius,
-        center[1] - radius,
-        center[0] + radius,
-        center[1] + radius,
-    ]
-    draw.ellipse(bbox, outline=color)
+def put_pixel(x: int, y: int, color: tuple[int, int, int]) -> None:
+    """Set a pixel if within bounds."""
+    if 0 <= x < WIDTH and 0 <= y < HEIGHT:
+        idx = (y * WIDTH + x) * 3
+        PIXELS[idx:idx + 3] = bytes(color)
 
-# Save the final visionary piece
-img.save("Visionary_Dream.png")
+
+def draw_line(x0: int, y0: int, x1: int, y1: int, color: tuple[int, int, int]) -> None:
+    """Bresenham line algorithm."""
+    dx = abs(x1 - x0)
+    dy = -abs(y1 - y0)
+    sx = 1 if x0 < x1 else -1
+    sy = 1 if y0 < y1 else -1
+    err = dx + dy
+    while True:
+        put_pixel(x0, y0, color)
+        if x0 == x1 and y0 == y1:
+            break
+        e2 = 2 * err
+        if e2 >= dy:
+            err += dy
+            x0 += sx
+        if e2 <= dx:
+            err += dx
+            y0 += sy
+
+
+def draw_circle(cx: int, cy: int, radius: int, color: tuple[int, int, int]) -> None:
+    """Approximate circle outline by connecting points."""
+    prev_x = cx + radius
+    prev_y = cy
+    for deg in range(1, 361):
+        rad = math.radians(deg)
+        x = int(cx + radius * math.cos(rad))
+        y = int(cy + radius * math.sin(rad))
+        draw_line(prev_x, prev_y, x, y, color)
+        prev_x, prev_y = x, y
+
+
+def save_png(filename: Path) -> None:
+    """Write the pixel buffer to a PNG file."""
+    def chunk(chunk_type: bytes, data: bytes) -> bytes:
+        return (struct.pack("!I", len(data)) + chunk_type + data +
+                struct.pack("!I", zlib.crc32(chunk_type + data) & 0xFFFFFFFF))
+
+    raw = b"".join(
+        b"\x00" + PIXELS[y * WIDTH * 3:(y + 1) * WIDTH * 3]
+        for y in range(HEIGHT)
+    )
+
+    with open(filename, "wb") as f:
+        f.write(b"\x89PNG\r\n\x1a\n")
+        f.write(chunk(b"IHDR", struct.pack("!IIBBBBB", WIDTH, HEIGHT, 8, 2, 0, 0, 0)))
+        f.write(chunk(b"IDAT", zlib.compress(raw, 9)))
+        f.write(chunk(b"IEND", b""))
+
+
+def main() -> None:
+    """Generate visionary art and save as a PNG."""
+    center_x, center_y = WIDTH // 2, HEIGHT // 2
+    max_radius = min(center_x, center_y)
+
+    # Draw concentric circles for layered depth
+    for i, color in enumerate(PALETTE[1:], start=1):
+        radius = int(max_radius * i / len(PALETTE))
+        draw_circle(center_x, center_y, radius, color)
+
+    # Radiating symmetry lines
+    num_lines = 90
+    for i in range(num_lines):
+        angle = 2 * math.pi * i / num_lines
+        x = int(center_x + max_radius * math.cos(angle))
+        y = int(center_y + max_radius * math.sin(angle))
+        color = PALETTE[i % len(PALETTE)]
+        draw_line(center_x, center_y, x, y, color)
+
+    # Star-like points for organic patterning
+    for _ in range(2000):
+        x = random.randint(0, WIDTH - 1)
+        y = random.randint(0, HEIGHT - 1)
+        color = random.choice(PALETTE)
+        put_pixel(x, y, color)
+
+    # Save the final visionary piece
+    save_png(OUTPUT)
+
+
+if __name__ == "__main__":
+    main()
+
