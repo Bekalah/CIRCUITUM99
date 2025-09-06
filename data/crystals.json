@@ -1,0 +1,5 @@
+[
+  {"name":"Quartz","frequency":32768,"color":"#ffffff","position":{"x":0.25,"y":0.5}},
+  {"name":"Amethyst","frequency":432,"color":"#9966cc","position":{"x":0.5,"y":0.3}},
+  {"name":"Rose Quartz","frequency":528,"color":"#ffccdd","position":{"x":0.75,"y":0.6}}
+]
