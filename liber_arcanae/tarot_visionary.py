@@ -8,7 +8,16 @@ import json
 import math
 from pathlib import Path
 from typing import List
+
+
+try:  # Pillow is optional in some environments
+    from PIL import Image, ImageDraw
+except ModuleNotFoundError as exc:  # pragma: no cover - handled at runtime
+    Image = ImageDraw = None
+    PIL_IMPORT_ERROR = exc
+
 from PIL import Image, ImageDraw
+
 
 DATA_FILE = Path(__file__).resolve().parents[1] / "assets" / "data" / "tarot_absyssia.json"
 
@@ -30,6 +39,12 @@ def load_card(card_name: str) -> dict:
 
 def render(card: dict, width: int, height: int, out_dir: Path) -> Path:
     """Render visionary art using the card's palette."""
+
+    if Image is None:  # pillow missing
+        raise RuntimeError(
+            "Pillow is required for rendering images; install it with 'pip install pillow'."
+        )
+
     colors: List[tuple] = [_hex_to_rgb(c) for c in card.get("palette", [])]
     if not colors:
         colors = [(40, 0, 80), (70, 0, 130), (0, 128, 255), (0, 255, 128), (255, 200, 0)]
@@ -68,8 +83,17 @@ def main() -> None:
     args = parser.parse_args()
 
     card = load_card(args.card)
+
+    try:
+        path = render(card, args.width, args.height, Path(args.out))
+    except RuntimeError as err:
+        raise SystemExit(str(err))
+    else:
+        print(f"Saved {path}")
+
     path = render(card, args.width, args.height, Path(args.out))
     print(f"Saved {path}")
+
 
 
 if __name__ == "__main__":

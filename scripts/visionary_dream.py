@@ -1,3 +1,154 @@
+
+"""Visionary Dream Generator
+Creates a museum-quality piece of visionary art using pure Python.
+Color palette inspired by Alex Grey.
+Resolution: 1920x1080.
+Outputs Visionary_Dream.png.
+"""
+
+import math
+import random
+import struct
+import zlib
+from pathlib import Path
+
+# Prepare canvas and output path
+WIDTH, HEIGHT = 1920, 1080
+OUTPUT = Path(__file__).resolve().parent.parent / "Visionary_Dream.png"
+
+# Alex Grey-inspired palette
+PALETTE = [
+    (30, 30, 60),    # deep indigo
+    (60, 90, 150),   # electric blue
+    (120, 180, 200), # aquamarine
+    (200, 100, 150), # magenta glow
+    (240, 240, 200), # ethereal gold
+]
+
+# Initialize pixel buffer with background color
+BASE = bytes(PALETTE[0])
+PIXELS = bytearray(BASE * (WIDTH * HEIGHT))
+
+
+def put_pixel(x: int, y: int, color: tuple[int, int, int]) -> None:
+    """Set a pixel if within bounds."""
+    if 0 <= x < WIDTH and 0 <= y < HEIGHT:
+        idx = (y * WIDTH + x) * 3
+        PIXELS[idx:idx + 3] = bytes(color)
+
+
+def draw_line(x0: int, y0: int, x1: int, y1: int, color: tuple[int, int, int]) -> None:
+    """Bresenham line algorithm."""
+    dx = abs(x1 - x0)
+    dy = -abs(y1 - y0)
+    sx = 1 if x0 < x1 else -1
+    sy = 1 if y0 < y1 else -1
+    err = dx + dy
+    while True:
+        put_pixel(x0, y0, color)
+        if x0 == x1 and y0 == y1:
+            break
+        e2 = 2 * err
+        if e2 >= dy:
+            err += dy
+            x0 += sx
+        if e2 <= dx:
+            err += dx
+            y0 += sy
+
+
+def draw_circle(cx: int, cy: int, radius: int, color: tuple[int, int, int]) -> None:
+    """Approximate circle outline by connecting points."""
+    prev_x = cx + radius
+    prev_y = cy
+    for deg in range(1, 361):
+        rad = math.radians(deg)
+        x = int(cx + radius * math.cos(rad))
+        y = int(cy + radius * math.sin(rad))
+        draw_line(prev_x, prev_y, x, y, color)
+        prev_x, prev_y = x, y
+
+
+def save_png(filename: Path) -> None:
+    """Write the pixel buffer to a PNG file."""
+    def chunk(chunk_type: bytes, data: bytes) -> bytes:
+        return (struct.pack("!I", len(data)) + chunk_type + data +
+                struct.pack("!I", zlib.crc32(chunk_type + data) & 0xFFFFFFFF))
+
+    raw = b"".join(
+        b"\x00" + PIXELS[y * WIDTH * 3:(y + 1) * WIDTH * 3]
+        for y in range(HEIGHT)
+    )
+
+    with open(filename, "wb") as f:
+        f.write(b"\x89PNG\r\n\x1a\n")
+        f.write(chunk(b"IHDR", struct.pack("!IIBBBBB", WIDTH, HEIGHT, 8, 2, 0, 0, 0)))
+        f.write(chunk(b"IDAT", zlib.compress(raw, 9)))
+        f.write(chunk(b"IEND", b""))
+=======
+
+import math
+from PIL import Image, ImageDraw, ImageFont
+
+# --- Canvas setup ---
+WIDTH, HEIGHT = 1200, 1600
+background = Image.new("RGB", (WIDTH, HEIGHT))
+draw = ImageDraw.Draw(background)
+
+# --- Layered gradient background inspired by Alex Grey ---
+for y in range(HEIGHT):
+    ratio = y / HEIGHT
+    r = int(10 + 40 * ratio)
+    g = int(20 + 60 * ratio)
+    b = int(30 + 90 * ratio)
+    draw.line([(0, y), (WIDTH, y)], fill=(r, g, b))
+
+# --- Central visionary seal with numerology 99 ---
+center = (WIDTH // 2, HEIGHT // 2)
+radius = 350
+# outer circle
+draw.ellipse([center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius],
+             outline=(212, 175, 55), width=6)
+# star of revelation
+for i in range(6):
+    angle1 = math.radians(60 * i - 90)
+    angle2 = math.radians(60 * ((i + 2) % 6) - 90)
+    p1 = (center[0] + radius * math.cos(angle1), center[1] + radius * math.sin(angle1))
+    p2 = (center[0] + radius * math.cos(angle2), center[1] + radius * math.sin(angle2))
+    draw.line([p1, p2], fill=(212, 175, 55), width=4)
+# inner eye
+inner_r = 80
+draw.ellipse([center[0] - inner_r, center[1] - inner_r, center[0] + inner_r, center[1] + inner_r],
+             outline=(212, 175, 55), width=4)
+# pupil
+draw.ellipse([center[0] - 20, center[1] - 20, center[0] + 20, center[1] + 20], fill=(0, 0, 0))
+
+# --- Mystical crescent above the seal ---
+crescent_r = 60
+cx, cy = center[0], center[1] - radius - 120
+draw.ellipse([cx - crescent_r, cy - crescent_r, cx + crescent_r, cy + crescent_r],
+             outline=(212, 175, 55), width=4)
+draw.ellipse([cx - crescent_r + 15, cy - crescent_r, cx + crescent_r + 15, cy + crescent_r],
+             fill=(0, 0, 0))
+
+# --- Sacred texts ---
+font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf"
+header_font = ImageFont.truetype(font_path, 100)
+sub_font = ImageFont.truetype(font_path, 60)
+
+# title
+title = "CIRCUITUM 99"
+wt, ht = draw.textsize(title, font=header_font)
+draw.text(((WIDTH - wt) / 2, 120), title, font=header_font, fill=(212, 175, 55))
+
+# subtitle
+sub = "ARCHITECT-SCRIBE REBECCA RESPAWN"
+wt, ht = draw.textsize(sub, font=sub_font)
+draw.text(((WIDTH - wt) / 2, HEIGHT - 200), sub, font=sub_font, fill=(212, 175, 55))
+
+# --- Save final visionary artwork ---
+background.save("assets/covers/Visionary_Dream.png")
+=======
 # ---------------------------------------------------------------
 # Palette definitions inspired by visionary artists and movements
 # ---------------------------------------------------------------
@@ -82,10 +233,40 @@ import math
 # Canvas dimensions (HD resolution)
 WIDTH, HEIGHT = 1920, 1080
 
+
 # Output path
 OUTPUT = Path(__file__).resolve().parents[1] / "img" / "Visionary_Dream.png"
 
 def main() -> None:
+
+    """Generate visionary art and save as a PNG."""
+    center_x, center_y = WIDTH // 2, HEIGHT // 2
+    max_radius = min(center_x, center_y)
+
+    # Draw concentric circles for layered depth
+    for i, color in enumerate(PALETTE[1:], start=1):
+        radius = int(max_radius * i / len(PALETTE))
+        draw_circle(center_x, center_y, radius, color)
+
+    # Radiating symmetry lines
+    num_lines = 90
+    for i in range(num_lines):
+        angle = 2 * math.pi * i / num_lines
+        x = int(center_x + max_radius * math.cos(angle))
+        y = int(center_y + max_radius * math.sin(angle))
+        color = PALETTE[i % len(PALETTE)]
+        draw_line(center_x, center_y, x, y, color)
+
+    # Star-like points for organic patterning
+    for _ in range(2000):
+        x = random.randint(0, WIDTH - 1)
+        y = random.randint(0, HEIGHT - 1)
+        color = random.choice(PALETTE)
+        put_pixel(x, y, color)
+
+    # Save the final visionary piece
+    save_png(OUTPUT)
+
     """Command-line interface for the Visionary Dream generator."""
 
     # ------------------------
@@ -134,6 +315,7 @@ def main() -> None:
 if __name__ == "__main__":  # pragma: no cover - script entry point
     main()
 
+
     """Render the visionary scene and save it as an image."""
     # Step 1: Cosmic dusk gradient backdrop
     image = Image.new("RGB", (WIDTH, HEIGHT))
@@ -181,3 +363,4 @@ if __name__ == "__main__":  # pragma: no cover - script entry point
 if __name__ == "__main__":
     main()
     max_rad
+
