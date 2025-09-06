@@ -6,7 +6,7 @@ Lux Crux Core -- Axis Mundi; alchemy school; dark-academia hub. The bell rings w
 ---
 
 [Source 2]
-Mirror Witch’s Realm -- mending mirrors; soul retrieval; glass breath; names come back whole or not at all.
+Mirror Witch's Realm -- mending mirrors; soul retrieval; glass breath; names come back whole or not at all.
 
 ---
 

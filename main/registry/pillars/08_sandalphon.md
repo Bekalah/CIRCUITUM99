@@ -1,4 +1,4 @@
-# Pillar 08 — Sandalphon (Harmonic Bridge Priestess)
+# Pillar 08 - Sandalphon (Harmonic Bridge Priestess)
 
 **Faction:** Harmonic Choir  
 **Realm:** Bridge Between Worlds  
@@ -13,15 +13,15 @@
 - **Amber:** Single-channel tuning only.  
 - **Red:** Passive harmonic listening; no bridge opened.
 
-## Moonchild’s Note
+## Moonchild's Note
 She walks the bridge barefoot so she can feel every note.  
-Her braids carry tiny silver bells — when she moves, the whole lattice hums.
+Her braids carry tiny silver bells - when she moves, the whole lattice hums.
 
 ## Scene Seed
 Sandalphon stands in the Bridge Chamber, strings of light vibrating between her hands.  
-“Every note you speak becomes a stone in the road,” she says. “Choose your melody.”
+"Every note you speak becomes a stone in the road," she says. "Choose your melody."
 
-## Grimoire Artifact — Harmonic Path Key
+## Grimoire Artifact - Harmonic Path Key
 - **Timing:** Mercury hour, Venus day (Friday for blessing, Wednesday for clarity)  
 - **Tool:** String instrument or tuning fork  
-- **Use:** Play three tones in rising sequence — sends a clear request to the realm you choose.
+- **Use:** Play three tones in rising sequence - sends a clear request to the realm you choose.

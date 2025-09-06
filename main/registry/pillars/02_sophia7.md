@@ -1,4 +1,4 @@
-# Pillar 02 — Sophia Seven
+# Pillar 02 - Sophia Seven
 
 **True Name:** Sophia Seven  
 **Seal/Sigil:** (link to main/registry/symbols/02_sophia7.svg)  
@@ -29,4 +29,4 @@ S2 (archive node), S5 (illumination path)
 **Linked Realms:**  
 Archive of Endless Night
 
-> **Alpha ↔ Omega Position:** Sits just below Gnosis Seven — the spine’s translator vertebra.
+> **Alpha ↔ Omega Position:** Sits just below Gnosis Seven - the spine's translator vertebra.

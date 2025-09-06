@@ -6,7 +6,7 @@ Three acts × eleven stations. The spine is a living path; each station is a rit
 ---
 
 [Source 2]
-Act I (1–11): initiation and pattern recognition. Act II (12–22): descent, retrieval, re-choice. Act III (23–33): integration and return. Some stations are partial; the book permits blanks until the body remembers.
+Act I (1-11): initiation and pattern recognition. Act II (12-22): descent, retrieval, re-choice. Act III (23-33): integration and return. Some stations are partial; the book permits blanks until the body remembers.
 
 ---
 
@@ -16,4 +16,4 @@ The school (dark-academia) is the hub between stations; corridors are chapters t
 ---
 
 [Source 4]
-The spine tolerates non-linear traversal; the registry remembers the last truthful order and refuses false continuity when someone tries to force a sequence that didn’t happen.
+The spine tolerates non-linear traversal; the registry remembers the last truthful order and refuses false continuity when someone tries to force a sequence that didn't happen.

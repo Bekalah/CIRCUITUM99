@@ -8,7 +8,7 @@
 The **Isle of Return** is a liminal realm hidden in the mists of Avalon, reachable only through psychic tides, dream currents, or deep Aka Dua trance.  
 It is **not** a reward for spiritual achievement -- it is a mirror realm that shows the traveler the exact emotional weight they carry, neither more nor less.
 
-The Isle’s shoreline shifts between **moonlit calm** and **storm-wracked waves**, reflecting the initiatory tension between holding grief and releasing it.
+The Isle's shoreline shifts between **moonlit calm** and **storm-wracked waves**, reflecting the initiatory tension between holding grief and releasing it.
 
 ---
 
@@ -25,7 +25,7 @@ The Isle’s shoreline shifts between **moonlit calm** and **storm-wracked waves
 
 **Form**: Storm-born white-silver horse, mane crackling with twin arcs of lightning  
 **Function**: Acts as a threshold guardian and grief-bearer.  
-**Initiatory Task**: Before passage, Twin Lightning will run the shoreline three times -- each circuit reflecting a layer of the seeker’s unprocessed story.
+**Initiatory Task**: Before passage, Twin Lightning will run the shoreline three times -- each circuit reflecting a layer of the seeker's unprocessed story.
 
 ---
 

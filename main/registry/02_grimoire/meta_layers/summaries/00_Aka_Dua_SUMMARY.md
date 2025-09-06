@@ -1,7 +1,7 @@
 # aka_dua_summary.md
 
 ## Essence
-Aka Dua is a **multi-frequency energetic transmission** beyond personal energy, routed through the practitioner’s body as a carrier.  
+Aka Dua is a **multi-frequency energetic transmission** beyond personal energy, routed through the practitioner's body as a carrier.  
 It is **non-local** and **multi-band**, capable of harmonizing, shielding, and transforming energy.
 
 ---
@@ -34,7 +34,7 @@ It is **non-local** and **multi-band**, capable of harmonizing, shielding, and t
 
 4. **Quick Entry (Overwhelm)**
    - Void → Solar → Release through Volcanic.
-   - Repeat 3–7x.
+   - Repeat 3-7x.
 
 ---
 

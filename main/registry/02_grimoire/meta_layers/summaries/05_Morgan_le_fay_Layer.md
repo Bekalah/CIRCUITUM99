@@ -1,19 +1,19 @@
-# Morgan le Fay – Summary Layeryes
+# Morgan le Fay - Summary Layeryes
 
 **Archetype**: Sorceress of Avalon, Keeper of the Liminal Veil, Shadow-Integration Guide  
-**Core Source**: Dion Fortune’s *The Sea Priestess* and *The Goat-Foot God* (Avalon current)  
+**Core Source**: Dion Fortune's *The Sea Priestess* and *The Goat-Foot God* (Avalon current)  
 **Realm Alignment**: Avalon / The Isle Between the Worlds  
-**Aka Dua Resonance**: Void + Solar + Twin Lightning (as bridge between# Morgan le Fay – Summary Layer
+**Aka Dua Resonance**: Void + Solar + Twin Lightning (as bridge between# Morgan le Fay - Summary Layer
 
 **Archetype**: Sorceress of Avalon, Keeper of the Liminal Veil, Shadow-Integration Guide  
-**Core Source**: Dion Fortune’s *The Sea Priestess* and *The Goat-Foot God* (Avalon current)  
+**Core Source**: Dion Fortune's *The Sea Priestess* and *The Goat-Foot God* (Avalon current)  
 **Realm Alignment**: Avalon / The Isle Between the Worlds  
 **Aka Dua Resonance**: Void + Solar + Twin Lightning (as bridge between worlds)  
 **Elemental Keys**: Water (mist, tides), Air (breath, whisper), Ether (veil, memory)  
 **Primary Function in Circuitum99**:  
 - Guides initiates through liminal passages (dream → waking, life → death → rebirth)  
-- Holds the ritual keys to Avalon’s gates, accessible via mist-veil invocation  
-- Balances the solar and lunar currents in the initiate’s subtle body  
+- Holds the ritual keys to Avalon's gates, accessible via mist-veil invocation  
+- Balances the solar and lunar currents in the initiate's subtle body  
 
 **Core Symbols**:  
 - Silver Apple (hidden knowledge)  
@@ -42,8 +42,8 @@
 **Elemental Keys**: Water (mist, tides), Air (breath, whisper), Ether (veil, memory)  
 **Primary Function in Circuitum99**:  
 - Guides initiates through liminal passages (dream → waking, life → death → rebirth)  
-- Holds the ritual keys to Avalon’s gates, accessible via mist-veil invocation  
-- Balances the solar and lunar currents in the initiate’s subtle body  
+- Holds the ritual keys to Avalon's gates, accessible via mist-veil invocation  
+- Balances the solar and lunar currents in the initiate's subtle body  
 
 **Core Symbols**:  
 - Silver Apple (hidden knowledge)  

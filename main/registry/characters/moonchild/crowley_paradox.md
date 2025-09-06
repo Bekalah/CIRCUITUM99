@@ -2,7 +2,7 @@
 _Registry Node: Circuitum 99 -- Alpha et Omega / characters:moonchild:paradox / coord: MC-PARADOX-0001_
 <!-- symbolbus: numkey=33 | geom=vesica -->
 
-# Moonchild – Reclaimed Paradox Layer
+# Moonchild - Reclaimed Paradox Layer
 **Fusion Source:** Liber CCCXXXIII (*The Book of Lies*) + Circuitum99 archetype system
 
 ## Essence
