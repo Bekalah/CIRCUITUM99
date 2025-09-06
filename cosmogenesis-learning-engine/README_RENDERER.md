@@ -15,6 +15,7 @@ Static, ND-safe renderer for layered sacred geometry.
 ## Development
 - Edit `data/palette.json` to adjust colors.
 - `js/helix-renderer.mjs` keeps functions small and well-commented.
+
 Static canvas renderer for vesica field, Tree-of-Life scaffold, Fibonacci curve and double helix lattice.
 
 ## Usage
@@ -30,4 +31,5 @@ Static canvas renderer for vesica field, Tree-of-Life scaffold, Fibonacci curve 
 - `index.html` – entry point with canvas and module loader.
 - `js/helix-renderer.mjs` – pure rendering functions.
 - `data/palette.json` – optional palette override.
+
 

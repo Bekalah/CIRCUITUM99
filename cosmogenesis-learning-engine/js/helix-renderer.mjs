@@ -7,6 +7,7 @@
     2) Tree-of-Life scaffold (10 sephirot + 22 paths; simplified layout)
     3) Fibonacci curve (log spiral polyline; static)
     4) Double-helix lattice (two phase-shifted sine waves with rungs)
+
   All geometry uses calm colors and no motion for ND safety.
 */
 
@@ -24,7 +25,7 @@ export function renderHelix(ctx, opts) {
 function drawVesica(ctx, w, h, color, NUM) {
   // Vesica Piscis: two circles intersecting; ratio uses 7 for gentle spacing
   const r = Math.min(w, h) / NUM.SEVEN;
-=======
+
     4) Double-helix lattice (two phase-shifted sine waves)
 
   No animation, no external deps. Pure functions for clarity.
@@ -41,6 +42,7 @@ export function renderHelix(ctx, { width, height, palette, NUM }) {
 // L1: Vesica field — two intersecting circles symbolizing primordial duality
 function drawVesica(ctx, w, h, color) {
   const r = Math.min(w, h) / 3;
+
   const cx = w / 2;
   const cy = h / 2;
   ctx.strokeStyle = color;
@@ -86,11 +88,10 @@ function drawTreeOfLife(ctx, w, h, nodeColor, pathColor, NUM) {
   for (const [nx, ny] of nodes) {
     ctx.beginPath();
     ctx.arc(nx * w, ny * h, r, 0, Math.PI * 2);
-
-  ctx.arc(cx - r/2, cy, r, 0, Math.PI * 2);
-  ctx.arc(cx + r/2, cy, r, 0, Math.PI * 2);
-  ctx.stroke();
-}
+    ctx.arc(cx - r/2, cy, r, 0, Math.PI * 2);
+    ctx.arc(cx + r/2, cy, r, 0, Math.PI * 2);
+    ctx.stroke();
+   }
 
 // L2: Tree-of-Life scaffold — ND-safe, static positions
 function drawTreeOfLife(ctx, w, h, color, NUM) {
@@ -119,11 +120,9 @@ function drawTreeOfLife(ctx, w, h, color, NUM) {
   for (const n of nodes) {
     ctx.beginPath();
     ctx.arc(n.x, n.y, NUM.THREE, 0, Math.PI*2);
-
     ctx.fill();
   }
 }
-
 
 function drawFibonacci(ctx, w, h, color, NUM) {
   // Log spiral using 99 points; phi controls growth (no motion)
@@ -142,6 +141,7 @@ function drawFibonacci(ctx, w, h, color, NUM) {
     const x = cx + r * Math.cos(t);
     const y = cy + r * Math.sin(t);
     if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+
 // L3: Fibonacci curve — static log spiral using golden ratio
 function drawFibonacci(ctx, w, h, color) {
   const phi = (1 + Math.sqrt(5)) / 2; // golden ratio
@@ -158,11 +158,9 @@ function drawFibonacci(ctx, w, h, color) {
     const x = cx + r * Math.cos(ang);
     const y = cy - r * Math.sin(ang);
     if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
+    else ctx.lineTo(x, y)
   ctx.stroke();
 }
-
 
 function drawHelix(ctx, w, h, colorA, colorB, NUM) {
   // Static double helix: two sine waves with 22 rungs
@@ -179,13 +177,11 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
       const x = t * w;
       const y = baseY + Math.sin(t * NUM.THIRTYTHREE + phase) * amplitude;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-  };
+      ctx.stroke();
+  }
 
   wave(colorA, 0);
   wave(colorB, Math.PI);
-
   ctx.strokeStyle = colorB;
   for (let i = 0; i <= NUM.TWENTYTWO; i++) {
     const t = i / NUM.TWENTYTWO;
@@ -196,6 +192,7 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
     ctx.moveTo(x, y1);
     ctx.lineTo(x, y2);
     ctx.stroke();
+
 
 // L4: Double-helix lattice — two sine waves offset by PI
 function drawHelix(ctx, w, h, color, NUM) {
@@ -211,5 +208,6 @@ function drawHelix(ctx, w, h, color, NUM) {
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
+
   }
 }
