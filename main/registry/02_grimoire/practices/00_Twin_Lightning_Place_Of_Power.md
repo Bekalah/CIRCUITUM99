@@ -25,10 +25,10 @@
 ## 3. Establish the Place of Power
 - Visualize the plateau under storm clouds.  
 - Pillars:
-  - **North** – Silver stormcloud (Void)  
-  - **East** – Golden dawn strike (Solar)  
-  - **South** – Magma and rain (Volcanic)  
-  - **West** – Dark rainpool (Water/Integration)  
+  - **North** - Silver stormcloud (Void)  
+  - **East** - Golden dawn strike (Solar)  
+  - **South** - Magma and rain (Volcanic)  
+  - **West** - Dark rainpool (Water/Integration)  
 
 ---
 

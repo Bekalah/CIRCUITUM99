@@ -1,28 +1,28 @@
-# Circuitum99 – Manuals & Grimoires Index
+# Circuitum99 - Manuals & Grimoires Index
 
 ## Hermetic & Occult Texts
-- **Book of Lies** – Aleister Crowley’s paradoxical wisdom; style reference for cryptic lore writing.
-- **Hermetic Pathworking** – Kabbalistic path meditations for character and world-building.
-- **Goetia (AC edition)** – Structured spirit catalog; symbolic archetype framework.
+- **Book of Lies** - Aleister Crowley's paradoxical wisdom; style reference for cryptic lore writing.
+- **Hermetic Pathworking** - Kabbalistic path meditations for character and world-building.
+- **Goetia (AC edition)** - Structured spirit catalog; symbolic archetype framework.
 
 ## Angelic Magic
-- **Angel Sigils** – Visual keys for angelic invocation.
-- **Angel Signatures** – Calligraphic seals for attuning to specific angelic currents.
-- **Angel Petitions** – Ritual formats for angelic requests and workings.
+- **Angel Sigils** - Visual keys for angelic invocation.
+- **Angel Signatures** - Calligraphic seals for attuning to specific angelic currents.
+- **Angel Petitions** - Ritual formats for angelic requests and workings.
 
 ## Reiki & Energy Manuals
-- **Holy Fire® Reiki Master Manual** – Symbol and technique reference for flame purification.
-- **Gates of Ra Manual** – Solar empowerment methods, Egyptian deity channeling.
-- **Seven Rays Manual** – Ray attributes and spiritual evolution framework.
-- **Aka Dua Manual** – Seven frequency descriptions and working methods.
-- **Ethereal Crystal Layouts** – Energy mapping with non-physical crystals.
+- **Holy Fire® Reiki Master Manual** - Symbol and technique reference for flame purification.
+- **Gates of Ra Manual** - Solar empowerment methods, Egyptian deity channeling.
+- **Seven Rays Manual** - Ray attributes and spiritual evolution framework.
+- **Aka Dua Manual** - Seven frequency descriptions and working methods.
+- **Ethereal Crystal Layouts** - Energy mapping with non-physical crystals.
 
 ## Sacred Geometry
-- **Sacred Geometry Level 1** – Shapes, ratios, and symbolism; the visual foundation for Circuitum99 brand and lore.
+- **Sacred Geometry Level 1** - Shapes, ratios, and symbolism; the visual foundation for Circuitum99 brand and lore.
 
 ## Mystical & Spiritual Guides
-- **Spiritual Guide of Molinos** – Contemplative mysticism; tone reference for meditative passages.
-- **CoSM Journal Series (3 & 4)** – Visionary art and symbolism.
+- **Spiritual Guide of Molinos** - Contemplative mysticism; tone reference for meditative passages.
+- **CoSM Journal Series (3 & 4)** - Visionary art and symbolism.
 
 ---
 
@@ -30,7 +30,7 @@
 - **Sacred Geometry** is the visual language standard for all manuals.
 - Cross-reference manuals with relevant certifications in `/certifications/README.md`.
 
-# Circuitum99 – Manuals & Grimoires Index (Linked Edition)
+# Circuitum99 - Manuals & Grimoires Index (Linked Edition)
 
 ## Reiki & Energy Healing
 
@@ -59,15 +59,15 @@
 ## Additional Magical Texts & Reference Works
 (*Not directly tied to a certification but feeding Circuitum99 lore ecosystem*)
 
-- **Book of Lies** – Aleister Crowley  
-- **Hermetic Pathworking** – Ritual and visualisation text  
-- **Angel Petitions** – Invocation & request protocols  
-- **Angel Sigils** – Glyph-based angelic contact system  
-- **Angel Signatures** – Symbolic seals for angelic workings  
-- **AC Goetia** – Goetic spirit correspondences  
-- **Spiritual Guide of Molinos** – Mystical devotional text  
-- **Triple Goddess Empowerment** – Archetypal initiation rites  
-- **CoSM Journal #3 & #4** – Visionary art & essays
+- **Book of Lies** - Aleister Crowley  
+- **Hermetic Pathworking** - Ritual and visualisation text  
+- **Angel Petitions** - Invocation & request protocols  
+- **Angel Sigils** - Glyph-based angelic contact system  
+- **Angel Signatures** - Symbolic seals for angelic workings  
+- **AC Goetia** - Goetic spirit correspondences  
+- **Spiritual Guide of Molinos** - Mystical devotional text  
+- **Triple Goddess Empowerment** - Archetypal initiation rites  
+- **CoSM Journal #3 & #4** - Visionary art & essays
 
 ---
 
@@ -77,7 +77,7 @@
 
 This ensures **Circuitum99** remains a **living cross-referenced library**, where your real-world skills and mystical lore are integrated as one system.
 
-# Circuitum99 – Manuals & Grimoires Index (Linked + Symbols)
+# Circuitum99 - Manuals & Grimoires Index (Linked + Symbols)
 
 ## Reiki & Energy Healing
 

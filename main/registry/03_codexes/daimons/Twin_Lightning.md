@@ -36,7 +36,7 @@ This daimon does not speak in words but through **thunder-pulse in the chest** a
 
 2. **Witness** -- With each circuit, let one unprocessed memory or weight surface.
 
-3. **Release** -- Offer the memory into the surf as Twin Lightning’s hooves strike water.
+3. **Release** -- Offer the memory into the surf as Twin Lightning's hooves strike water.
 
 ---
 

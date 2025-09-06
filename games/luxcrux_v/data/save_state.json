@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "player_id": "anon",
+  "flags": {
+    "found_violet_sigil": false,
+    "read_ch06": false,
+    "forest_trial_passed": false
+  },
+  "inventory": [],
+  "unlocked_scenes": ["00-prologue-violet-library"],
+  "last_event_at": ""
+}

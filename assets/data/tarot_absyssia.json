@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "The Fool",
+    "arcana": "major",
+    "realm": "absyssia",
+    "stylepack": "standard",
+    "toneHz": 432,
+    "angelId": "Raziel",
+    "daemonId": "Bael",
+    "palette": ["#F7E967", "#A9E4EF", "#F9F5E3", "#87C38F", "#2E86AB"]
+  },
+  {
+    "id": 1,
+    "name": "The Magician",
+    "arcana": "major",
+    "realm": "absyssia",
+    "stylepack": "standard",
+    "toneHz": 480,
+    "palette": ["#D62828", "#F77F00", "#FCBF49", "#003049", "#6A4C93"]
+  }
+]

@@ -6,13 +6,13 @@ tags: [Visionary Art, Reiki, Trauma Healing, Psycho Magic, Neurodivergence, Alch
 
 # Rebecca Respawn -- Creative Founder & Visionary Healer
 
-![LuxCrux Logo](../assets/images/luxcrux_logo.png)
+![LuxCrux Logo](/assets/images/luxcrux_logo.png)
 
-I’m Rebecca Respawn -- artist, architect-scribe, and visionary entrepreneur -- emerging from years of trauma and isolation to create a sacred space where healing, magic, and creativity fuse into powerful alchemical expression.
+I'm Rebecca Respawn -- artist, architect-scribe, and visionary entrepreneur -- emerging from years of trauma and isolation to create a sacred space where healing, magic, and creativity fuse into powerful alchemical expression.
 
 With certifications in Reiki Grand Master, Raku Kei "Way of the Fire Dragon," EFT, Brainspotting, and deep studies in esoteric systems, I combine ancient wisdom with modern art and technology to build interactive healing worlds and mythopoetic narratives.
 
-My work draws deeply from mystical lineages: Timothy Leary’s visionary psychology, Israel Regardie’s occult alchemy, and Dion Fortune’s metaphysical teachings -- alongside real-world trauma-informed healing modalities. I honor this legacy while pushing the edges of creative innovation and angel tech psycho magic, making complex systems accessible through immersive art, games, and sacred storytelling.
+My work draws deeply from mystical lineages: Timothy Leary's visionary psychology, Israel Regardie's occult alchemy, and Dion Fortune's metaphysical teachings -- alongside real-world trauma-informed healing modalities. I honor this legacy while pushing the edges of creative innovation and angel tech psycho magic, making complex systems accessible through immersive art, games, and sacred storytelling.
 
 Launching my creative business is both a personal breakthrough and a collective invitation -- to neurodivergent, queer, and healing communities worldwide -- to reclaim voice and sovereignty through radical self-expression and mystical exploration.
 
