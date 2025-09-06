@@ -22,8 +22,9 @@ export function renderHelix(ctx, opts) {
 
   // background
 
-  // background
+  ctx.save();
 
+  // background
   ctx.fillStyle = palette.bg;
   ctx.fillRect(0, 0, width, height);
 

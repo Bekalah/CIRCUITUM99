@@ -58,3 +58,4 @@ Static canvas renderer for vesica field, Tree-of-Life scaffold, Fibonacci curve 
 - `js/helix-renderer.mjs` – pure rendering functions.
 - `data/palette.json` – optional palette override.
 
+=======
