@@ -1,6 +1,7 @@
 /*
   helix-renderer.mjs
   ND-safe static renderer for layered sacred geometry.
+  Motto: Per Texturas Numerorum, Spira Loquitur.
 
   Layers:
     1) Vesica field (intersecting circles)
@@ -13,7 +14,7 @@
                   [3] Fibonacci, [4] helix A, [5] helix B.
   Order matters: background to foreground to preserve depth without motion.
 */
-export function renderHelix(ctx, { width, height, palette, NUM, crystals = [] }) {
+export function renderHelix(ctx, { width, height, palette, NUM }) {
   ctx.fillStyle = palette.bg;
   ctx.fillRect(0, 0, width, height);
   const layers = palette.layers;
@@ -22,7 +23,6 @@ export function renderHelix(ctx, { width, height, palette, NUM, crystals = [] })
   drawTree(ctx, width, height, layers[1], layers[2], NUM);
   drawFibonacci(ctx, width, height, layers[3], NUM);
   drawHelix(ctx, width, height, layers[4], layers[5], NUM);
-  if (crystals.length) drawCrystals(ctx, width, height, crystals, palette.ink);
 }
 
 // 1) Vesica field — foundational duality
@@ -122,22 +122,5 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
     ctx.moveTo(x, y1);
     ctx.lineTo(x, y2);
     ctx.stroke();
-  }
-}
-
-// 5) Crystal nodes — real properties mapped without motion
-function drawCrystals(ctx, w, h, crystals, ink) {
-  ctx.font = "12px system-ui, sans-serif";
-  ctx.textAlign = "center";
-  for (const c of crystals) {
-    const x = c.position.x * w;
-    const y = c.position.y * h;
-    ctx.fillStyle = c.color;
-    ctx.beginPath();
-    ctx.arc(x, y, 6, 0, Math.PI * 2);
-    ctx.fill();
-    // ND-safe: frequency label uses ink color for readability
-    ctx.fillStyle = ink;
-    ctx.fillText(String(c.frequency), x, y - 8);
   }
 }
