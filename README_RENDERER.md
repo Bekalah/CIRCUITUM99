@@ -1,5 +1,7 @@
 # Cosmic Helix Renderer
 
+*Per Texturas Numerorum, Spira Loquitur.*
+
 Static, offline renderer for layered sacred geometry. Double-click `index.html` in any modern browser.
 
 ## Layers
