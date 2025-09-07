@@ -5,6 +5,7 @@ Tooling for Circuitum 99: Alpha et Omega.
 - `visionary_dream.py` -- generates a spiral mandala with an Alex Grey-inspired palette.
 - `pillar_audit.py` -- audits registry/pillars for completeness and naming coherence.
 - (future) `symbol_coherence.py`
+- `dedupe_lines.py` -- strips consecutive duplicate lines from files.
 
 Location (fixed coordinate):
 _Registry Node: Circuitum 99 -- Alpha et Omega / system:scripts / coord: SYS-SCRIPTS
