@@ -7,12 +7,9 @@ Static, offline renderer for layered sacred geometry. Double-click `index.html` 
 2. **Tree-of-Life scaffold** – ten sephirot with twenty-two paths.
 3. **Fibonacci curve** – calm log spiral polyline.
 4. **Double-helix lattice** – two static strands with gentle rungs.
-5. **Crystal nodes** – optional points carrying real-world frequency data.
 
 ## Palette
 Colors are loaded from `data/palette.json`. If the file is missing, the renderer falls back to a built-in ND-safe palette and notes this in the header.
-
-Crystal metadata is loaded from `data/crystals.json`. Missing file results in no crystals and a notice.
 
 Layer colors map as follows:
 - `layers[0]` – Vesica field
@@ -21,7 +18,6 @@ Layer colors map as follows:
 - `layers[3]` – Fibonacci curve
 - `layers[4]` – Helix strand A
 - `layers[5]` – Helix strand B
-- crystals use their own `color` field
 
 ## ND-Safety
 - No animation or motion.
@@ -30,8 +26,6 @@ Layer colors map as follows:
 
 ## Numerology
 Geometry routines use constants `3, 7, 9, 11, 22, 33, 99, 144` to keep alignment with the wider cathedral canon.
-
-Crystal objects have fields `name`, `frequency`, `color`, and normalized `position`.
 
 ## Use
 No build step or server. Open `index.html` directly.
