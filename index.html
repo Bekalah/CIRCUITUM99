@@ -19,7 +19,7 @@
 <body>
   <header>
     <div><strong>Cosmic Helix Renderer</strong> — layered sacred geometry (offline, ND-safe)</div>
-    <div class="status" id="status">Loading resources…</div>
+    <div class="status" id="status">Loading palette…</div>
   </header>
 
   <canvas id="stage" width="1440" height="900" aria-label="Layered sacred geometry canvas"></canvas>
@@ -47,23 +47,18 @@
         bg:"#0b0b12",
         ink:"#e8e8f0",
         layers:["#b1c7ff","#89f7fe","#a0ffa1","#ffd27f","#f5a3ff","#d0d0e6"]
-      },
-      crystals: []
+      }
     };
 
     const palette = await loadJSON("./data/palette.json");
-    const crystals = await loadJSON("./data/crystals.json");
     const active = palette || defaults.palette;
-    const stones = crystals || defaults.crystals;
-    elStatus.textContent =
-      (palette ? "Palette loaded." : "Palette missing; using safe fallback.") +
-      (crystals ? " Crystals loaded." : " Crystals missing; none rendered.");
+    elStatus.textContent = palette ? "Palette loaded." : "Palette missing; using safe fallback.";
 
     // Numerology constants used by geometry routines
     const NUM = { THREE:3, SEVEN:7, NINE:9, ELEVEN:11, TWENTYTWO:22, THIRTYTHREE:33, NINETYNINE:99, ONEFORTYFOUR:144 };
 
     // ND-safe rationale: no motion, high readability, soft colors, layered order
-    renderHelix(ctx, { width:canvas.width, height:canvas.height, palette:active, NUM, crystals:stones });
+    renderHelix(ctx, { width:canvas.width, height:canvas.height, palette:active, NUM });
   </script>
 </body>
 </html>
