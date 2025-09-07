@@ -49,11 +49,11 @@
         bg:"#0b0b12",
         ink:"#e8e8f0",
         layers:["#b1c7ff","#89f7fe","#a0ffa1","#ffd27f","#f5a3ff","#d0d0e6"]
-      }
+      },
+      crystals: []
     };
 
     const palette = await loadJSON("./data/palette.json");
-
     const crystals = await loadJSON("./data/crystals.json");
     await loadBridge();
     const assetBase = getRoute("stone_grimoire", "assets");
@@ -63,10 +63,6 @@
       (palette ? "Palette loaded." : "Palette missing; using safe fallback.") +
       (crystals ? " Crystals loaded." : " Crystals missing; none rendered.") +
       (assetBase ? ` Assets route: ${assetBase}` : " Bridge missing; routes unavailable.");
-
-    const active = palette || defaults.palette;
-    elStatus.textContent = palette ? "Palette loaded." : "Palette missing; using safe fallback.";
-
 
     // Numerology constants used by geometry routines
     const NUM = { THREE:3, SEVEN:7, NINE:9, ELEVEN:11, TWENTYTWO:22, THIRTYTHREE:33, NINETYNINE:99, ONEFORTYFOUR:144 };
