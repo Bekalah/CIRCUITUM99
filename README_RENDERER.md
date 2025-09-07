@@ -31,3 +31,12 @@ Geometry routines use constants `3, 7, 9, 11, 22, 33, 99, 144` to keep alignment
 
 ## Use
 No build step or server. Open `index.html` directly.
+
+## Bridge Loader
+`js/bridge-loader.mjs` reads `bridge/c99-bridge.json` and exposes small helpers:
+
+- `loadBridge()` – fetch and parse the bridge file once.
+- `getRoute(repo, key)` – retrieve a path for a given repository and key.
+
+`index.html` uses this to report the `stone_grimoire` assets route, keeping future engines
+consistent when locating shared resources. Missing or invalid bridge data falls back to safe empty objects.
