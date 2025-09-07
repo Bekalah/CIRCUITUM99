@@ -124,3 +124,4 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
     ctx.stroke();
   }
 }
+
