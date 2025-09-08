@@ -1,7 +1,7 @@
+// Per Texturas Numerorum, Spira Loquitur.  //
 /*
   helix-renderer.mjs
   ND-safe static renderer for layered sacred geometry.
-  Motto: Per Texturas Numerorum, Spira Loquitur.
 
   Layers:
     1) Vesica field (intersecting circles)
