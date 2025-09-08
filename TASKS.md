@@ -2,10 +2,10 @@
 
 Summary of current state and next steps for linking repos, games, and world-building tools.
 
-## Completed
+## Working
 - **Cosmic Helix Renderer** (`index.html`, `js/helix-renderer.mjs`)
-  - Offline, ND-safe canvas with Vesica, Tree, Fibonacci, and static helix layers.
-  - Loads palette and crystal data from `data/` with graceful fallbacks.
+  - Replaced the broken helix script with a modern offline canvas.
+  - Renders Vesica, Tree, Fibonacci, and a static double helix using a palette from `data/` with graceful fallback.
 - **LuxCrux V Engine** (`games/luxcrux_v/engine.py`)
   - CLI adventure runner with hooks for dynamic art and music.
 - **Registry scaffolding** (`registry/`)
@@ -29,4 +29,7 @@ Summary of current state and next steps for linking repos, games, and world-buil
 - Populate `registry/` with full lists of systems, characters, and node connections.
 - Add more game modules and ensure they read from shared registry data.
 - Document how to contribute new layers, palettes, and numerology constants.
+- Build a toggle system so art, learning, and music modes can switch styles.
+- Create identity anchor art for Rebecca Respawn and other avatars before layering fusion effects.
+- Produce book-ready art variants: illuminated manuscript plates, engraved diagrams, visionary scenes, and cinematic frames.
 
