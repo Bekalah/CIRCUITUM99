@@ -1,0 +1,6 @@
+{
+  "roots": ["Hermetica", "Neoplatonism", "Kabbalah", "Alchemy"],
+  "trunk": ["Agrippa", "John Dee", "Paracelsus", "Pico", "Bruno"],
+  "branches": ["Fortune", "Case", "Regardie", "Crowley", "Ached", "Jung", "Hillman"],
+  "leaves": ["Robert Anton Wilson", "Timothy Leary", "Antero Alli", "Phil Hine", "Peter Carroll", "Kenneth Grant", "Gordon White", "Hilma af Klint", "Emma Kunz", "Leonora Carrington", "Venosa", "Fuchs", "Brom", "Stoneharrow"]
+}
