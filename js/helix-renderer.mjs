@@ -41,21 +41,30 @@ function drawVesica(ctx, w, h, color, NUM) {
 
 // 2) Tree-of-Life scaffold — map of 10 nodes / 22 paths
 function drawTree(ctx, w, h, colorPaths, colorNodes, NUM) {
+  // three columns (left, center, right)
   const cols = [w / NUM.THREE, w / 2, w - w / NUM.THREE];
   const rowStep = h / NUM.NINE;
-  const rows = [rowStep, rowStep * 2, rowStep * 3, rowStep * 4];
+  // five rows to place Malkuth; start at rowStep to keep top margin
+  const rows = Array.from({ length: 5 }, (_, i) => rowStep * (i + 1));
   const nodes = [
-    [1,0],
-    [0,1], [2,1],
-    [0,2], [1,2], [2,2],
-    [0,3], [2,3],
-    [1,3],
-    [1,4]
+    [1,0],             // 0 Kether
+    [0,1], [2,1],      // 1 Chokmah, 2 Binah
+    [0,2], [1,2], [2,2], // 3 Chesed, 4 Tiphareth, 5 Geburah
+    [0,3], [2,3],      // 6 Netzach, 7 Hod
+    [1,3],             // 8 Yesod
+    [1,4]              // 9 Malkuth
   ].map(([c,r]) => [cols[c], rows[r]]);
+  // 22 simplified paths between nodes
   const paths = [
-    [0,1],[0,2],[1,3],[2,4],[3,5],[4,5],
-    [3,6],[5,7],[6,8],[7,8],[8,9],
-    [1,4],[2,3],[4,6],[5,7]
+    [0,1],[0,2],[0,4],       // from Kether
+    [1,2],[1,3],[1,4],[1,6], // from Chokmah
+    [2,5],[2,4],[2,7],       // from Binah
+    [3,5],[3,4],[3,6],       // from Chesed
+    [5,4],[5,7],             // from Geburah
+    [4,6],[4,7],[4,8],       // from Tiphareth
+    [6,7],[6,8],             // lower connections
+    [7,8],                   // Hod ↔ Yesod
+    [8,9]                    // Yesod → Malkuth
   ];
   ctx.strokeStyle = colorPaths;
   ctx.lineWidth = 1.5;
