@@ -32,7 +32,7 @@ function drawVesica(ctx, w, h, color, NUM) {
   const cx2 = w / 2 + r;
   const cy = h / 2;
   ctx.strokeStyle = color;
-  ctx.lineWidth = 2;
+  ctx.lineWidth = NUM.ELEVEN / 10; // 1.1: nod to 11 without heavy line
   ctx.beginPath();
   ctx.arc(cx1, cy, r, 0, Math.PI * 2);
   ctx.arc(cx2, cy, r, 0, Math.PI * 2);
@@ -85,8 +85,9 @@ function drawTree(ctx, w, h, colorPaths, colorNodes, NUM) {
 // 3) Fibonacci curve — growth without flash
 function drawFibonacci(ctx, w, h, color, NUM) {
   const fib = [1,1,2,3,5,8,13];
-  const scale = Math.min(w, h) / NUM.ONEFORTYFOUR * NUM.THIRTYTHREE;
-  let x = w / NUM.SEVEN;
+  const scale = Math.min(w, h) / NUM.ONEFORTYFOUR * NUM.THIRTYTHREE * (NUM.ELEVEN / NUM.NINETYNINE);
+  // start nearer center: 33/99 reduces to 1/3 but keeps numerology visible
+  let x = (w / NUM.NINETYNINE) * NUM.THIRTYTHREE;
   let y = h - h / NUM.SEVEN;
   ctx.strokeStyle = color;
   ctx.lineWidth = 2;
@@ -106,8 +107,8 @@ function drawFibonacci(ctx, w, h, color, NUM) {
 // 4) Double-helix lattice — static sine weave
 function drawHelix(ctx, w, h, colorA, colorB, NUM) {
   const turns = NUM.NINE;
-  const amp = h / NUM.SEVEN;
-  const step = w / NUM.TWENTYTWO;
+  const amp = h / NUM.ELEVEN; // softer wave: 11 marks chromatic balance
+  const step = w / NUM.TWENTYTWO; // 22 crossbars for path resonance
   ctx.lineWidth = 1;
   ctx.strokeStyle = colorA;
   ctx.beginPath();
