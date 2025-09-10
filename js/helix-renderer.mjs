@@ -114,14 +114,16 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
   ctx.beginPath();
   for (let x = 0; x <= w; x += 1) {
     const y = h / 2 + Math.sin((x / w) * Math.PI * turns) * amp;
-    ctx.lineTo(x, y);
+    // moveTo first point to avoid stray line from canvas origin
+    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
   ctx.strokeStyle = colorB;
   ctx.beginPath();
   for (let x = 0; x <= w; x += 1) {
     const y = h / 2 + Math.cos((x / w) * Math.PI * turns) * amp;
-    ctx.lineTo(x, y);
+    // maintain separate path: start clean for ND-safe readability
+    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
   ctx.strokeStyle = colorA;
