@@ -17,6 +17,7 @@ main/registry/00_CRUCIBLE/build/**                  export-ignore
 *.py   text eol=lf
 
 # Large rasters tracked via Git LFS
+# Track large rasters with Git LFS (preserves originals, avoids text mangling)
 *.png  filter=lfs diff=lfs merge=lfs -text
 *.tif  filter=lfs diff=lfs merge=lfs -text
 *.tiff filter=lfs diff=lfs merge=lfs -text
@@ -25,6 +26,7 @@ main/registry/00_CRUCIBLE/build/**                  export-ignore
 *.webp filter=lfs diff=lfs merge=lfs -text
 
 # Other images as binary
+# Other binary images
 *.jpg  binary
 *.jpeg binary
 *.gif  binary
