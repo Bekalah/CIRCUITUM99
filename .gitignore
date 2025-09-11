@@ -1,4 +1,6 @@
-# Ignore Python cache
+# OS and Python caches
+.DS_Store
+Thumbs.db
 __pycache__/
 *.pyc
 *.pyo
@@ -8,10 +10,6 @@ __pycache__/
 *.snapshot.json
 *.local.json
 stone-grimoire-*.json
-
-# system
-.DS_Store
-Thumbs.db
 
 # recovery and archives
 recovery/*
@@ -28,9 +26,6 @@ recovery/*
 # editors
 .vscode/
 .idea/
-# Ignore macOS system files
-.DS_Store
-
 # Ignore environment files
 .env
 venv/
@@ -49,15 +44,6 @@ dist/
 *.pem
 *.secret
 
-# Ignore system files
-.DS_Store
-Thumbs.db
-
-# Ignore Python cache
-__pycache__/
-*.pyc
-*.pyo
-
 # Ignore env files
 .env
 venv/
@@ -72,16 +58,12 @@ tmp/
 *.zip
 
 # Core Git housekeeping
-.DS_Store
-Thumbs.db
 *.log
 *.tmp
 *.swp
 *.swo
 
 # Python & scripts
-__pycache__/
-*.pyc
 *.pyo
 *.pyd
 .venv/
