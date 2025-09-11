@@ -16,13 +16,18 @@ main/registry/00_CRUCIBLE/build/**                  export-ignore
 *.yaml text eol=lf
 *.py   text eol=lf
 
-# Treat images as binary (no line-ending/auto-rename weirdness)
-*.png  binary
+# Track large rasters with Git LFS (preserves originals, avoids text mangling)
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+*.hdr  filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+
+# Other binary images
 *.jpg  binary
 *.jpeg binary
-*.webp binary
 *.gif  binary
-*.tif  binary
 
 # SVG are text; keep LF
 *.svg  text eol=lf
