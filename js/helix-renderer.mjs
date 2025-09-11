@@ -33,6 +33,7 @@ function drawVesica(ctx, w, h, color, NUM) {
   const cy = h / 2;
   ctx.strokeStyle = color;
   ctx.lineWidth = NUM.ELEVEN / 10; // 1.1: nod to 11 without heavy line
+  // ND-safe: empty centers avoid visual overload
   ctx.beginPath();
   ctx.arc(cx1, cy, r, 0, Math.PI * 2);
   ctx.arc(cx2, cy, r, 0, Math.PI * 2);
@@ -78,6 +79,7 @@ function drawTree(ctx, w, h, colorPaths, colorNodes, NUM) {
   for (const [x,y] of nodes) {
     ctx.beginPath();
     ctx.arc(x, y, NUM.THREE, 0, Math.PI * 2);
+    // ND-safe: small disks keep focus without glare
     ctx.fill();
   }
 }
@@ -91,6 +93,7 @@ function drawFibonacci(ctx, w, h, color, NUM) {
   let y = h - h / NUM.SEVEN;
   ctx.strokeStyle = color;
   ctx.lineWidth = 2;
+  // ND-safe: even stroke, no gradient, no motion
   ctx.beginPath();
   ctx.moveTo(x, y);
   let angle = 0;
@@ -110,6 +113,7 @@ function drawHelix(ctx, w, h, colorA, colorB, NUM) {
   const amp = h / NUM.ELEVEN; // softer wave: 11 marks chromatic balance
   const step = w / NUM.TWENTYTWO; // 22 crossbars for path resonance
   ctx.lineWidth = 1;
+  // ND-safe: single-pixel lines keep lattice quiet
   ctx.strokeStyle = colorA;
   ctx.beginPath();
   for (let x = 0; x <= w; x += 1) {
