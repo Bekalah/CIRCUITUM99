@@ -1,4 +1,4 @@
-// Per Texturas Numerorum, Spira Loquitur.  //
+// Per Texturas Numerorum, Spira Loquitur.  // Codex 144:99 ↔ Ateliers ↔ Liber Arcanae
 /*
   helix-renderer.mjs
   ND-safe static renderer for layered sacred geometry.
