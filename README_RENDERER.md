@@ -4,6 +4,8 @@ Per Texturas Numerorum, Spira Loquitur.  //
 
 Static, offline renderer for layered sacred geometry. Double-click `index.html` in any modern browser.
 
+This canvas sits on the Tesseract Bridge, so Codex 144:99 lineages, Atelier plates, and Liber Arcanae teachers can share palette and geometry without network calls.
+
 ## Layers
 1. **Vesica field** – intersecting circles as foundation.
 2. **Tree-of-Life scaffold** – ten sephirot with twenty-two paths.
