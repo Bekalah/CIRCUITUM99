@@ -34,3 +34,5 @@ to keep alignment with the wider cathedral canon.
 ## Use
 No build step or server. Open `index.html` directly.
 
+> Source lineage verified. Assets are atelier_v2 (GLB+EXR). ND-Safe: true. No SVG used. Author: Rebecca Respawn.
+
