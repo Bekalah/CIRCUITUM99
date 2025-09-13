@@ -1,5 +1,3 @@
-Per Texturas Numerorum, Spira Loquitur.  //
-
 # Cosmic Helix Renderer
 
 Static, offline renderer for layered sacred geometry. Double-click `index.html` in any modern browser.
@@ -34,3 +32,9 @@ to keep alignment with the wider cathedral canon.
 ## Use
 No build step or server. Open `index.html` directly.
 
+
+## Sources
+- Vesica piscis construction from Euclid's Elements (public domain)
+- Fibonacci sequence from Leonardo of Pisa's *Liber Abaci* (1202)
+- Tree-of-Life layout from open Kabbalah diagrams
+- Helix lattice derived from elementary sine waves
